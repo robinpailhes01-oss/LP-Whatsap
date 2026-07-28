@@ -9,6 +9,7 @@ import { Handled } from "@/components/sections/Handled";
 import { Crm } from "@/components/sections/Crm";
 import { Pricing } from "@/components/sections/Pricing";
 import { Faq } from "@/components/sections/Faq";
+import { Founder } from "@/components/sections/Founder";
 import { Wake } from "@/components/sections/Wake";
 
 /**
@@ -32,6 +33,7 @@ export default function Home() {
         <Crm />
         <Pricing />
         <Faq />
+        <Founder />
         <Wake />
       </main>
       <SiteFooter />

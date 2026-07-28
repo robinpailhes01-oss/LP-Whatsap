@@ -44,11 +44,9 @@ export function Pricing() {
               <span className="mark-brass">seulement quand ça sert.</span>
             </h2>
 
-            <p className="prose-read mt-7 text-xs text-ink-paper-muted">
-              On ne vous demande pas de payer avant d&apos;avoir vu si ça marche
-              chez vous. Si Luma ne répond à personne ce mois-ci, votre facture
-              est à zéro. C&apos;est ce qui nous oblige à ce qu&apos;il
-              fonctionne vraiment.
+            <p className="prose-read mt-7 text-sm text-ink-paper-muted">
+              Vous ne payez pas avant d&apos;avoir vu si ça marche chez vous. Si
+              Luma ne répond à personne ce mois-ci, votre facture est à zéro.
             </p>
 
             <dl className="mt-10 space-y-8 border-t border-paper-line pt-9">
@@ -57,8 +55,8 @@ export function Pricing() {
                   Et si je veux arrêter ?
                 </dt>
                 <dd className="prose-read mt-3 text-xs text-ink-paper-muted">
-                  Vous arrêtez. Votre numéro WhatsApp reste le vôtre, on vous rend
-                  vos fiches clients, et il n&apos;y a pas de préavis à respecter.
+                  Vous arrêtez. Votre numéro reste le vôtre, on vous rend vos
+                  fiches, pas de préavis.
                 </dd>
               </div>
               <div>
@@ -66,9 +64,8 @@ export function Pricing() {
                   Combien de temps avant que ça tourne ?
                 </dt>
                 <dd className="prose-read mt-3 text-xs text-ink-paper-muted">
-                  Comptez une semaine. Deux échanges avec vous pour reprendre vos
-                  prix et vos règles, puis quelques jours pendant lesquels vous
-                  relisez chaque réponse avant qu&apos;elle parte.
+                  Une semaine. Deux échanges pour reprendre vos prix, puis
+                  quelques jours de rodage.
                 </dd>
               </div>
             </dl>
@@ -125,9 +122,8 @@ export function Pricing() {
               </p>
 
               <p className="mt-6 text-2xs leading-relaxed text-ink-paper-muted">
-                Une conversation traitée, c&apos;est un échange mené jusqu&apos;au
-                bout avec un client. Si Luma ne sait pas répondre et vous passe le
-                relais, ce n&apos;est pas facturé.
+                Une conversation traitée = un échange mené jusqu&apos;au bout. Si
+                Luma vous passe la main, ce n&apos;est pas facturé.
               </p>
             </div>
 

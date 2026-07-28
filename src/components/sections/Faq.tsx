@@ -8,27 +8,27 @@ import { SectionLabel } from "@/components/ui";
 const questions = [
   {
     q: "Est-ce que ça remplace ma réceptionniste ?",
-    a: "Non. Luma prend les messages quand il n'y a personne — la nuit, le dimanche, pendant le service. Votre équipe garde ce qu'elle fait le mieux : accueillir les gens qui sont devant elle. Elle arrête simplement de répéter vingt fois par jour le code du wifi et l'heure du petit-déjeuner.",
+    a: "Non. Luma prend les messages quand il n'y a personne : la nuit, le dimanche, pendant le service. Votre équipe garde l'accueil et arrête de répéter le code du wifi vingt fois par jour.",
   },
   {
     q: "Et s'il raconte n'importe quoi à un client ?",
-    a: "Luma ne répond que sur ce que vous lui avez donné. En dehors, il ne devine pas : il dit qu'il transmet et vous prévient. Les premiers jours, vous relisez chaque réponse avant qu'elle parte — c'est vous qui décidez quand vous lui faites confiance.",
+    a: "Il ne répond que sur ce que vous lui avez donné. En dehors, il ne devine pas : il vous passe la main. Les premiers jours, vous relisez tout avant que ça parte.",
   },
   {
-    q: "Mes clients vont s'apercevoir que ce n'est pas moi ?",
-    a: "Luma le dit dès le premier message, et nous vous conseillons de le laisser le dire. Un client à qui on répond à minuit préfère largement une réponse annoncée comme automatique à un silence jusqu'au lendemain.",
+    q: "Mes clients vont voir que ce n'est pas moi ?",
+    a: "Luma le dit dès le premier message. Un client à qui on répond à minuit préfère ça à un silence jusqu'au lendemain.",
   },
   {
     q: "Je ne suis pas à l'aise avec l'informatique.",
-    a: "Il n'y a rien à apprendre. C'est nous qui installons et qui réglons tout. Ensuite, les échanges se lisent dans WhatsApp comme d'habitude, et le carnet de clients tient sur un seul écran. Si vous savez tenir un cahier de réservations, vous saurez vous en servir.",
+    a: "Il n'y a rien à apprendre. On installe et on règle tout. Ensuite, vous lisez WhatsApp comme d'habitude.",
   },
   {
-    q: "Qu'est-ce que vous faites des données de mes clients ?",
-    a: "Elles restent les vôtres. Elles sont conservées en Europe et ne servent jamais à entraîner un programme. Vous pouvez les récupérer quand vous voulez, et elles sont supprimées sous trente jours si vous partez.",
+    q: "Qu'est-ce que vous faites de mes données ?",
+    a: "Elles restent les vôtres, conservées en Europe, et ne servent jamais à entraîner un programme. Vous les récupérez quand vous voulez.",
   },
   {
     q: "J'ai déjà un logiciel de réservation.",
-    a: "Luma se branche dessus, il ne le remplace pas. Il lit vos disponibilités et y inscrit les réservations. Si votre logiciel ne fait pas encore partie de ceux que nous connaissons, on vous le dit avant de commencer, pas après.",
+    a: "Luma se branche dessus, il ne le remplace pas. Si le vôtre n'en fait pas encore partie, on vous le dit avant de commencer.",
   },
 ];
 

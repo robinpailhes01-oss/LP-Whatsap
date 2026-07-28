@@ -50,9 +50,8 @@ export function Hero() {
             {...childProps}
             className="prose-read mt-6 text-sm text-ink-muted sm:mt-8"
           >
-            Luma répond à vos clients sur WhatsApp, jour et nuit, avec vos vrais
-            tarifs et vos vraies disponibilités. Vous ne perdez plus de
-            réservation parce qu&apos;il n&apos;y avait personne pour répondre.
+            Luma répond à vos clients sur WhatsApp, jour et nuit. Avec vos
+            tarifs, vos chambres, vos disponibilités.
           </motion.p>
 
           <motion.div {...childProps} className="mt-7 flex flex-wrap items-center gap-3 sm:mt-9">

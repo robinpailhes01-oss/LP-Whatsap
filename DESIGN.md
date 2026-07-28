@@ -185,11 +185,21 @@ porte désormais une vraie navigation.
 | 6 | Votre carnet de clients | papier | « Et après ? » |
 | 7 | Le prix | papier | « Combien, et quel risque ? » |
 | 8 | Les questions qu'on nous pose | papier | Les six dernières objections |
-| 9 | L'essai gratuit — formulaire | papier | L'action |
+| 9 | Qui est derrière Luma | papier | « À qui j'ai affaire ? » |
+| 10 | L'essai gratuit — formulaire | papier | L'action |
 
 Trois points de conversion : le hero, la sortie du calculateur (le visiteur
 vient de chiffrer sa perte, c'est le moment), et la section prix. Tous mènent au
 même formulaire, sous le même libellé.
+
+La présentation du fondateur est placée juste avant le formulaire, et pas en
+pied de page : on rencontre la personne, puis on lui écrit. C'est le seul visage
+de toute la page — aucune autre photo n'y figure — et c'est ce qui lui donne son
+poids.
+
+**Densité de texte.** Chaque section tient en un titre, un paragraphe court et
+un objet visuel (conversation, curseurs, liste, fiche, facture, photo). Quand
+une section demandait deux paragraphes, c'est qu'elle en disait trop.
 
 ---
 

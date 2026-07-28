@@ -27,16 +27,9 @@ export function Vsl() {
       <div className="mx-auto max-w-6xl px-5 py-16 sm:px-8 lg:py-24">
         <SectionLabel onNight>En vidéo</SectionLabel>
 
-        <div className="mt-8 flex flex-col gap-6 lg:flex-row lg:items-end lg:justify-between">
-          <h2 className="display-loud max-w-[16ch] text-xl sm:text-2xl lg:text-3xl">
-            Regardez Luma travailler. Quatre minutes, sans jargon.
-          </h2>
-          <p className="prose-read text-xs text-ink-muted">
-            On installe Luma sur un vrai hôtel, on lui écrit comme un client le
-            ferait, et on regarde ce qui se passe. Rien n&apos;est coupé au
-            montage.
-          </p>
-        </div>
+        <h2 className="display-loud mt-8 max-w-[16ch] text-xl sm:text-2xl lg:text-3xl">
+          Regardez Luma travailler. Quatre minutes, sans jargon.
+        </h2>
 
         <div className="mt-12 grid gap-10 lg:grid-cols-[1.6fr_1fr] lg:gap-14">
           <div className="overflow-hidden rounded-card border border-night-line bg-night-alt">

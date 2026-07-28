@@ -99,7 +99,35 @@ Ce sont des noms inventés, pas des clients.
   1 devis, 0 appel manqué) est un ordre de grandeur plausible, pas une mesure.
   À remplacer par les chiffres d'un vrai établissement, ou à retirer.
 
-## 6. Preuve sociale — absente volontairement
+## 6. Présentation du fondateur — bloquant
+
+`src/lib/founder.ts`
+
+La section « Qui est derrière Luma » est en place, juste avant le formulaire :
+on rencontre la personne, puis on lui écrit. C'est le seul visage de toute la
+page, et c'est ce qui lui donne son poids.
+
+**Le texte actuel est un brouillon écrit par défaut, pas votre histoire.**
+C'est la seule section de la page qui ne vaut *que* si elle est vraie : un
+gérant qui lit trois phrases inventées le sent, et il perd d'un coup la
+confiance gagnée sur tout le reste.
+
+À faire :
+
+1. **La photo.** Déposer le fichier dans `/public` et renseigner `photo`. Un
+   vrai portrait, regard vers l'objectif, pas une photo de profil recadrée.
+   Format 4/5, 800 px de large au minimum. Sans photo, la section affiche un
+   cadre d'attente explicite.
+2. **Les trois paragraphes.** Vos mots, trois paragraphes courts maximum. Ce
+   qu'il faut y trouver : d'où vient le problème que vous avez vu, pourquoi
+   vous, et pourquoi vous vous en occupez encore aujourd'hui.
+3. **Le contact.** `contact.href` pointe pour l'instant sur
+   `contact@luma-agence.fr`. Un lien WhatsApp direct
+   (`https://wa.me/33XXXXXXXXX`) convertirait sans doute mieux auprès de cette
+   audience — mais seulement si c'est bien vous qui répondez, comme la page
+   l'affirme.
+
+## 7. Preuve sociale — absente volontairement
 
 Aucun témoignage, logo ni chiffre de résultat n'a été inventé. Il manque à la
 page, entre `Handled` et `Crm`, une section de preuve. À alimenter avec :
@@ -111,7 +139,7 @@ page, entre `Handled` et `Crm`, une section de preuve. À alimenter avec :
 
 Sans preuve réelle, mieux vaut la section absente que remplie de faux.
 
-## 7. Mentions légales
+## 8. Mentions légales
 
 Non rédigées. À ajouter avant diffusion : mentions légales, politique de
 confidentialité (RGPD, l'agent traite des données personnelles de vos clients),

@@ -4,6 +4,7 @@ const links = [
   { href: "#carnet-clients", label: "Carnet de clients" },
   { href: "#le-prix", label: "Prix" },
   { href: "#questions", label: "Questions" },
+  { href: "#qui-suis-je", label: "Qui est derrière" },
 ];
 
 export function SiteFooter() {

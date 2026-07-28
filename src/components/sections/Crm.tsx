@@ -22,15 +22,15 @@ const record = {
 const pillars = [
   {
     title: "Les mots de votre métier",
-    body: "Séjours, arrhes, options, couverts, annulations. Pas des « prospects » et des « opportunités » : les mots que vous employez tous les jours, à la place de ceux d'un logiciel de commerciaux.",
+    body: "Séjours, arrhes, options, couverts, annulations. Pas « prospects » ni « pipeline ».",
   },
   {
     title: "Vous vous souvenez de tout",
-    body: "Chaque séjour, chaque demande, chaque habitude reste attachée au client. Quand il revient dans deux ans, vous savez qu'il voyage avec son chien et qu'il arrive toujours tard.",
+    body: "Il revient dans deux ans ? Vous savez qu'il voyage avec son chien et qu'il arrive tard.",
   },
   {
     title: "Les relances partent toutes seules",
-    body: "Les arrhes qui ne sont pas arrivées, le devis resté sans réponse, le petit mot avant l'arrivée. Exactement les relances que personne n'a jamais le temps de faire.",
+    body: "Arrhes en attente, devis sans réponse, mot avant l'arrivée. Celles que personne n'a le temps de faire.",
   },
 ];
 
@@ -48,12 +48,6 @@ export function Crm() {
           Le lendemain matin,{" "}
           <span className="mark-brass">tout est déjà noté.</span>
         </h2>
-
-        <p className="prose-read mt-7 text-xs text-ink-paper-muted">
-          Pendant que Luma discute avec votre client, il remplit une fiche. Vous
-          n&apos;ouvrez pas une conversation le matin : vous ouvrez un dossier
-          déjà complet.
-        </p>
 
         <div className="mt-14 grid gap-14 lg:grid-cols-[0.95fr_1.05fr] lg:gap-20">
           <dl className="divide-y divide-paper-line border-t border-paper-line">

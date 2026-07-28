@@ -81,17 +81,10 @@ export function CostOfSilence() {
               <span className="mark-brass">réservation chez le voisin</span>.
             </h2>
 
-            <p className="prose-read mt-7 text-xs text-ink-paper-muted">
-              Quand quelqu&apos;un cherche une chambre, il écrit à trois
-              établissements en même temps. Il réserve chez celui qui répond le
-              premier. Si vous répondez le lendemain matin, c&apos;est déjà pris
-              ailleurs.
-            </p>
-
-            <p className="prose-read mt-5 text-xs text-ink-paper-muted">
-              Ce n&apos;est pas un problème de sérieux. C&apos;est un problème
-              d&apos;heures : personne ne peut rester derrière un téléphone
-              24 heures sur 24.
+            <p className="prose-read mt-7 text-sm text-ink-paper-muted">
+              Il écrit à trois établissements en même temps. Il réserve chez
+              celui qui répond le premier. Le lendemain matin, c&apos;est déjà
+              pris.
             </p>
 
             {/* Le visiteur vient de chiffrer sa perte : c'est le moment de
@@ -104,7 +97,7 @@ export function CostOfSilence() {
                 Essayer gratuitement
               </CtaPrimary>
               <p className="mt-4 text-2xs text-ink-paper-muted">
-                Installation gratuite · sans engagement · sans carte bancaire
+                Gratuit · sans engagement · sans carte bancaire
               </p>
             </div>
           </div>
@@ -155,9 +148,7 @@ export function CostOfSilence() {
                 </span>
               </p>
               <p className="mt-5 text-2xs leading-relaxed text-ink-paper-muted">
-                Le calcul : vos messages par semaine, multipliés par 4,33
-                semaines, par la part qui part ailleurs, par votre prix moyen.
-                Les trois curseurs sont à vous — c&apos;est votre estimation, pas
+                Les trois curseurs sont à vous. C&apos;est votre estimation, pas
                 la nôtre.
               </p>
             </div>

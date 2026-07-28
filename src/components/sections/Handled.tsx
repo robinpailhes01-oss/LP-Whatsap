@@ -26,19 +26,12 @@ export function Handled() {
       <div className="mx-auto max-w-6xl px-5 py-20 sm:px-8 lg:py-28">
         <SectionLabel>Les demandes qu&apos;il traite</SectionLabel>
 
-        <div className="mt-8 flex flex-col gap-6 lg:flex-row lg:items-end lg:justify-between">
-          <h2 className="display-loud max-w-[18ch] text-xl sm:text-2xl lg:text-3xl">
-            Vos clients écrivent n&apos;importe comment, à n&apos;importe quelle
-            heure.
-          </h2>
-          <p className="prose-read text-xs text-ink-paper-muted">
-            Mal orthographié, en anglais, deux questions dans le même message, à
-            une heure du matin. Luma s&apos;en sort parce qu&apos;il connaît
-            votre établissement : vos prix, vos règles, vos disponibilités.
-          </p>
-        </div>
+        <h2 className="display-loud mt-8 max-w-[18ch] text-xl sm:text-2xl lg:text-3xl">
+          Vos clients écrivent n&apos;importe comment, à n&apos;importe quelle
+          heure.
+        </h2>
 
-        <ul className="mt-14 border-t border-paper-line">
+        <ul className="mt-12 border-t border-paper-line">
           {handledRequests.map((request, index) => (
             <motion.li
               key={request.id}
@@ -66,11 +59,9 @@ export function Handled() {
           ))}
         </ul>
 
-        <p className="prose-read mt-9 text-xs text-ink-paper-muted">
-          Et quand une demande sort de son domaine — une réclamation, une
-          négociation, un cas particulier — Luma ne bricole pas une réponse. Il
-          vous la transmet et prévient le client qu&apos;une personne de
-          l&apos;équipe va reprendre la main.
+        <p className="prose-read mt-9 text-sm text-ink-paper-muted">
+          Une réclamation, une négociation, un cas particulier ? Luma ne bricole
+          pas : il vous passe la main.
         </p>
       </div>
     </section>

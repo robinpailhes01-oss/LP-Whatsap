@@ -74,11 +74,10 @@ export function Wake() {
               <span className="mark-brass">Ça ne vous engage à rien.</span>
             </h2>
 
-            <p className="prose-read mt-7 text-xs text-ink-paper-muted">
-              On règle Luma avec vos vraies chambres et vos vrais prix. Ensuite,
-              vous lui écrivez vous-même sur WhatsApp, comme le ferait un client,
-              et vous jugez sur pièces. Si ça ne vous convainc pas, on en reste
-              là.
+            <p className="prose-read mt-7 text-sm text-ink-paper-muted">
+              On règle Luma avec vos vraies chambres et vos vrais prix. Vous lui
+              écrivez sur WhatsApp, comme un client. Si ça ne vous convainc pas,
+              on en reste là.
             </p>
 
             <p className="kicker mt-12 text-ink-paper-muted">
@@ -109,8 +108,8 @@ export function Wake() {
             <h3 className="display-soft text-lg sm:text-xl">
               Demander mon essai gratuit
             </h3>
-            <p className="mt-3 text-xs leading-relaxed text-ink-paper-muted">
-              Remplissez ces quatre lignes. On s&apos;occupe du reste.
+            <p className="mt-3 text-xs text-ink-paper-muted">
+              Quatre lignes. On s&apos;occupe du reste.
             </p>
 
             <form onSubmit={handleSubmit} className="mt-8 space-y-6">

@@ -12,20 +12,20 @@ import { EASE } from "@/lib/motion";
 const steps = [
   {
     n: "1",
-    title: "Votre client vous écrit sur WhatsApp",
-    body: "Sur votre numéro habituel, celui qui est déjà sur votre site et sur vos confirmations. Votre client n'a rien à télécharger et rien à créer. Pour lui, c'est un message comme un autre.",
+    title: "Votre client écrit sur WhatsApp",
+    body: "Sur votre numéro habituel. Il n'a rien à télécharger : pour lui, c'est un message comme un autre.",
     aside: "Rien ne change pour vos clients",
   },
   {
     n: "2",
     title: "Luma répond, avec vos informations",
-    body: "On lui a donné vos chambres, vos prix, vos horaires et vos règles de la maison. Il répond dans le même ton que vous. Ce qu'il ne sait pas, il ne l'invente pas : il vous prévient et laisse la main.",
+    body: "Vos chambres, vos prix, vos règles. Ce qu'il ne sait pas, il ne l'invente pas : il vous passe la main.",
     aside: "Vous relisez ses réponses aussi longtemps que vous voulez",
   },
   {
     n: "3",
-    title: "Vous retrouvez tout, déjà rangé",
-    body: "Le nom du client, ses dates, le montant, ce qu'il a demandé. Le lendemain matin, vous n'avez pas à relire la conversation : l'essentiel est déjà noté.",
+    title: "Vous retrouvez tout, déjà noté",
+    body: "Le nom, les dates, le montant. Le matin, vous ouvrez un dossier complet, pas une conversation.",
     aside: "Rien à ressaisir",
   },
 ];
@@ -77,11 +77,9 @@ export function HowItWorks() {
           ))}
         </ol>
 
-        <p className="prose-read mt-10 text-xs text-ink-paper-muted">
-          Vous n&apos;êtes pas à l&apos;aise avec l&apos;informatique ? Ce
-          n&apos;est pas un problème. C&apos;est nous qui installons tout, et
-          côté réception, vos échanges se lisent dans WhatsApp, exactement comme
-          aujourd&apos;hui.
+        <p className="prose-read mt-10 text-sm text-ink-paper-muted">
+          Vous n&apos;êtes pas à l&apos;aise avec l&apos;informatique ? C&apos;est
+          nous qui installons tout. Vous, vous lisez WhatsApp comme aujourd&apos;hui.
         </p>
       </div>
     </section>
