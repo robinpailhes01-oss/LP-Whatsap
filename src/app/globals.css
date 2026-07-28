@@ -1,0 +1,135 @@
+@import "tailwindcss";
+
+/* ==========================================================================
+   Levo — tokens. Voir DESIGN.md. Aucune valeur brute hors de ce fichier.
+   ========================================================================== */
+
+@theme {
+  /* Couleur — rôles stricts.
+     laiton = la maison · vert = l'agent en action. Jamais de vert décoratif. */
+  --color-night: #0f1714;
+  --color-night-alt: #17211d;
+  --color-night-line: #2a3a33;
+  --color-dawn: #f0ede4;
+  --color-dawn-alt: #e5e1d5;
+  --color-dawn-line: #d2ccbc;
+  --color-brass: #c9a227;
+  --color-brass-dim: #8a7020;
+  --color-signal: #3fd98a;
+  --color-signal-dim: #2a8f5c;
+
+  --color-ink: #f2f0ea;
+  --color-ink-muted: #94a39b;
+  --color-ink-dawn: #101a16;
+  --color-ink-dawn-muted: #5a6b62;
+
+  /* Type */
+  --font-display: var(--font-fraunces), Georgia, serif;
+  --font-sans: var(--font-inter-tight), system-ui, sans-serif;
+  --font-mono: var(--font-jetbrains), ui-monospace, monospace;
+
+  /* Échelle tierce majeure 1.25 */
+  --text-2xs: 0.75rem;
+  --text-xs: 0.875rem;
+  --text-sm: 1rem;
+  --text-base: 1.25rem;
+  --text-lg: 1.5625rem;
+  --text-xl: 1.9375rem;
+  --text-2xl: 2.4375rem;
+  --text-3xl: 3.0625rem;
+  --text-4xl: 3.8125rem;
+  --text-5xl: 4.75rem;
+
+  /* Rayons — vocabulaire de la bulle de message */
+  --radius-bubble: 18px;
+  --radius-card: 14px;
+  --radius-sm: 8px;
+  --radius-pill: 999px;
+
+  /* Motion */
+  --ease-confident: cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+    -webkit-text-size-adjust: 100%;
+  }
+
+  body {
+    background-color: var(--color-night);
+    color: var(--color-ink);
+    font-family: var(--font-sans);
+    font-synthesis-weight: none;
+    text-rendering: optimizeLegibility;
+  }
+
+  /* Focus clavier visible partout — plancher qualité, jamais retiré. */
+  :focus-visible {
+    outline: 2px solid var(--color-brass);
+    outline-offset: 3px;
+    border-radius: 2px;
+  }
+
+  ::selection {
+    background-color: var(--color-brass);
+    color: var(--color-night);
+  }
+}
+
+@layer utilities {
+  /* La lampe de la réception — unique source lumineuse de la partie nuit. */
+  .lamp-glow {
+    background-image: radial-gradient(
+      ellipse 60% 50% at 70% 0%,
+      rgb(201 162 39 / 0.13),
+      transparent 70%
+    );
+  }
+
+  /* Filet de séparation, côté nuit puis côté jour. */
+  .rule-night {
+    border-color: var(--color-night-line);
+  }
+  .rule-dawn {
+    border-color: var(--color-dawn-line);
+  }
+
+  /* Kicker : petites capitales très espacées, en mono. */
+  .kicker {
+    font-family: var(--font-mono);
+    font-size: var(--text-2xs);
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+  }
+
+  /* Fraunces : réglage optique par usage.
+     Grand corps = affirmé (WONK actif). Petit corps = doux. */
+  .display-loud {
+    font-family: var(--font-display);
+    font-variation-settings: "SOFT" 20, "WONK" 1, "opsz" 100;
+    font-weight: 600;
+    letter-spacing: -0.02em;
+    line-height: 1.04;
+  }
+  .display-soft {
+    font-family: var(--font-display);
+    font-variation-settings: "SOFT" 60, "WONK" 0, "opsz" 20;
+    font-weight: 500;
+    letter-spacing: -0.01em;
+    line-height: 1.2;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
