@@ -145,7 +145,7 @@ export function Conversation({ data, loop = true, className = "" }: Props) {
       className={`overflow-hidden rounded-card border border-night-line bg-night-alt ${className}`}
     >
       {/* En-tête du fil — ce que le client voit dans son WhatsApp. */}
-      <div className="flex items-center gap-3 border-b border-night-line px-4 py-3.5 sm:px-5">
+      <div aria-hidden="true" className="flex items-center gap-3 border-b border-night-line px-4 py-3.5 sm:px-5">
         <span className="grid h-9 w-9 shrink-0 place-items-center rounded-full bg-brass/15 font-display text-sm text-brass">
           {data.venue.charAt(0)}
         </span>
@@ -163,10 +163,25 @@ export function Conversation({ data, loop = true, className = "" }: Props) {
         </span>
       </div>
 
-      {/* Fil de messages. aria-live pour que la séquence soit annoncée aux lecteurs d'écran. */}
+      {/* Transcription complète pour les technologies d'assistance. Le fil animé
+          boucle : l'annoncer message par message en aria-live serait intenable.
+          Il est donc masqué aux lecteurs d'écran, qui lisent ce bloc à la place. */}
+      <p className="sr-only">
+        Conversation entre un client et {data.venue} :{" "}
+        {data.messages
+          .map(
+            (message) =>
+              `${message.from === "agent" ? "L'établissement" : "Le client"} à ${
+                message.time
+              } : ${message.text}`,
+          )
+          .join(" ")}{" "}
+        Résultat : {data.outcome.label}. {data.outcome.detail}.
+      </p>
+
       <ol
+        aria-hidden="true"
         className="flex min-h-[420px] flex-col justify-end gap-2.5 p-4 sm:min-h-[440px] sm:p-5"
-        aria-live="polite"
       >
         {visible.map((message) => {
           const isAgent = message.from === "agent";
@@ -214,7 +229,7 @@ export function Conversation({ data, loop = true, className = "" }: Props) {
       </ol>
 
       {/* Résultat : la conversation ne s'arrête pas à la réponse, elle produit une fiche. */}
-      <div className="border-t border-night-line px-4 py-3 sm:px-5">
+      <div aria-hidden="true" className="border-t border-night-line px-4 py-3 sm:px-5">
         <AnimatePresence mode="wait">
           {outcomeVisible ? (
             <motion.p
