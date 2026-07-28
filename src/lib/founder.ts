@@ -1,13 +1,10 @@
 /**
  * Qui est derrière Luma.
  *
- * ⚠️ LE TEXTE CI-DESSOUS EST UN BROUILLON, PAS VOTRE HISTOIRE.
- * C'est la seule section de la page qui ne vaut que si elle est vraie : un
- * gérant qui lit trois phrases inventées le sent immédiatement, et il perd
- * d'un coup la confiance gagnée sur tout le reste de la page.
- *
- * À remplacer par vos mots, et à accompagner d'une vraie photo dans /public.
- * Voir CONTENT.md § Présentation du fondateur.
+ * L'histoire ci-dessous vient de Robin. C'est la meilleure preuve de la page :
+ * il n'a pas construit un outil pour les autres, il a résolu son propre
+ * problème et s'en sert depuis deux ans. Ne pas la réécrire en « argumentaire »
+ * — c'est sa force qu'elle soit dite platement.
  */
 
 export type Founder = {
@@ -18,22 +15,18 @@ export type Founder = {
   photoAlt: string;
   /** Trois paragraphes courts, maximum. Au-delà, personne ne lit. */
   paragraphs: string[];
-  /** Le contact direct : c'est lui qui fait la différence sur cette section. */
-  contact: { label: string; href: string } | null;
 };
 
 export const founder: Founder = {
   name: "Robin Pailhes",
-  role: "Fondateur de Luma",
+  /* Le métier avant le titre : le lecteur doit voir quelqu'un comme lui,
+     pas un informaticien qui vient lui vendre de l'IA. */
+  role: "Loueur de yacht près de Montpellier depuis 2021 · fondateur de Luma",
   photo: "",
   photoAlt: "Portrait de Robin Pailhes, fondateur de Luma.",
   paragraphs: [
-    "J'ai créé Luma après avoir vu le même problème revenir dans chaque établissement que j'accompagnais : des messages qui arrivent le soir, le dimanche, en plein service — et personne pour y répondre.",
-    "Ce n'est jamais un manque de sérieux. C'est un manque d'heures dans une journée.",
-    "J'ai d'abord bricolé une solution pour un seul établissement. Un autre me l'a demandée. Aujourd'hui, c'est Luma.",
+    "Depuis 2021, je loue un yacht de 13 mètres près de Montpellier. Pendant longtemps, j'ai répondu moi-même à chaque message : les disponibilités, les tarifs, les relances. Le soir, le dimanche, en vacances.",
+    "Il y a deux ans, j'ai tout automatisé. Depuis, j'ai plus de réservations qu'avant, et beaucoup plus de temps libre.",
+    "Luma, c'est ce système, installé chez vous.",
   ],
-  contact: {
-    label: "Écrivez-moi directement",
-    href: "mailto:contact@luma-agence.fr",
-  },
 };

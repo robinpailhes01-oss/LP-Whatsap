@@ -58,19 +58,17 @@ export function Founder() {
               ))}
             </div>
 
-            {founder.contact && (
-              <p className="mt-8 border-t border-paper-line pt-7 text-sm">
-                <a
-                  href={founder.contact.href}
-                  className="font-medium underline decoration-brass decoration-2 underline-offset-4"
-                >
-                  {founder.contact.label}
-                </a>
-                <span className="ml-2 text-ink-paper-muted">
-                  — c&apos;est moi qui réponds.
-                </span>
-              </p>
-            )}
+            <p className="mt-8 border-t border-paper-line pt-7 text-sm">
+              <a
+                href="#essai-gratuit"
+                className="font-medium underline decoration-brass decoration-2 underline-offset-4"
+              >
+                Laissez-moi votre numéro
+              </a>
+              <span className="ml-2 text-ink-paper-muted">
+                — c&apos;est moi qui vous réponds.
+              </span>
+            </p>
           </div>
         </div>
       </div>

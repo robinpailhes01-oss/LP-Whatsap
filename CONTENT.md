@@ -31,7 +31,14 @@ simule jamais un succès).
 NEXT_PUBLIC_FORM_ENDPOINT="https://…"   # Formspree, Make, n8n, route API interne…
 ```
 
-L'adresse de repli en cas d'échec (`contact@luma-agence.fr`) est également à confirmer.
+L'adresse de repli en cas d'échec (`contact@luma-agence.fr`) est également à
+confirmer.
+
+**Le formulaire ne demande que deux choses : le prénom et le numéro WhatsApp.**
+C'est cohérent avec ce que la page vend — le reste se demande dans le premier
+message, exactement comme Luma le ferait. Si vous voulez requalifier davantage
+(nom de l'établissement, type), ajoutez un bloc `<label>`/`<input>` dans
+*Wake.tsx* : chaque champ ajouté se paie en demandes perdues.
 
 ## 3. VSL — bloquant
 
@@ -95,37 +102,30 @@ Ce sont des noms inventés, pas des clients.
   cohérent mais fictif. La légende sous le hero dit « Exemple d'échange » et non
   « conversation réelle » : c'est exact en l'état. Si vous la remplacez par un
   vrai échange anonymisé, vous pourrez alors écrire « conversation réelle ».
-- Le bilan « Une nuit ordinaire avec Luma » (6 demandes, 2 réservations,
-  1 devis, 0 appel manqué) est un ordre de grandeur plausible, pas une mesure.
-  À remplacer par les chiffres d'un vrai établissement, ou à retirer.
+- Le bilan chiffré d'une nuit type a été retiré : c'était un ordre de grandeur
+  plausible, pas une mesure. À réintroduire seulement avec les chiffres réels
+  d'un établissement.
 
-## 6. Présentation du fondateur — bloquant
+## 6. Présentation du fondateur — la photo manque
 
 `src/lib/founder.ts`
 
-La section « Qui est derrière Luma » est en place, juste avant le formulaire :
-on rencontre la personne, puis on lui écrit. C'est le seul visage de toute la
-page, et c'est ce qui lui donne son poids.
+Le texte est le vôtre : le yacht de 13 m près de Montpellier depuis 2021,
+l'automatisation il y a deux ans, plus de réservations et plus de temps libre.
+C'est la meilleure preuve de la page — vous n'avez pas construit un outil pour
+les autres, vous avez résolu votre propre problème et vous vous en servez
+depuis deux ans. Ne le réécrivez pas en argumentaire : sa force tient à ce
+qu'il soit dit platement.
 
-**Le texte actuel est un brouillon écrit par défaut, pas votre histoire.**
-C'est la seule section de la page qui ne vaut *que* si elle est vraie : un
-gérant qui lit trois phrases inventées le sent, et il perd d'un coup la
-confiance gagnée sur tout le reste.
+**Il manque la photo.** Déposer le fichier dans `/public` et renseigner `photo`.
+Un vrai portrait, regard vers l'objectif, format 4/5, 800 px de large au
+minimum. Une photo sur le bateau serait idéale : elle prouve l'histoire en même
+temps qu'elle la raconte. Sans photo, la section affiche un cadre d'attente
+explicite.
 
-À faire :
-
-1. **La photo.** Déposer le fichier dans `/public` et renseigner `photo`. Un
-   vrai portrait, regard vers l'objectif, pas une photo de profil recadrée.
-   Format 4/5, 800 px de large au minimum. Sans photo, la section affiche un
-   cadre d'attente explicite.
-2. **Les trois paragraphes.** Vos mots, trois paragraphes courts maximum. Ce
-   qu'il faut y trouver : d'où vient le problème que vous avez vu, pourquoi
-   vous, et pourquoi vous vous en occupez encore aujourd'hui.
-3. **Le contact.** `contact.href` pointe pour l'instant sur
-   `contact@luma-agence.fr`. Un lien WhatsApp direct
-   (`https://wa.me/33XXXXXXXXX`) convertirait sans doute mieux auprès de cette
-   audience — mais seulement si c'est bien vous qui répondez, comme la page
-   l'affirme.
+À vérifier aussi : « plus de réservations qu'avant » est votre constat. Si vous
+avez un chiffre (+30 %, deux fois plus de demandes traitées), il vaut mieux que
+l'adjectif.
 
 ## 7. Preuve sociale — absente volontairement
 
