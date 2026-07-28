@@ -2,6 +2,8 @@
 
 import { motion, useReducedMotion } from "motion/react";
 import { SectionLabel, CtaPrimary } from "@/components/ui";
+import { ConversationExcerpt } from "@/components/ConversationExcerpt";
+import { toneExcerpt } from "@/lib/conversations";
 import { EASE } from "@/lib/motion";
 
 /**
@@ -29,6 +31,8 @@ const priseEnCharge = [
   {
     titre: "Luma parle comme vous",
     corps: "On reprend votre ton, vos formules, votre façon d'accueillir. Vos clients ne changent pas d'interlocuteur.",
+    /* Cette promesse-là ne se croit pas sur parole : on la montre. */
+    preuve: true,
   },
 ];
 
@@ -150,8 +154,18 @@ export function HowItWorks() {
                 className="grid gap-2 py-6 first:pt-0 sm:grid-cols-[16rem_1fr] sm:gap-8"
               >
                 <dt className="display-soft text-base sm:text-lg">{item.titre}</dt>
-                <dd className="prose-read text-xs text-ink-paper-muted">
-                  {item.corps}
+                <dd>
+                  <p className="prose-read text-xs text-ink-paper-muted">
+                    {item.corps}
+                  </p>
+                  {item.preuve && (
+                    <div className="mt-5 max-w-md">
+                      <ConversationExcerpt
+                        messages={toneExcerpt}
+                        caption="Luma répond pour Harmonie Yacht, un soir à 20h01."
+                      />
+                    </div>
+                  )}
                 </dd>
               </div>
             ))}

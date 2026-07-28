@@ -96,11 +96,17 @@ mise en ligne, ou être réécrite.
 
 Ce sont des noms inventés, pas des clients.
 
-- **Location de bateau : l'échange est RÉEL.** Repris tel quel du WhatsApp
-  d'Harmonie Yacht, emojis et lien de réservation compris. Il porte la mention
-  « Conversation réelle » sous la carte, et c'est la meilleure preuve de la
-  page. Le client n'est pas identifiable : le fil affiche le nom de
-  l'établissement tel que le client le voit, jamais le sien.
+- **Deux échanges RÉELS d'Harmonie Yacht**, repris tels quels, emojis compris.
+  Le premier est dans le sélecteur du hero, onglet « Location de bateau » : il
+  traite une question imprévue (la météo) et se termine par un lien de
+  réservation pré-rempli. Le second est un extrait placé sous la promesse
+  « Luma parle comme vous », dans la section « C'est quoi, exactement » : il
+  montre le ton — « Bonjour 😊 », réponse dans la minute — et le fait que Luma
+  pose des questions en retour au lieu de dérouler un catalogue.
+- **Aucun client n'est identifiable.** Le fil du hero affiche le nom de
+  l'établissement, tel que le client le voit, jamais le sien. L'extrait
+  n'affiche aucune identité. Le numéro de téléphone visible sur la capture
+  d'origine du second échange n'a pas été repris.
 - **Domaine des Ormes**, **Le Clos Sainte-Marie**, **La Table du Port** — les
   trois autres exemples sont écrits, et signalés comme tels
   (« Exemple d'échange »). À remplacer dès que vous aurez de vrais échanges chez

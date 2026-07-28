@@ -278,3 +278,43 @@ export const handledRequests: Handled[] = [
     time: "06:12",
   },
 ];
+
+/**
+ * Extrait réel, repris tel quel du WhatsApp d'Harmonie Yacht. Il sert de preuve
+ * à la promesse « Luma parle comme vous » : le sourire, le « Bonjour 😊 », la
+ * réponse dans la minute — et surtout le fait qu'il pose des questions en
+ * retour au lieu de dérouler un catalogue.
+ *
+ * Le numéro du client figurait sur la capture d'origine. Il n'est pas repris :
+ * l'extrait n'affiche aucune identité, seulement les messages.
+ */
+export const toneExcerpt: Message[] = [
+  {
+    id: "e1",
+    from: "guest",
+    text: "Bonjour, je souhaiterais savoir quelles sont les tarifs et les différentes options possibles. Merci",
+    time: "20:01",
+    delayMs: 0,
+  },
+  {
+    id: "e2",
+    from: "agent",
+    text: "Bonjour 😊 tous nos tarifs et offres sont sur notre site : harmonie-yacht.fr — c'est pour combien de personnes ?",
+    time: "20:01",
+    delayMs: 0,
+  },
+  {
+    id: "e3",
+    from: "guest",
+    text: "2 personnes",
+    time: "20:02",
+    delayMs: 0,
+  },
+  {
+    id: "e4",
+    from: "agent",
+    text: "Avez-vous déjà une date en tête ? 😊",
+    time: "20:02",
+    delayMs: 0,
+  },
+];
