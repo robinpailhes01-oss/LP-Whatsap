@@ -71,7 +71,7 @@ export function Wake() {
 
         <div className="mt-10 grid gap-16 lg:grid-cols-[1fr_1fr] lg:gap-20">
           <div>
-            <h2 className="display-loud max-w-[14ch] text-2xl sm:text-3xl">
+            <h2 className="display-loud max-w-[14ch] text-xl sm:text-2xl lg:text-3xl">
               Vous ouvrez votre téléphone.{" "}
               <span className="text-brass-dim">La nuit a été productive.</span>
             </h2>

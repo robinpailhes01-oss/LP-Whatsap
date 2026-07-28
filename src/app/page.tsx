@@ -1,5 +1,6 @@
 import { SiteHeader } from "@/components/SiteHeader";
 import { SiteFooter } from "@/components/SiteFooter";
+import { MobileCta } from "@/components/MobileCta";
 import { Hero } from "@/components/sections/Hero";
 import { CostOfSilence } from "@/components/sections/CostOfSilence";
 import { HowItWorks } from "@/components/sections/HowItWorks";
@@ -29,6 +30,7 @@ export default function Home() {
         <Wake />
       </main>
       <SiteFooter />
+      <MobileCta />
     </>
   );
 }

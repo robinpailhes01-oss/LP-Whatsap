@@ -42,7 +42,7 @@ export function Pricing() {
 
         <div className="mt-10 grid gap-14 lg:grid-cols-[1fr_1fr] lg:gap-20">
           <div>
-            <h2 className="display-loud max-w-[15ch] text-2xl sm:text-3xl">
+            <h2 className="display-loud max-w-[15ch] text-xl sm:text-2xl lg:text-3xl">
               On installe gratuitement. Vous payez{" "}
               <span className="text-brass-dim">ce que vous utilisez.</span>
             </h2>

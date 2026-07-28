@@ -77,7 +77,7 @@ export function CostOfSilence() {
 
         <div className="mt-10 grid gap-14 lg:grid-cols-[1fr_1fr] lg:gap-20">
           <div>
-            <h2 className="display-loud max-w-[16ch] text-2xl sm:text-3xl">
+            <h2 className="display-loud max-w-[16ch] text-xl sm:text-2xl lg:text-3xl">
               Une demande sans réponse ne vous attend pas.{" "}
               <span className="text-brass">Elle réserve ailleurs.</span>
             </h2>

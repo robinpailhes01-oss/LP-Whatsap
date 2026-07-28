@@ -47,7 +47,7 @@ export function Crm() {
           Le CRM
         </SectionLabel>
 
-        <h2 className="display-loud mt-10 max-w-[19ch] text-2xl sm:text-3xl">
+        <h2 className="display-loud mt-10 max-w-[19ch] text-xl sm:text-2xl lg:text-3xl">
           Une conversation, ça se perd. Une fiche,{" "}
           <span className="text-brass-dim">ça se travaille.</span>
         </h2>

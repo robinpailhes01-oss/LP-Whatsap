@@ -72,16 +72,6 @@ export function Conversation({ data, loop = true, className = "" }: Props) {
   const [readIds, setReadIds] = useState<string[]>([]);
   const [showOutcome, setShowOutcome] = useState(false);
 
-  /* Sans animation, la conversation existe quand même — en entier, tout de suite.
-     Aucun contenu n'est réservé à ceux qui acceptent le mouvement. */
-  useEffect(() => {
-    if (!prefersReduced) return;
-    setRevealed(total);
-    setTyping(false);
-    setReadIds(data.messages.filter((m) => m.from === "agent").map((m) => m.id));
-    setShowOutcome(true);
-  }, [prefersReduced, total, data.messages]);
-
   useEffect(() => {
     if (prefersReduced || !inView) return;
 
@@ -140,7 +130,14 @@ export function Conversation({ data, loop = true, className = "" }: Props) {
     };
   }, [inView, prefersReduced, loop, total, data.messages]);
 
-  const visible = data.messages.slice(0, revealed);
+  /* Sans animation, la conversation existe quand même — en entier, tout de suite.
+     Aucun contenu n'est réservé à ceux qui acceptent le mouvement. L'état est
+     dérivé plutôt que poussé : la séquence ne démarre simplement jamais. */
+  const showAll = prefersReduced === true;
+  const visible = showAll ? data.messages : data.messages.slice(0, revealed);
+  const outcomeVisible = showAll || showOutcome;
+  const typingVisible = !showAll && typing;
+  const isRead = (id: string) => showAll || readIds.includes(id);
 
   return (
     <div
@@ -194,14 +191,14 @@ export function Conversation({ data, loop = true, className = "" }: Props) {
               </span>
               <span className="mt-1 flex items-center gap-1.5 px-1 font-mono text-2xs text-ink-muted">
                 {message.time}
-                {isAgent && <ReadReceipt read={readIds.includes(message.id)} />}
+                {isAgent && <ReadReceipt read={isRead(message.id)} />}
               </span>
             </motion.li>
           );
         })}
 
         <AnimatePresence>
-          {typing && (
+          {typingVisible && (
             <motion.li
               key="typing"
               initial={{ opacity: 0, y: 8 }}
@@ -219,7 +216,7 @@ export function Conversation({ data, loop = true, className = "" }: Props) {
       {/* Résultat : la conversation ne s'arrête pas à la réponse, elle produit une fiche. */}
       <div className="border-t border-night-line px-4 py-3 sm:px-5">
         <AnimatePresence mode="wait">
-          {showOutcome ? (
+          {outcomeVisible ? (
             <motion.p
               key="outcome"
               initial={prefersReduced ? false : { opacity: 0, y: 6 }}

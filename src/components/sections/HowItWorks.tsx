@@ -43,7 +43,7 @@ export function HowItWorks() {
       <div className="mx-auto max-w-6xl px-5 py-20 sm:px-8 lg:py-28">
         <SectionLabel time="02:13">La séquence, de bout en bout</SectionLabel>
 
-        <h2 className="display-loud mt-10 max-w-[18ch] text-2xl sm:text-3xl">
+        <h2 className="display-loud mt-10 max-w-[18ch] text-xl sm:text-2xl lg:text-3xl">
           Cinq secondes entre la question d&apos;un client et une fiche remplie
           dans votre CRM.
         </h2>

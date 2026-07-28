@@ -24,7 +24,7 @@ export function Handled() {
         <SectionLabel time="04:30">Ce qui est arrivé cette nuit</SectionLabel>
 
         <div className="mt-10 flex flex-col gap-6 lg:flex-row lg:items-end lg:justify-between">
-          <h2 className="display-loud max-w-[17ch] text-2xl sm:text-3xl">
+          <h2 className="display-loud max-w-[17ch] text-xl sm:text-2xl lg:text-3xl">
             Les demandes ne ressemblent jamais à un menu de chatbot.
           </h2>
           <p className="max-w-sm text-xs leading-relaxed text-ink-muted">

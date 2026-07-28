@@ -27,7 +27,7 @@ export function Hero() {
     >
       <motion.div
         {...motionProps}
-        className="mx-auto grid max-w-6xl items-center gap-14 px-5 py-20 sm:px-8 lg:grid-cols-[1.02fr_0.98fr] lg:gap-16 lg:py-28"
+        className="mx-auto grid max-w-6xl items-center gap-10 px-5 py-14 sm:gap-14 sm:px-8 sm:py-20 lg:grid-cols-[1.02fr_0.98fr] lg:gap-16 lg:py-28"
       >
         <div>
           <motion.p {...childProps} className="kicker text-ink-muted">
@@ -36,7 +36,7 @@ export function Hero() {
 
           <motion.h1
             {...childProps}
-            className="display-loud mt-6 max-w-[13ch] text-3xl sm:text-4xl"
+            className="display-loud mt-6 max-w-[13ch] text-[2.15rem] sm:text-3xl lg:text-4xl"
           >
             Il est{" "}
             <span className="font-mono text-[0.78em] font-medium tracking-tighter tabular-nums text-brass">
@@ -71,7 +71,7 @@ export function Hero() {
               ce que le visiteur ne paiera pas. */}
           <motion.ul
             {...childProps}
-            className="mt-9 flex flex-wrap gap-x-6 gap-y-1.5 border-t border-night-line pt-5 font-mono text-2xs text-ink-muted [&>li+li]:before:mr-6 [&>li+li]:before:text-night-line [&>li+li]:before:content-['·']"
+            className="mt-9 grid grid-cols-2 gap-x-4 gap-y-2 border-t border-night-line pt-5 font-mono text-2xs text-ink-muted sm:flex sm:flex-wrap sm:gap-x-6 sm:[&>li+li]:before:mr-6 sm:[&>li+li]:before:text-night-line sm:[&>li+li]:before:content-['·']"
           >
             <li>0 € de mise en place</li>
             <li>0 € d&apos;abonnement</li>
