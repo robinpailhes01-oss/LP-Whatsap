@@ -44,8 +44,18 @@ export function ConversationSwitcher() {
           quand on change d'activité, au lieu de reprendre en cours de route. */}
       <Conversation key={active.id} data={active} />
 
+      {/* La légende dit la vérité sur ce qu'on regarde : un vrai échange ne se
+          présente pas comme un exemple, et un exemple ne se fait pas passer
+          pour un vrai échange. */}
       <p className="mt-3 text-center text-2xs text-ink-muted">
-        Exemple d&apos;échange, rejoué en direct.
+        {active.real ? (
+          <>
+            <span className="font-medium text-signal">Conversation réelle</span>
+            , rejouée à l&apos;identique.
+          </>
+        ) : (
+          <>Exemple d&apos;échange, rejoué en direct.</>
+        )}
       </p>
     </div>
   );

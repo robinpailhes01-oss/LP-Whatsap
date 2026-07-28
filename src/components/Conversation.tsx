@@ -179,9 +179,12 @@ export function Conversation({ data, loop = true, className = "" }: Props) {
         Résultat : {data.outcome.label}. {data.outcome.detail}.
       </p>
 
+      {/* Hauteur fixe : la carte ne change pas de taille d'une activité à
+          l'autre, et les échanges les plus longs débordent par le haut comme
+          dans une vraie discussion. Le dégradé rend la coupe intentionnelle. */}
       <ol
         aria-hidden="true"
-        className="flex min-h-[420px] flex-col justify-end gap-2.5 p-4 sm:min-h-[440px] sm:p-5"
+        className="flex h-[470px] flex-col justify-end gap-2.5 overflow-hidden p-4 sm:h-[500px] sm:p-5 [mask-image:linear-gradient(to_bottom,transparent,black_56px)]"
       >
         {visible.map((message) => {
           const isAgent = message.from === "agent";

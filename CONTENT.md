@@ -96,13 +96,16 @@ mise en ligne, ou être réécrite.
 
 Ce sont des noms inventés, pas des clients.
 
-- **Domaine des Ormes**, **Cap Horizon**, **Le Clos Sainte-Marie**,
-  **La Table du Port** — les quatre établissements du sélecteur d'activité.
-- **Camille Rousseau** — cliente de la fiche du carnet.
-- Les quatre échanges du hero sont plausibles et emploient le bon vocabulaire
-  métier, mais ils sont écrits. Remplacer au moins celui de la location de
-  bateau par un vrai échange anonymisé du vôtre : c'est le seul secteur où vous
-  avez la matière, et ça vaudra tous les arguments.
+- **Location de bateau : l'échange est RÉEL.** Repris tel quel du WhatsApp
+  d'Harmonie Yacht, emojis et lien de réservation compris. Il porte la mention
+  « Conversation réelle » sous la carte, et c'est la meilleure preuve de la
+  page. Le client n'est pas identifiable : le fil affiche le nom de
+  l'établissement tel que le client le voit, jamais le sien.
+- **Domaine des Ormes**, **Le Clos Sainte-Marie**, **La Table du Port** — les
+  trois autres exemples sont écrits, et signalés comme tels
+  (« Exemple d'échange »). À remplacer dès que vous aurez de vrais échanges chez
+  un client de chacun de ces métiers.
+- **Camille Rousseau** — cliente de la fiche du carnet, inventée.
 - Le détail de la conversation (Chambre Jardin, 148 €, arrhes 30 %) est
   cohérent mais fictif. La légende sous le hero dit « Exemple d'échange » et non
   « conversation réelle » : c'est exact en l'état. Si vous la remplacez par un

@@ -34,6 +34,12 @@ export type Conversation = {
   messages: Message[];
   /** Ce que Luma a noté à l'issue de l'échange. */
   outcome: { label: string; detail: string };
+  /**
+   * Vrai échange, repris tel quel, par opposition à un exemple écrit. Change la
+   * légende sous la conversation — et ce n'est pas un détail : une conversation
+   * réelle vaut tous les arguments de la page.
+   */
+  real?: boolean;
 };
 
 export const conversations: Conversation[] = [
@@ -80,45 +86,58 @@ export const conversations: Conversation[] = [
     },
   },
   {
+    /*
+     * Échange réel, repris tel quel depuis le WhatsApp d'Harmonie Yacht — le
+     * bateau de Robin. Rien n'a été réécrit : ni les fautes de frappe, ni les
+     * emojis, ni le lien de réservation pré-rempli.
+     *
+     * Le client n'est pas identifiable : le fil affiche le nom de
+     * l'établissement, tel que le client le voit, jamais le sien.
+     *
+     * C'est la meilleure preuve de la page. Il répond en une minute, à une
+     * question qui n'était pas prévue (la météo), avec la vraie politique de
+     * remboursement — exactement l'objection « et s'il raconte n'importe quoi ».
+     */
     id: "bateau",
     sector: "Location de bateau",
-    venue: "Cap Horizon",
+    venue: "Harmonie Yacht",
     venueMeta: "en ligne",
+    real: true,
     messages: [
       {
         id: "b1",
         from: "guest",
-        text: "Bonjour, votre bateau est libre le week-end du 14 ? On serait six.",
-        time: "23:31",
+        text: "Rebonjour, ça serait bon pour le vendredi 14 de 19h à 21h ! J'avais une question, si jamais il pleut ou qu'il y a un événement comment ça se passe ?",
+        time: "20:43",
         delayMs: 700,
       },
       {
         id: "b2",
         from: "agent",
-        text: "Bonjour ! Le samedi 14 est libre. La journée est à 890 € avec le skipper, carburant en sus. Six personnes, c'est parfait : on va jusqu'à huit. Je vous bloque la date ?",
-        time: "23:31",
+        text: "Le 14 août 19h-21h c'est libre 😊 Pour la météo : si les conditions ne sont pas bonnes, le capitaine décide le matin même — vous pouvez alors choisir entre un remboursement intégral ou un report sans frais.",
+        time: "20:44",
         delayMs: 900,
-        typingMs: 1600,
+        typingMs: 1700,
       },
       {
         id: "b3",
         from: "guest",
-        text: "Oui le samedi. Il faut verser un acompte ?",
-        time: "23:33",
-        delayMs: 2000,
+        text: "Ok super très clair merci ! Pour réserver je réserve sur le site en payant la totalité ? Nous aurons toutes les infos pour le parking etc j'imagine ? 😊",
+        time: "20:46",
+        delayMs: 2200,
       },
       {
         id: "b4",
         from: "agent",
-        text: "30 % à la réservation, le solde la veille. Je vous envoie le lien et le point de rendez-vous au port. À samedi !",
-        time: "23:33",
+        text: "Voici le lien pour réserver : harmonie-yacht.fr?offer=Sortie+privative+2h&date=2026-08-14",
+        time: "20:46",
         delayMs: 800,
-        typingMs: 1700,
+        typingMs: 1500,
       },
     ],
     outcome: {
-      label: "Fiche client créée",
-      detail: "Sortie du 14 · 6 personnes · acompte en attente",
+      label: "Lien de réservation envoyé",
+      detail: "Sortie privative 2 h · 14 août · date et offre pré-remplies",
     },
   },
   {
