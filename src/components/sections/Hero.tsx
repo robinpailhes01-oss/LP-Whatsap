@@ -29,7 +29,7 @@ export function Hero() {
     >
       <motion.div
         {...motionProps}
-        className="mx-auto grid max-w-6xl items-center gap-10 px-5 py-14 sm:gap-14 sm:px-8 sm:py-20 lg:grid-cols-[1.02fr_0.98fr] lg:gap-16 lg:py-28"
+        className="mx-auto grid max-w-6xl items-center gap-10 px-5 py-11 sm:gap-14 sm:px-8 sm:py-20 lg:grid-cols-[1.02fr_0.98fr] lg:gap-16 lg:py-28"
       >
         <div>
           <motion.p {...childProps} className="kicker text-ink-muted">
@@ -38,7 +38,7 @@ export function Hero() {
 
           <motion.h1
             {...childProps}
-            className="display-loud mt-6 max-w-[16ch] text-[2rem] sm:text-2xl lg:text-3xl"
+            className="display-loud mt-5 max-w-[16ch] text-[1.9rem] sm:text-2xl lg:text-3xl"
           >
             Il est 23h47. Un client demande une chambre. Vous dormez.
             <span className="display-soft mt-4 block text-[0.86em] text-brass">
@@ -48,14 +48,14 @@ export function Hero() {
 
           <motion.p
             {...childProps}
-            className="prose-read mt-8 text-sm text-ink-muted"
+            className="prose-read mt-6 text-sm text-ink-muted sm:mt-8"
           >
             Luma répond à vos clients sur WhatsApp, jour et nuit, avec vos vrais
             tarifs et vos vraies disponibilités. Vous ne perdez plus de
             réservation parce qu&apos;il n&apos;y avait personne pour répondre.
           </motion.p>
 
-          <motion.div {...childProps} className="mt-9 flex flex-wrap items-center gap-3">
+          <motion.div {...childProps} className="mt-7 flex flex-wrap items-center gap-3 sm:mt-9">
             <CtaPrimary href="#essai-gratuit" onNight>
               Essayer gratuitement
             </CtaPrimary>

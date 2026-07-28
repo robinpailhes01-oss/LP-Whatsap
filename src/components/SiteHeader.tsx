@@ -84,15 +84,17 @@ export function SiteHeader() {
           ))}
         </nav>
 
+        {/* Visible dès le petit écran : c'est la seule action de la page, elle
+            ne doit jamais être à plus d'un geste. */}
         <a
           href="#essai-gratuit"
-          className={`hidden rounded-pill px-5 py-2.5 text-2xs font-semibold transition-colors duration-[120ms] sm:inline-flex ${
+          className={`shrink-0 rounded-pill px-4 py-2.5 text-2xs font-semibold transition-colors duration-[120ms] sm:px-5 ${
             onNight
               ? "bg-brass text-night hover:bg-[#dcb332]"
               : "bg-ink-paper text-paper hover:bg-[#243029]"
           }`}
         >
-          Essayer gratuitement
+          Essayer<span className="hidden sm:inline"> gratuitement</span>
         </a>
       </div>
     </header>
