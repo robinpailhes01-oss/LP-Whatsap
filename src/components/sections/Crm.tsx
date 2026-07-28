@@ -1,63 +1,68 @@
 import { SectionLabel } from "@/components/ui";
 
-/* La fiche telle qu'elle existe le lendemain matin. Le CRM n'est pas un onglet
-   de plus : c'est ce que la conversation produit automatiquement. */
+/* La fiche telle qu'elle existe le lendemain matin. Le carnet n'est pas un
+   outil de plus : c'est ce que la conversation produit toute seule. */
 const record = {
   name: "Camille Rousseau",
   tag: "3e séjour",
   fields: [
     { label: "Séjour", value: "12 → 13 mars · 1 nuit" },
     { label: "Chambre", value: "Jardin · 148 €" },
-    { label: "Canal", value: "WhatsApp · 23:47" },
-    { label: "Arrhes", value: "44,40 € · en attente" },
+    { label: "Reçu par", value: "WhatsApp · 23h47" },
+    { label: "Arrhes", value: "44,40 € · à recevoir" },
   ],
   notes: [
-    "Voyage avec un chien — panier à prévoir en chambre.",
-    "Arrivée annoncée vers 22h, prévenir la veilleuse.",
-    "A déjà séjourné en sept. 2024 et juin 2025.",
+    "Voyage avec son chien — prévoir un panier en chambre.",
+    "Arrive vers 22h, prévenir la veilleuse.",
+    "Déjà venue en septembre 2024 et en juin 2025.",
   ],
-  next: "Relance automatique des arrhes dans 22 h",
+  next: "Relance des arrhes prévue demain matin",
 };
 
 const pillars = [
   {
-    title: "Fait pour votre métier, pas adapté à lui",
-    body: "Séjours, arrhes, options, couverts, conditions d'annulation, saisons. Les champs sont ceux que vous utilisez déjà — vous ne rangez pas un hôtel dans un CRM de commerciaux.",
+    title: "Les mots de votre métier",
+    body: "Séjours, arrhes, options, couverts, annulations. Pas des « prospects » et des « opportunités » : les mots que vous employez tous les jours, à la place de ceux d'un logiciel de commerciaux.",
   },
   {
-    title: "L'historique complet, pas le dernier message",
-    body: "Chaque échange, chaque séjour, chaque préférence reste attaché au client. Quand il revient dans deux ans, vous savez qu'il voyage avec un chien.",
+    title: "Vous vous souvenez de tout",
+    body: "Chaque séjour, chaque demande, chaque habitude reste attachée au client. Quand il revient dans deux ans, vous savez qu'il voyage avec son chien et qu'il arrive toujours tard.",
   },
   {
     title: "Les relances partent toutes seules",
-    body: "Arrhes non réglées, devis sans réponse, séjour à venir, mot après le départ. Ce sont ces relances-là que personne n'a jamais le temps de faire.",
+    body: "Les arrhes qui ne sont pas arrivées, le devis resté sans réponse, le petit mot avant l'arrivée. Exactement les relances que personne n'a jamais le temps de faire.",
   },
 ];
 
 export function Crm() {
   return (
     <section
-      id="le-crm"
-      data-scene-time="06:04"
-      data-scene-surface="dawn"
-      className="bg-dawn text-ink-dawn"
+      id="carnet-clients"
+      data-surface="paper"
+      className="border-t border-paper-line bg-paper text-ink-paper"
     >
       <div className="mx-auto max-w-6xl px-5 py-20 sm:px-8 lg:py-28">
-        <SectionLabel time="06:04" onDawn>
-          Le CRM
-        </SectionLabel>
+        <SectionLabel>Votre carnet de clients</SectionLabel>
 
-        <h2 className="display-loud mt-10 max-w-[19ch] text-xl sm:text-2xl lg:text-3xl">
-          Une conversation, ça se perd. Une fiche,{" "}
-          <span className="text-brass-dim">ça se travaille.</span>
+        <h2 className="display-loud mt-8 max-w-[18ch] text-xl sm:text-2xl lg:text-3xl">
+          Le lendemain matin,{" "}
+          <span className="mark-brass">tout est déjà noté.</span>
         </h2>
 
+        <p className="prose-read mt-7 text-xs text-ink-paper-muted">
+          Pendant que Luma discute avec votre client, il remplit une fiche. Vous
+          n&apos;ouvrez pas une conversation le matin : vous ouvrez un dossier
+          déjà complet.
+        </p>
+
         <div className="mt-14 grid gap-14 lg:grid-cols-[0.95fr_1.05fr] lg:gap-20">
-          <dl className="divide-y divide-dawn-line border-t border-dawn-line">
+          <dl className="divide-y divide-paper-line border-t border-paper-line">
             {pillars.map((pillar) => (
-              <div key={pillar.title} className="py-7">
-                <dt className="display-soft text-base">{pillar.title}</dt>
-                <dd className="mt-2.5 max-w-md text-xs leading-relaxed text-ink-dawn-muted">
+              <div key={pillar.title} className="py-8">
+                <dt className="display-soft text-base sm:text-lg">
+                  {pillar.title}
+                </dt>
+                <dd className="prose-read mt-3 text-xs text-ink-paper-muted">
                   {pillar.body}
                 </dd>
               </div>
@@ -65,51 +70,54 @@ export function Crm() {
           </dl>
 
           {/* La fiche produite par la conversation du hero — la boucle se ferme. */}
-          <div className="rounded-card border border-dawn-line bg-dawn-alt/60 shadow-[0_1px_2px_rgb(16_26_22/0.06),0_12px_32px_-16px_rgb(16_26_22/0.18)]">
-            <div className="flex items-center justify-between gap-4 border-b border-dawn-line px-5 py-4 sm:px-6">
+          <div className="rounded-card border border-paper-line bg-paper-alt/70 shadow-[0_1px_2px_rgb(18_24_21/0.05),0_14px_36px_-18px_rgb(18_24_21/0.2)]">
+            <div className="flex items-center justify-between gap-4 border-b border-paper-line px-5 py-5 sm:px-6">
               <span className="flex items-center gap-3">
-                <span className="grid h-9 w-9 place-items-center rounded-full bg-brass/20 font-display text-sm text-brass-dim">
+                <span className="grid h-11 w-11 place-items-center rounded-full bg-brass/25 font-display text-sm font-semibold">
                   CR
                 </span>
                 <span>
-                  <span className="block text-sm font-medium">{record.name}</span>
-                  <span className="font-mono text-2xs text-ink-dawn-muted">
+                  <span className="block text-xs font-medium">{record.name}</span>
+                  <span className="text-2xs text-ink-paper-muted">
                     {record.tag}
                   </span>
                 </span>
               </span>
-              <span className="rounded-pill bg-signal-dim/15 px-3 py-1 font-mono text-2xs text-signal-dim">
-                confirmée
+              <span className="rounded-pill bg-signal-deep/12 px-3 py-1.5 text-2xs font-medium text-signal-deep">
+                Confirmée
               </span>
             </div>
 
-            <dl className="grid grid-cols-2 gap-px bg-dawn-line">
+            <dl className="grid grid-cols-2 gap-px bg-paper-line">
               {record.fields.map((field) => (
-                <div key={field.label} className="bg-dawn-alt/60 px-5 py-4 sm:px-6">
-                  <dt className="kicker text-ink-dawn-muted">{field.label}</dt>
-                  <dd className="mt-1.5 font-mono text-xs tabular-nums">
+                <div key={field.label} className="bg-paper-alt/70 px-5 py-4 sm:px-6">
+                  <dt className="kicker text-ink-paper-muted">{field.label}</dt>
+                  <dd className="mt-2 font-mono text-2xs tabular-nums">
                     {field.value}
                   </dd>
                 </div>
               ))}
             </dl>
 
-            <div className="border-t border-dawn-line px-5 py-5 sm:px-6">
-              <p className="kicker text-ink-dawn-muted">Notes</p>
-              <ul className="mt-3 space-y-2">
+            <div className="border-t border-paper-line px-5 py-5 sm:px-6">
+              <p className="kicker text-ink-paper-muted">Notes</p>
+              <ul className="mt-3.5 space-y-2.5">
                 {record.notes.map((note) => (
                   <li
                     key={note}
-                    className="flex gap-2.5 text-xs leading-relaxed text-ink-dawn-muted"
+                    className="flex gap-3 text-2xs leading-relaxed text-ink-paper-muted"
                   >
-                    <span className="mt-2 h-1 w-1 shrink-0 rounded-full bg-brass" />
+                    <span
+                      className="mt-1.5 h-1.5 w-1.5 shrink-0 rounded-full bg-brass"
+                      aria-hidden="true"
+                    />
                     {note}
                   </li>
                 ))}
               </ul>
             </div>
 
-            <p className="flex items-center gap-2 border-t border-dawn-line px-5 py-4 font-mono text-2xs text-signal-dim sm:px-6">
+            <p className="flex items-center gap-2 border-t border-paper-line px-5 py-4 text-2xs font-medium text-signal-deep sm:px-6">
               <span aria-hidden="true">↳</span>
               {record.next}
             </p>

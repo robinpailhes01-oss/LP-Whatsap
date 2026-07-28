@@ -12,9 +12,12 @@ import { Faq } from "@/components/sections/Faq";
 import { Wake } from "@/components/sections/Wake";
 
 /**
- * La page se déroule sur une nuit : 23h47 → 07h12. L'ordre des sections est
- * chronologique, et la surface passe du nuit au jour au fil du scroll.
- * Voir DESIGN.md § Structure.
+ * Un seul objectif : la demande d'essai gratuit. Chaque section lève une
+ * objection précise et ramène au même bouton.
+ *
+ * Le fond sombre est réservé aux deux premières sections — la scène de nuit et
+ * la vidéo, où l'on regarde plus qu'on ne lit. Tout le corps de la page est en
+ * texte foncé sur fond clair. Voir DESIGN.md § Lisibilité.
  */
 export default function Home() {
   return (

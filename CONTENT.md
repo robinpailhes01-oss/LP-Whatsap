@@ -77,11 +77,13 @@ mise en ligne, ou être réécrite.
   entraîner de modèle » — *Faq.tsx*, *SiteFooter.tsx*
 - « Suppression effective sous 30 jours » — *Faq.tsx*
 - « Comptez une semaine » pour la mise en route — *Pricing.tsx*
-- « 3 secondes en moyenne » pour le temps de réponse — *HowItWorks.tsx*
-- « Vous pouvez relire chaque réponse avant qu'elle parte » — *Faq.tsx* : suppose
-  qu'un mode de validation manuelle existe réellement.
-- « Il se branche sur votre PMS / channel manager » — *Faq.tsx* : lister les
+- « Vous relisez chaque réponse avant qu'elle parte » — *Faq.tsx*,
+  *HowItWorks.tsx* : suppose qu'un mode de validation manuelle existe vraiment.
+- « Il se branche sur votre logiciel de réservation » — *Faq.tsx* : lister les
   intégrations réellement disponibles, ou adoucir la formulation.
+- « Pas de carte bancaire » — *Wake.tsx* : doit être vrai au moment de l'essai.
+- « Luma le dit dès le premier message » (annonce du caractère automatique) —
+  *Faq.tsx* : à vérifier dans la configuration réelle de l'agent.
 
 ## 5. Exemples nommés
 
@@ -90,9 +92,12 @@ Ce sont des noms inventés, pas des clients.
 - **Domaine des Ormes** — établissement de la conversation du hero.
 - **Camille Rousseau** — cliente de la fiche CRM.
 - Le détail de la conversation (Chambre Jardin, 148 €, arrhes 30 %) est
-  cohérent mais fictif. La mention « Conversation réelle, rejouée à
-  l'identique. » sous le hero (*Hero.tsx*) doit être **retirée** ou devenir vraie
-  en la remplaçant par un échange authentique anonymisé.
+  cohérent mais fictif. La légende sous le hero dit « Exemple d'échange » et non
+  « conversation réelle » : c'est exact en l'état. Si vous la remplacez par un
+  vrai échange anonymisé, vous pourrez alors écrire « conversation réelle ».
+- Le bilan « Une nuit ordinaire avec Luma » (6 demandes, 2 réservations,
+  1 devis, 0 appel manqué) est un ordre de grandeur plausible, pas une mesure.
+  À remplacer par les chiffres d'un vrai établissement, ou à retirer.
 
 ## 6. Preuve sociale — absente volontairement
 

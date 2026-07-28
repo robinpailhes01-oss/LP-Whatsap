@@ -1,178 +1,200 @@
-# Luma — Agent WhatsApp & CRM hôtellerie · Design Spec
+# Luma — Agent WhatsApp & carnet de clients · Design Spec
 
-Landing page (brand mode). Un seul job : faire tester l'agent sur son propre établissement.
+Landing page (brand mode). **Un seul objectif : obtenir une demande d'essai
+gratuit.** Chaque section lève une objection précise et ramène au même bouton.
 
 ---
 
 ## 1. Brief stratégique
 
 **UVP**
-> Luma permet aux hôtels, hébergements et lieux de réception de ne plus perdre de
-> réservations à cause d'une réponse trop lente, en leur donnant un agent WhatsApp
-> qui répond dans leur ton 24h/24 et classe chaque échange dans un CRM fait pour
-> leur métier — installation gratuite, facturation à l'usage uniquement.
+> Luma permet aux hôtels, hébergements et lieux de réception de ne plus perdre
+> de réservations faute de réponse, en répondant à leurs clients sur WhatsApp
+> jour et nuit avec leurs vrais tarifs, et en notant chaque demande dans un
+> carnet de clients fait pour leur métier — installation gratuite, facturation
+> à l'usage uniquement.
 
-**Audience (psychographie, pas démographie)**
-- Des gérants qui ont *déjà* perdu une réservation parce que personne n'a répondu à temps, et qui le savent.
-- Échaudés par des logiciels vendus avec 2 000 € de mise en place et un engagement 12 mois qu'ils n'ont jamais rentabilisé.
-- Méfiants envers les « chatbots » : ils en ont vu frustrer leurs clients. Leur peur n°1 n'est pas que ça ne marche pas — c'est que ça leur fasse honte devant un client.
-- Jugent tout à une seule aune : est-ce que l'accueil reste chaleureux ?
-- Font confiance à un chiffre concret et à une conversation réelle, jamais à un argumentaire.
+**Audience — psychographie**
+- Gérants de 40 à 55 ans. Ils tiennent un établissement, pas un logiciel.
+- **Pas à l'aise avec l'informatique, et encore moins avec l'IA.** C'est le
+  fait central du projet : il commande le vocabulaire, la taille du texte, le
+  contraste et le nombre de champs du formulaire.
+- Ont *déjà* perdu une réservation faute de réponse à temps, et le savent.
+- Échaudés par des logiciels vendus 2 000 € de mise en place qu'ils n'ont
+  jamais rentabilisés.
+- Peur n°1 : pas que ça ne marche pas, mais que ça leur fasse **honte devant un
+  client**.
+- Deuxième peur, rarement dite : que ça remplace leur équipe.
+- Font confiance à un chiffre concret et à une conversation qu'ils peuvent
+  lire, jamais à un argumentaire.
 
-**Value pillars** (chacun est un test pour une décision visuelle)
+**Piliers** (chacun est un test pour une décision)
 1. **La réponse n'attend jamais** — la vitesse *est* le produit.
-2. **Votre voix, pas celle d'un robot** — l'agent parle comme la maison.
+2. **Votre voix, pas celle d'un robot.**
 3. **Zéro risque à l'entrée** — 0 € d'installation, on paie ce qu'on utilise.
-4. **Tout est classé** — chaque conversation devient une fiche exploitable.
-5. **Fait pour l'hôtellerie** — pas un chatbot générique reconfiguré.
+4. **Tout est noté** — chaque conversation devient une fiche.
+5. **Rien à apprendre** — ni pour vous, ni pour vos clients.
 
-**Archetype pair : Caregiver + Magician**
-L'hospitalité (prendre soin, accueillir) tenue en tension avec l'instantanéité
-technologique (ça répond à 3 h du matin, tout seul). C'est exactement la promesse :
-la chaleur d'un concierge, la disponibilité d'une machine.
+**Archetype : Caregiver + Magician.** L'hospitalité tenue en tension avec
+l'instantanéité. La chaleur d'un concierge, la disponibilité d'une machine.
 
 **Stand against**
 - Le look SaaS templaté : bleu-violet, dégradé, grille de trois cartes à icônes.
+- Le jargon : « leads », « pipeline », « conversion », « agent conversationnel ».
 - Les frais de mise en place.
-- L'« IA » posée en gadget par-dessus un produit qui ne la mérite pas.
 - La réponse robotique qui embarrasse l'établissement devant son client.
 
-### Brief → décisions de design
+### Brief → décisions
 
 | Input stratégique | → Décision |
 |---|---|
-| Pilier « la réponse n'attend jamais » | → Une vraie conversation qui se joue en direct dans le hero, horodatée à la seconde. La vitesse se **montre**, elle ne s'écrit pas. |
-| Psychographie « peur d'avoir honte devant un client » | → On expose de vraies réponses de l'agent, en entier, lisibles. Aucune capture floutée, aucun mockup décoratif. |
-| Pilier « zéro risque » | → Le prix est une section à part entière, pas une mention. Formulation à la négative : ce qu'on ne paie **pas**. |
-| Stand-against « look SaaS templaté » | → Registre nocturne vert-profond + laiton. Ni navy/bleu électrique (déjà luma-agence.fr), ni crème/terracotta, ni noir + vert acide. |
-| Archetype Caregiver + Magician | → Serif chaleureuse à axe optique (Fraunces) + grotesque de labeur ; motion douce et accueillante, un seul moment de magie. |
-| Pilier « fait pour l'hôtellerie » | → Tout le contenu d'exemple est du vrai vocabulaire métier : late check-out, séminaire 40 couverts, caution, arrhes. |
+| Lecteur 40-55 ans, peu à l'aise | → Corps de texte à **17 px**, texte foncé sur fond clair, phrases courtes, aucun terme technique. |
+| Peur d'avoir honte devant un client | → On expose de vraies réponses, en entier, lisibles. Aucune capture floutée. |
+| Peur que ça remplace l'équipe | → Question traitée en tête de FAQ, réponse franche : non. |
+| Pilier « zéro risque » | → Le prix est une section entière, formulée à la négative : ce qu'on ne paie **pas**. |
+| Objectif unique = essai gratuit | → Un seul libellé de CTA sur toute la page : « Essayer gratuitement ». |
+| Stand-against « jargon » | → Le mot « CRM » est remplacé par « carnet de clients ». |
 
 ---
 
-## 2. Direction esthétique
+## 2. Lisibilité — la contrainte qui prime sur l'esthétique
+
+Deux règles non négociables, dérivées de l'âge de l'audience et de son usage
+(téléphone, souvent en extérieur) :
+
+**1. Le texte de lecture est foncé sur fond clair.**
+Entre 40 et 55 ans, la sensibilité aux contrastes baisse et le texte clair sur
+fond sombre provoque de la diffusion lumineuse (*halation*) qui fatigue et
+ralentit la lecture. Le fond sombre est donc réservé aux **deux premières
+sections** — le hero et la vidéo — où l'on regarde plus qu'on ne lit. Tout le
+corps de la page est en encre sur papier.
+
+Ce n'est pas qu'une affaire d'yeux : pour quelqu'un qui n'est pas à l'aise avec
+l'IA, une page sombre dit « tech, startup, pas pour moi ». Une page claire dit
+« on n'a rien à cacher ».
+
+**2. Le corps de texte ne descend jamais sous 17 px.**
+C'est le gain de lisibilité le plus important du projet, devant la couleur.
+Le pas de 13 px est réservé aux mentions et aux horodatages.
+
+Conséquences appliquées partout : boutons hauts (56 px), champs de formulaire
+larges, curseurs à piste épaisse réglables au pouce, contraste du focus clavier
+renforcé.
+
+---
+
+## 3. Direction esthétique
 
 > **« La réception d'un hôtel à 23h47 » + « la grammaire native de WhatsApp »**
 
-Deux ancrages qui forcent la triangulation. Le premier vient du monde matériel du
-sujet — le comptoir de nuit, la lampe de réception, le laiton du porte-clés, le
-registre. Le second vient de l'interface elle-même : bulles, accusés de lecture,
-« en train d'écrire… », horodatages.
+Le premier ancrage vient du monde matériel du sujet — le comptoir de nuit, la
+lampe de réception, le laiton. Le second vient de l'interface elle-même :
+bulles, accusés de lecture, horodatages.
 
-**Pourquoi la page est sombre** : pas parce que « sombre = tech ». Parce que la page
-*se passe la nuit*. C'est le moment où l'agent a de la valeur — quand personne n'est
-au comptoir. La page s'ouvre à 23h47 et **se lève progressivement** au scroll pour
-finir à 07h12 sur le réveil du gérant : « 6 demandes traitées ». Le fond qui se
-réchauffe n'est pas un effet, c'est le récit.
+La scène de nuit ouvre la page parce que c'est le moment où Luma a de la valeur,
+quand personne n'est au comptoir. Elle dure deux sections, puis le jour se lève
+et la page devient lisible.
 
 **Anti-slop — écarté délibérément**
 - Fond crème + serif contrastée + accent terracotta → défaut IA n°1.
 - Noir + accent vert acide → défaut IA n°2.
-- Navy + bleu électrique → déjà l'identité de luma-agence.fr, on s'en distingue.
-- Hero centré + blob en dégradé, grille de 3 cartes à icônes, carrousel de témoignages.
+- Navy + bleu électrique → déjà l'identité de luma-agence.fr.
+- Hero centré + blob en dégradé, grille de 3 cartes à icônes, carrousel de
+  témoignages, tableau de prix à trois colonnes.
 
 ---
 
-## 3. Tokens
+## 4. Tokens
 
-### Couleur — 6 valeurs, rôles stricts
+### Couleur
 
 | Token | Hex | Rôle |
 |---|---|---|
-| `--night` | `#0F1714` | Surface dominante — vert-noir chaud, hall d'hôtel la nuit |
-| `--night-alt` | `#17211D` | Surfaces surélevées : cartes, bulles entrantes |
-| `--dawn` | `#F0EDE4` | Surface claire des sections « jour » (CRM, prix, réveil) |
-| `--brass` | `#C9A227` | **La maison.** CTA, mots accentués, filet de marque |
-| `--signal` | `#3FD98A` | **L'agent est vivant.** Uniquement : pastille en ligne, accusés de lecture, délais de réponse, activité |
-| `--text` / `--text-muted` | `#F2F0EA` / `#94A39B` | Texte sur nuit (sur `--dawn` : `#101A16` / `#5A6B62`) |
+| `night` | `#0F1714` | Scène de nuit — hero et vidéo **uniquement** |
+| `night-alt` | `#18231E` | Surfaces surélevées sur la nuit |
+| `paper` | `#F7F4EC` | Surface de tout le corps de la page |
+| `paper-alt` | `#EFEADE` | Cartes et encadrés sur papier |
+| `brass` | `#C9A227` | **La maison.** Sur papier : fond uniquement (bouton, soulignage) |
+| `brass-deep` | `#7A5F10` | Le laiton quand il doit être du texte sur papier |
+| `signal` / `signal-deep` | `#3FD98A` / `#1A7A4C` | **L'agent en action.** Jamais décoratif |
+| `ink` / `ink-muted` | `#F4F2EC` / `#AAB7AF` | Texte sur nuit |
+| `ink-paper` / `ink-paper-muted` | `#121815` / `#46534B` | Texte sur papier |
 
-**Règle d'encodage** — le laiton désigne toujours l'établissement, le vert désigne
-toujours l'agent en action. Jamais de vert décoratif : s'il est vert, c'est que ça
-vit. Cette règle rend la couleur porteuse d'information.
-Le vert n'est **pas** le `#25D366` de WhatsApp : plus clair et légèrement désaturé,
-pour évoquer sans copier.
+**Règles d'encodage**
+- Le laiton désigne l'établissement, le vert désigne l'agent en action. Jamais
+  de vert décoratif : s'il est vert, c'est que ça vit.
+- **Sur papier, le laiton n'est jamais une couleur de texte** — il tomberait
+  sous le seuil de contraste. L'emphase se fait avec `.mark-brass` : le mot
+  reste en encre pleine, souligné de laiton. On gagne l'emphase sans perdre un
+  point de lisibilité.
+- Le vert n'est pas le `#25D366` de WhatsApp : évoquer sans copier.
 
-### Type — trois fontes, choisies
+### Type
 
-- **Display — Fraunces** (variable, axes `SOFT`/`WONK`). Serif chaleureuse à axe
-  optique : douce en petit corps (Caregiver), affirmée en grand corps (Magician).
-  Ni Cormorant (fonte maison, déjà prise), ni Playfair (partout).
-- **Body — Inter Tight.** Grotesque de labeur, légèrement condensée, très lisible
-  en petit corps.
-- **Utility — JetBrains Mono.** Horodatages, horloge, prix, compteurs d'usage.
-  C'est le mono sur les timestamps qui fait *exister* la conversation.
+- **Display — Fraunces** (axes `SOFT`/`WONK`). Douce en petit corps, affirmée en
+  grand. Ni Cormorant (fonte maison), ni Playfair (partout).
+- **Body — Inter Tight.** Grotesque de labeur, très lisible.
+- **Utility — JetBrains Mono.** Horodatages, prix, compteurs.
 
-Échelle (tierce majeure, 1.25) : `12 / 14 / 16 / 20 / 25 / 31 / 39 / 49 / 61 / 76px`
+Échelle : `13 / 17 / 19 / 22 / 26 / 32 / 40 / 50 / 62 px`.
+`17 px` est le corps de texte et le plancher absolu.
 
-### Espacement
-Base 8px : `8 / 16 / 24 / 32 / 48 / 64 / 96 / 128 / 192`
+### Espacement · rayons · ombres · motion
 
-### Rayons — philosophie unique « conversationnelle »
-`--r-bubble: 18px` · `--r-card: 14px` · `--r-sm: 8px` · `--r-pill: 999px`
-Pas de coins vifs : tout le vocabulaire de la page vient de la bulle de message.
-
-### Ombres
-Sur nuit : **aucune ombre**, uniquement des bordures `1px` à faible opacité + une
-seule lueur radiale chaude derrière le hero (la lampe de réception).
-Sur `--dawn` : ombre ambiante douce, réservée aux surfaces réellement surélevées.
-
-### Motion
-`120ms` micro-feedback · `240ms` transitions · `500ms` révélations de section.
-Easing standard `cubic-bezier(0.16, 1, 0.3, 1)`.
-Ressort dédié à l'arrivée d'un message : `stiffness 260, damping 22` — une bulle
-doit *atterrir*, pas glisser.
-`prefers-reduced-motion` : la conversation s'affiche complète et statique, l'horloge
-se fige sur l'heure finale. Aucun contenu n'est réservé à l'animation.
+- Base 8 px : `8 / 16 / 24 / 32 / 48 / 64 / 96 / 128`.
+- Rayons, philosophie unique « conversationnelle » : bulle 18, carte 14,
+  petit 8, pilule 999. Aucun coin vif.
+- Sur nuit : aucune ombre, bordures seules + une lueur radiale (la lampe).
+  Sur papier : ombre ambiante douce, réservée aux surfaces réellement surélevées.
+- `120 ms` micro · `240 ms` transitions · `500 ms` révélations.
+  Easing `cubic-bezier(0.16, 1, 0.3, 1)`.
+  Ressort d'arrivée d'un message : `stiffness 260, damping 22` — une bulle doit
+  *atterrir*, pas glisser.
+- `prefers-reduced-motion` : la conversation s'affiche complète et statique.
+  Aucun contenu n'est réservé à l'animation.
 
 ---
 
-## 4. Signature
+## 5. Signature
 
-**La conversation vivante et l'heure qui avance.**
+**La conversation vivante du hero.** Un échange réel se joue : le client écrit à
+23h47, l'indicateur « en train d'écrire… » apparaît, Luma répond, les doubles
+coches passent au vert, et l'échange produit une fiche.
 
-Dans le hero, un vrai échange WhatsApp se joue : le client écrit à 23h47, l'indicateur
-« en train d'écrire… » apparaît, l'agent répond en 4 secondes, les doubles coches
-passent au vert. En haut de page, une horloge en mono affiche l'heure de la scène.
+Toute l'audace est dépensée là. Le reste de la page reste sobre : filets,
+beaucoup de vide, un seul geste d'emphase (le soulignage laiton).
 
-Au scroll, cette horloge avance — 23h47 → 02h13 → 06h04 → 07h12 — et la page se
-réchauffe du vert-noir vers le jour. Le dernier écran est le réveil du gérant.
-
-Toute l'audace est dépensée là. Le reste de la page reste sobre : filets, mono,
-beaucoup de vide.
+**Ce qui a été retiré.** Une première version faisait avancer une horloge dans
+l'en-tête et horodatait chaque section (« 06:40 — Le modèle »). C'était un
+ornement : ces heures n'informaient de rien, et l'audience visée ne les
+remarquerait même pas. Les heures ne subsistent que là où elles sont vraies —
+dans la conversation, sur les demandes reçues, dans le bilan de la nuit. L'en-tête
+porte désormais une vraie navigation.
 
 ---
 
-## 5. Structure
+## 6. Structure
 
-| # | Section | Heure | Surface |
+| # | Section | Surface | Objection levée |
 |---|---|---|---|
-| 1 | Hero — la conversation en direct | 23h47 | nuit |
-| 2 | La VSL — démonstration filmée | 23h49 | nuit |
-| 3 | Le coût du silence — le problème chiffré | 23h51 | nuit |
-| 4 | Comment ça marche — 3 moments d'une vraie séquence | 02h13 | nuit |
-| 5 | Ce que l'agent sait traiter — vrais messages métier | 04h30 | nuit → transition |
-| 6 | Le CRM — la demande devient une fiche | 06h04 | aube |
-| 7 | Le modèle : 0 € d'installation | 06h40 | jour |
-| 8 | Objections / FAQ | 06h55 | jour |
-| 9 | Le réveil + CTA final | 07h12 | jour |
+| 1 | Hero — la conversation en direct | nuit | « C'est quoi, concrètement ? » |
+| 2 | La vidéo (VSL) | nuit | « Montrez-moi. » |
+| 3 | Ce que ça vous coûte — calculateur | papier | « Est-ce que ça me concerne ? » |
+| 4 | Comment ça marche — 3 étapes | papier | « C'est compliqué ? » |
+| 5 | Les demandes qu'il traite | papier | « Ça saurait répondre à ça, chez moi ? » |
+| 6 | Votre carnet de clients | papier | « Et après ? » |
+| 7 | Le prix | papier | « Combien, et quel risque ? » |
+| 8 | Les questions qu'on nous pose | papier | Les six dernières objections |
+| 9 | L'essai gratuit — formulaire | papier | L'action |
 
-La VSL est placée juste après le hero : la conversation du hero se termine à
-23h49, la démonstration prend le relais à la seconde près. C'est aussi la
-position la plus efficace pour une VSL — le visiteur à forte intention peut la
-lancer sans avoir à parcourir la page.
-
-La numérotation par heures est justifiée : c'est une séquence réelle, l'ordre porte
-de l'information (une nuit de travail de l'agent). Ce n'est pas un `01 / 02 / 03`
-décoratif.
+Trois points de conversion : le hero, la sortie du calculateur (le visiteur
+vient de chiffrer sa perte, c'est le moment), et la section prix. Tous mènent au
+même formulaire, sous le même libellé.
 
 ---
 
-## 6. À substituer avant mise en ligne
+## 7. À substituer avant mise en ligne
 
-Les éléments ci-dessous sont des **placeholders réalistes**, pas des faits vérifiés.
-Ils sont marqués dans le code par `data-placeholder` et listés dans `CONTENT.md`.
-
-- Chiffres de performance (taux de conversion, temps de réponse moyen constaté).
-- Témoignages et noms d'établissements.
-- Tarif exact à la conversation.
-- Statistiques sectorielles du bloc « coût du silence » (à sourcer).
+Voir `CONTENT.md` : tarif à la conversation, endpoint du formulaire, contenu de
+la vidéo, promesses opposables, preuve sociale (absente volontairement, aucun
+témoignage n'a été inventé).

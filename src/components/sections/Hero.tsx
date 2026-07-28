@@ -6,8 +6,11 @@ import { heroConversation } from "@/lib/conversations";
 import { CtaPrimary, CtaSecondary } from "@/components/ui";
 import { staggerContainer, staggerItem } from "@/lib/motion";
 
+/**
+ * Registre d'écriture de toute la page : phrases courtes, mots du quotidien,
+ * aucun terme technique. Le lecteur type gère un hôtel, pas un logiciel.
+ */
 export function Hero() {
-  /* Séquence d'ouverture : structure, puis titre, puis la conversation. */
   const prefersReduced = useReducedMotion();
   const motionProps = prefersReduced
     ? {}
@@ -21,9 +24,8 @@ export function Hero() {
   return (
     <section
       id="top"
-      data-scene-time="23:47"
-      data-scene-surface="night"
-      className="lamp-glow relative"
+      data-surface="night"
+      className="lamp-glow relative bg-night text-ink"
     >
       <motion.div
         {...motionProps}
@@ -31,60 +33,54 @@ export function Hero() {
       >
         <div>
           <motion.p {...childProps} className="kicker text-ink-muted">
-            Agent WhatsApp &amp; CRM · hôtellerie et lieux de réception
+            Hôtels · chambres d&apos;hôtes · gîtes · salles de réception
           </motion.p>
 
           <motion.h1
             {...childProps}
-            className="display-loud mt-6 max-w-[13ch] text-[2.15rem] sm:text-3xl lg:text-4xl"
+            className="display-loud mt-6 max-w-[16ch] text-[2rem] sm:text-2xl lg:text-3xl"
           >
-            Il est{" "}
-            <span className="font-mono text-[0.78em] font-medium tracking-tighter tabular-nums text-brass">
-              23:47
-            </span>
-            . Votre client cherche une chambre.{" "}
-            <span className="display-soft block italic text-ink-muted">
-              Vous dormez.
+            Il est 23h47. Un client demande une chambre. Vous dormez.
+            <span className="display-soft mt-4 block text-[0.86em] text-brass">
+              Luma répond à votre place.
             </span>
           </motion.h1>
 
           <motion.p
             {...childProps}
-            className="mt-7 max-w-xl text-sm leading-relaxed text-ink-muted"
+            className="prose-read mt-8 text-sm text-ink-muted"
           >
-            Luma répond à sa place, dans le ton de votre maison, en quelques
-            secondes — puis transforme la demande en fiche client dans un CRM fait
-            pour votre métier. Il travaille les nuits, les dimanches et les coups de
-            feu du service.
+            Luma répond à vos clients sur WhatsApp, jour et nuit, avec vos vrais
+            tarifs et vos vraies disponibilités. Vous ne perdez plus de
+            réservation parce qu&apos;il n&apos;y avait personne pour répondre.
           </motion.p>
 
           <motion.div {...childProps} className="mt-9 flex flex-wrap items-center gap-3">
-            <CtaPrimary href="#demander-une-demo">
-              Tester l&apos;agent sur mon établissement
+            <CtaPrimary href="#essai-gratuit" onNight>
+              Essayer gratuitement
             </CtaPrimary>
-            <CtaSecondary href="#ce-quil-traite">
-              Voir ce qu&apos;il répond
+            <CtaSecondary href="#comment-ca-marche" onNight>
+              Voir comment ça marche
             </CtaSecondary>
           </motion.div>
 
-          {/* La levée de risque, dès le premier écran. Formulée à la négative :
-              ce que le visiteur ne paiera pas. */}
+          {/* La levée de risque, dès le premier écran, en mots simples. */}
           <motion.ul
             {...childProps}
-            className="mt-9 grid grid-cols-2 gap-x-4 gap-y-2 border-t border-night-line pt-5 font-mono text-2xs text-ink-muted sm:flex sm:flex-wrap sm:gap-x-6 sm:[&>li+li]:before:mr-6 sm:[&>li+li]:before:text-night-line sm:[&>li+li]:before:content-['·']"
+            className="mt-9 grid grid-cols-2 gap-x-5 gap-y-2.5 border-t border-night-line pt-6 text-2xs text-ink-muted sm:flex sm:flex-wrap sm:gap-x-7"
           >
-            <li>0 € de mise en place</li>
-            <li>0 € d&apos;abonnement</li>
-            <li>0 engagement</li>
-            <li className="text-signal">vous ne payez que l&apos;usage</li>
+            <li>Installation gratuite</li>
+            <li>0 € par mois</li>
+            <li>Sans engagement</li>
+            <li className="text-signal">Vous payez seulement à l&apos;usage</li>
           </motion.ul>
         </div>
 
-        {/* La preuve, pas l'illustration : une vraie conversation, lisible en entier. */}
+        {/* La preuve, pas l'illustration : un échange complet, lisible en entier. */}
         <motion.div {...childProps} className="lg:pl-4">
           <Conversation data={heroConversation} />
-          <p className="mt-3 text-center font-mono text-2xs text-ink-muted/70">
-            Conversation réelle, rejouée à l&apos;identique.
+          <p className="mt-3 text-center text-2xs text-ink-muted">
+            Exemple d&apos;échange, rejoué en direct.
           </p>
         </motion.div>
       </motion.div>

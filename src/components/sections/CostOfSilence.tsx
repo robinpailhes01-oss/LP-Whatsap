@@ -1,12 +1,13 @@
 "use client";
 
 import { useId, useState } from "react";
-import { SectionLabel } from "@/components/ui";
+import { CtaPrimary, SectionLabel } from "@/components/ui";
 
 /**
  * Plutôt que des statistiques sectorielles invérifiables, le visiteur calcule
- * avec ses propres chiffres. L'hypothèse de perte est affichée et réglable :
- * l'audience est méfiante, on montre le calcul au lieu de l'asséner.
+ * avec ses propres chiffres. Les trois curseurs sont formulés en langage de
+ * comptoir : des messages, des euros, et « combien partent, sur 10 » — pas des
+ * taux de conversion.
  */
 
 const euro = new Intl.NumberFormat("fr-FR", {
@@ -17,16 +18,16 @@ const euro = new Intl.NumberFormat("fr-FR", {
 
 function Slider({
   label,
-  suffix,
   value,
+  display,
   min,
   max,
   step,
   onChange,
 }: {
   label: string;
-  suffix: string;
   value: number;
+  display: string;
   min: number;
   max: number;
   step: number;
@@ -36,12 +37,13 @@ function Slider({
   return (
     <div>
       <label htmlFor={id} className="flex items-baseline justify-between gap-4">
-        <span className="text-xs text-ink-muted">{label}</span>
-        <span className="font-mono text-sm tabular-nums text-ink">
-          {value}
-          <span className="ml-1 text-2xs text-ink-muted">{suffix}</span>
+        <span className="text-xs text-ink-paper-muted">{label}</span>
+        <span className="shrink-0 font-mono text-sm font-medium tabular-nums">
+          {display}
         </span>
       </label>
+      {/* Piste épaisse et zone tactile généreuse : le curseur se règle au
+          pouce, sur un téléphone, sans viser. */}
       <input
         id={id}
         type="range"
@@ -50,95 +52,111 @@ function Slider({
         step={step}
         value={value}
         onChange={(event) => onChange(Number(event.target.value))}
-        className="mt-3 h-1 w-full cursor-pointer appearance-none rounded-pill bg-night-line accent-brass"
+        className="mt-4 h-2 w-full cursor-pointer appearance-none rounded-pill bg-paper-line accent-brass-deep"
       />
     </div>
   );
 }
 
 export function CostOfSilence() {
-  const [requests, setRequests] = useState(25);
+  const [messages, setMessages] = useState(25);
   const [basket, setBasket] = useState(180);
-  const [lossRate, setLossRate] = useState(25);
+  const [lostOfTen, setLostOfTen] = useState(3);
 
-  const lostPerMonth = Math.round(
-    requests * 4.33 * (lossRate / 100) * basket,
-  );
+  const lostPerMonth = Math.round(messages * 4.33 * (lostOfTen / 10) * basket);
 
   return (
     <section
-      id="le-cout-du-silence"
-      data-scene-time="23:51"
-      data-scene-surface="night"
-      className="border-t border-night-line"
+      id="ce-que-ca-coute"
+      data-surface="paper"
+      className="bg-paper text-ink-paper"
     >
       <div className="mx-auto max-w-6xl px-5 py-20 sm:px-8 lg:py-28">
-        <SectionLabel time="23:51">Le coût du silence</SectionLabel>
+        <SectionLabel>Ce que ça vous coûte</SectionLabel>
 
-        <div className="mt-10 grid gap-14 lg:grid-cols-[1fr_1fr] lg:gap-20">
+        <div className="mt-8 grid gap-14 lg:grid-cols-[1fr_1fr] lg:gap-20">
           <div>
-            <h2 className="display-loud max-w-[16ch] text-xl sm:text-2xl lg:text-3xl">
-              Une demande sans réponse ne vous attend pas.{" "}
-              <span className="text-brass">Elle réserve ailleurs.</span>
+            <h2 className="display-loud max-w-[17ch] text-xl sm:text-2xl lg:text-3xl">
+              Un message sans réponse, c&apos;est une{" "}
+              <span className="mark-brass">réservation chez le voisin</span>.
             </h2>
-            <p className="mt-6 max-w-md text-xs leading-relaxed text-ink-muted">
-              Le client qui écrit à 23h47 n&apos;écrit pas qu&apos;à vous. Il
-              envoie le même message à trois établissements et retient celui qui
-              répond le premier. Le lendemain matin, votre réponse est déjà en
-              retard de neuf heures.
+
+            <p className="prose-read mt-7 text-xs text-ink-paper-muted">
+              Quand quelqu&apos;un cherche une chambre, il écrit à trois
+              établissements en même temps. Il réserve chez celui qui répond le
+              premier. Si vous répondez le lendemain matin, c&apos;est déjà pris
+              ailleurs.
             </p>
-            <p className="mt-4 max-w-md text-xs leading-relaxed text-ink-muted">
-              Ce n&apos;est pas un problème de service. C&apos;est un problème
-              d&apos;horaires : personne ne peut tenir un comptoir 24h/24.
+
+            <p className="prose-read mt-5 text-xs text-ink-paper-muted">
+              Ce n&apos;est pas un problème de sérieux. C&apos;est un problème
+              d&apos;heures : personne ne peut rester derrière un téléphone
+              24 heures sur 24.
             </p>
+
+            {/* Le visiteur vient de chiffrer sa perte : c'est le moment de
+                l'action, pas trois sections plus bas. */}
+            <div className="mt-10 border-t border-paper-line pt-8">
+              <p className="text-sm font-medium">
+                C&apos;est exactement ce que Luma récupère.
+              </p>
+              <CtaPrimary href="#essai-gratuit" className="mt-5">
+                Essayer gratuitement
+              </CtaPrimary>
+              <p className="mt-4 text-2xs text-ink-paper-muted">
+                Installation gratuite · sans engagement · sans carte bancaire
+              </p>
+            </div>
           </div>
 
           {/* Le calcul se fait avec les chiffres du visiteur, pas les nôtres. */}
-          <div className="rounded-card border border-night-line bg-night-alt p-6 sm:p-8">
-            <p className="kicker text-ink-muted">Faites le calcul</p>
+          <div className="rounded-card border border-paper-line bg-paper-alt/70 p-6 sm:p-8">
+            <p className="kicker text-ink-paper-muted">
+              Faites le calcul avec vos chiffres
+            </p>
 
-            <div className="mt-7 space-y-6">
+            <div className="mt-8 space-y-7">
               <Slider
-                label="Demandes reçues hors présence au comptoir"
-                suffix="/ semaine"
-                value={requests}
+                label="Messages reçus quand personne n'est là pour répondre"
+                value={messages}
+                display={`${messages} / semaine`}
                 min={5}
                 max={150}
                 step={5}
-                onChange={setRequests}
+                onChange={setMessages}
               />
               <Slider
-                label="Panier moyen d'une réservation"
-                suffix="€"
+                label="Prix moyen d'une réservation chez vous"
                 value={basket}
+                display={`${basket} €`}
                 min={50}
                 max={2000}
                 step={10}
                 onChange={setBasket}
               />
               <Slider
-                label="Part qui part ailleurs faute de réponse rapide"
-                suffix="%"
-                value={lossRate}
-                min={5}
-                max={60}
-                step={5}
-                onChange={setLossRate}
+                label="Sur 10 clients qui n'ont pas de réponse rapide, combien réservent ailleurs ?"
+                value={lostOfTen}
+                display={`${lostOfTen} sur 10`}
+                min={1}
+                max={8}
+                step={1}
+                onChange={setLostOfTen}
               />
             </div>
 
-            <div className="mt-8 border-t border-night-line pt-6">
-              <p className="text-2xs text-ink-muted">
-                Chiffre d&apos;affaires qui sort par la porte de derrière
+            <div className="mt-9 border-t border-paper-line pt-7">
+              <p className="text-xs text-ink-paper-muted">
+                Ce que vous laissez partir, chaque mois
               </p>
-              <p className="mt-2 font-mono text-2xl tabular-nums text-brass">
-                {euro.format(lostPerMonth)}
-                <span className="ml-2 font-sans text-sm text-ink-muted">
-                  / mois
+              <p className="mt-3">
+                <span className="mark-brass font-mono text-2xl font-medium tabular-nums">
+                  {euro.format(lostPerMonth)}
                 </span>
               </p>
-              <p className="mt-4 text-2xs leading-relaxed text-ink-muted">
-                Calcul : demandes × 4,33 semaines × part perdue × panier moyen.
+              <p className="mt-5 text-2xs leading-relaxed text-ink-paper-muted">
+                Le calcul : vos messages par semaine, multipliés par 4,33
+                semaines, par la part qui part ailleurs, par votre prix moyen.
                 Les trois curseurs sont à vous — c&apos;est votre estimation, pas
                 la nôtre.
               </p>

@@ -5,13 +5,13 @@ import { SectionLabel } from "@/components/ui";
 import { embedUrl, vsl } from "@/lib/vsl";
 
 /**
- * La VSL, juste après le hero : la conversation du hero se termine à 23h49, la
- * démonstration prend le relais à la seconde près.
+ * Dernière section sur fond sombre : on y regarde une vidéo, on n'y lit pas.
+ * Tout ce qui suit passe sur papier clair.
  *
- * Le lecteur n'est chargé qu'au clic (façade poster + bouton). Une iframe
- * YouTube coûte plusieurs centaines de kilo-octets et pose des cookies tiers —
- * les faire porter à tous les visiteurs, y compris ceux qui ne regarderont
- * jamais la vidéo, contredirait ce que la page promet sur les données.
+ * Le lecteur n'est chargé qu'au clic. Une iframe YouTube pèse plusieurs
+ * centaines de kilo-octets et pose des cookies tiers — les faire porter à tous
+ * les visiteurs, y compris ceux qui ne regarderont jamais la vidéo,
+ * contredirait ce que la page promet plus bas sur les données.
  */
 export function Vsl() {
   const [startAt, setStartAt] = useState<number | null>(null);
@@ -20,28 +20,25 @@ export function Vsl() {
 
   return (
     <section
-      id="la-demonstration"
-      data-scene-time="23:49"
-      data-scene-surface="night"
-      className="border-t border-night-line"
+      id="la-video"
+      data-surface="night"
+      className="border-t border-night-line bg-night text-ink"
     >
-      <div className="mx-auto max-w-6xl px-5 py-20 sm:px-8 lg:py-28">
-        <SectionLabel time="23:49">La démonstration</SectionLabel>
+      <div className="mx-auto max-w-6xl px-5 py-16 sm:px-8 lg:py-24">
+        <SectionLabel onNight>En vidéo</SectionLabel>
 
-        <div className="mt-10 flex flex-col gap-6 lg:flex-row lg:items-end lg:justify-between">
-          <h2 className="display-loud max-w-[18ch] text-xl sm:text-2xl lg:text-3xl">
-            Quatre minutes, une vraie boîte de réception,{" "}
-            <span className="text-brass">aucune diapositive.</span>
+        <div className="mt-8 flex flex-col gap-6 lg:flex-row lg:items-end lg:justify-between">
+          <h2 className="display-loud max-w-[16ch] text-xl sm:text-2xl lg:text-3xl">
+            Regardez Luma travailler. Quatre minutes, sans jargon.
           </h2>
-          <p className="max-w-sm text-xs leading-relaxed text-ink-muted">
-            On branche l&apos;agent sur un établissement, on lui écrit comme un
-            client le ferait, et on ouvre le CRM derrière pour voir ce qui s&apos;y
-            est écrit tout seul.
+          <p className="prose-read text-xs text-ink-muted">
+            On installe Luma sur un vrai hôtel, on lui écrit comme un client le
+            ferait, et on regarde ce qui se passe. Rien n&apos;est coupé au
+            montage.
           </p>
         </div>
 
         <div className="mt-12 grid gap-10 lg:grid-cols-[1.6fr_1fr] lg:gap-14">
-          {/* Le lecteur. */}
           <div className="overflow-hidden rounded-card border border-night-line bg-night-alt">
             <div className="relative aspect-video">
               {playing && configured ? (
@@ -74,14 +71,11 @@ export function Vsl() {
                   />
                 )
               ) : (
-                <PlayFacade
-                  configured={configured}
-                  onPlay={() => setStartAt(0)}
-                />
+                <PlayFacade configured={configured} onPlay={() => setStartAt(0)} />
               )}
             </div>
 
-            <p className="flex flex-col gap-1 border-t border-night-line px-4 py-3 font-mono text-2xs text-ink-muted sm:flex-row sm:items-center sm:gap-3 sm:px-5">
+            <p className="flex flex-col gap-1 border-t border-night-line px-4 py-3 text-2xs text-ink-muted sm:flex-row sm:items-center sm:gap-3 sm:px-5">
               <span>
                 <span className="mr-2 text-signal">▸</span>
                 {vsl.duration}
@@ -89,14 +83,12 @@ export function Vsl() {
               <span aria-hidden="true" className="hidden text-night-line sm:inline">
                 ·
               </span>
-              <span>Sans engagement, sans formulaire pour la regarder</span>
+              <span>Pas de formulaire à remplir pour la regarder</span>
             </p>
           </div>
 
-          {/* Le sommaire. Les horodatages parlent la même langue que le reste de
-              la page, et chaque entrée lance la vidéo au bon endroit. */}
           <div>
-            <p className="kicker text-ink-muted">Ce que vous verrez</p>
+            <p className="kicker text-ink-muted">Ce que vous allez voir</p>
             <ol className="mt-5 border-t border-night-line">
               {vsl.chapters.map((chapter) => (
                 <li key={chapter.at} className="border-b border-night-line">
@@ -104,7 +96,7 @@ export function Vsl() {
                     type="button"
                     disabled={!configured}
                     onClick={() => setStartAt(chapter.at)}
-                    className="group flex w-full items-baseline gap-4 py-4 text-left transition-colors duration-[120ms] enabled:hover:text-brass disabled:cursor-default"
+                    className="group flex w-full items-baseline gap-4 py-4 text-left disabled:cursor-default"
                   >
                     <span className="font-mono text-2xs tabular-nums text-brass">
                       {chapter.label}
@@ -118,8 +110,8 @@ export function Vsl() {
             </ol>
             <p className="mt-5 text-2xs leading-relaxed text-ink-muted">
               {configured
-                ? "Cliquez un chapitre pour démarrer la vidéo à cet endroit."
-                : "Les chapitres deviendront cliquables une fois la vidéo en ligne."}
+                ? "Cliquez une ligne pour démarrer la vidéo à cet endroit."
+                : "Ces repères seront cliquables une fois la vidéo en ligne."}
             </p>
           </div>
         </div>
@@ -145,7 +137,7 @@ function PlayFacade({
         >
           <PlayGlyph className="h-5 w-5 translate-x-[1px] fill-ink-muted" />
         </span>
-        <p className="kicker text-ink-muted">Emplacement de la VSL</p>
+        <p className="kicker text-ink-muted">Emplacement de la vidéo</p>
         <p className="max-w-sm font-mono text-2xs leading-relaxed text-ink-muted/70">
           Renseigner <code>provider</code> et <code>source</code> dans{" "}
           <code>src/lib/vsl.ts</code>.
@@ -172,8 +164,8 @@ function PlayFacade({
         onClick={onPlay}
         className="group absolute inset-0 grid place-items-center bg-night/45 transition-colors duration-[240ms] hover:bg-night/25"
       >
-        <span className="grid h-16 w-16 place-items-center rounded-full bg-brass transition-transform duration-[120ms] ease-confident group-hover:scale-105 group-active:scale-95">
-          <PlayGlyph className="h-6 w-6 translate-x-[2px] fill-night" />
+        <span className="grid h-20 w-20 place-items-center rounded-full bg-brass transition-transform duration-[120ms] ease-confident group-hover:scale-105 group-active:scale-95">
+          <PlayGlyph className="h-7 w-7 translate-x-[2px] fill-night" />
         </span>
         <span className="sr-only">
           Lire la vidéo : {vsl.title} ({vsl.duration})

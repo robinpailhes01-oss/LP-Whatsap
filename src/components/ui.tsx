@@ -2,21 +2,23 @@ import type { ComponentPropsWithoutRef, ReactNode } from "react";
 
 /**
  * L'action principale prend toujours le contraste maximal disponible sur sa
- * surface : laiton sur la nuit, encre sur le jour. Une seule règle, pas deux
- * traitements concurrents sur la même page.
+ * surface : laiton sur la nuit, encre sur le papier. Une seule règle.
+ *
+ * Les boutons sont volontairement grands (padding généreux, texte à 19px) :
+ * la page se lit majoritairement au téléphone, souvent d'une main.
  */
 export function CtaPrimary({
   children,
   className = "",
-  onDawn = false,
+  onNight = false,
   ...props
-}: ComponentPropsWithoutRef<"a"> & { onDawn?: boolean }) {
-  const tone = onDawn
-    ? "bg-ink-dawn text-dawn hover:opacity-90"
-    : "bg-brass text-night hover:bg-[#dcb332]";
+}: ComponentPropsWithoutRef<"a"> & { onNight?: boolean }) {
+  const tone = onNight
+    ? "bg-brass text-night hover:bg-[#dcb332]"
+    : "bg-ink-paper text-paper hover:bg-[#243029]";
   return (
     <a
-      className={`inline-flex items-center justify-center gap-2 rounded-pill px-6 py-3.5 text-xs font-semibold transition-[transform,background-color,opacity] duration-[120ms] ease-confident active:scale-[0.98] ${tone} ${className}`}
+      className={`inline-flex items-center justify-center gap-2 rounded-pill px-7 py-4 text-sm font-semibold transition-[transform,background-color] duration-[120ms] ease-confident active:scale-[0.98] ${tone} ${className}`}
       {...props}
     >
       {children}
@@ -27,15 +29,15 @@ export function CtaPrimary({
 export function CtaSecondary({
   children,
   className = "",
-  onDawn = false,
+  onNight = false,
   ...props
-}: ComponentPropsWithoutRef<"a"> & { onDawn?: boolean }) {
-  const tone = onDawn
-    ? "border-dawn-line text-ink-dawn hover:border-ink-dawn/40"
-    : "border-night-line text-ink hover:border-ink-muted";
+}: ComponentPropsWithoutRef<"a"> & { onNight?: boolean }) {
+  const tone = onNight
+    ? "border-night-line text-ink hover:border-ink-muted"
+    : "border-paper-line text-ink-paper hover:border-ink-paper/50";
   return (
     <a
-      className={`inline-flex items-center justify-center gap-2 rounded-pill border px-6 py-3.5 text-xs font-medium transition-colors duration-[120ms] ease-confident ${tone} ${className}`}
+      className={`inline-flex items-center justify-center gap-2 rounded-pill border-2 px-7 py-4 text-sm font-medium transition-colors duration-[120ms] ease-confident ${tone} ${className}`}
       {...props}
     >
       {children}
@@ -44,26 +46,24 @@ export function CtaSecondary({
 }
 
 /**
- * Kicker de section. `time` n'est pas décoratif : c'est l'heure de la scène dans
- * la nuit que raconte la page, et l'ordre porte de l'information.
+ * Libellé de section. Un simple repère de lecture — pas d'horodatage
+ * décoratif : les heures ne figurent sur la page que là où elles sont vraies
+ * (la conversation, les demandes reçues, le bilan de la nuit).
  */
 export function SectionLabel({
-  time,
   children,
-  onDawn = false,
+  onNight = false,
 }: {
-  time: string;
   children: ReactNode;
-  onDawn?: boolean;
+  onNight?: boolean;
 }) {
   return (
     <p className="flex items-center gap-3">
-      <span className="kicker text-brass">{time}</span>
       <span
-        className={`h-px w-6 ${onDawn ? "bg-dawn-line" : "bg-night-line"}`}
+        className={`h-2 w-2 shrink-0 rounded-full ${onNight ? "bg-brass" : "bg-brass"}`}
         aria-hidden="true"
       />
-      <span className={`kicker ${onDawn ? "text-ink-dawn-muted" : "text-ink-muted"}`}>
+      <span className={`kicker ${onNight ? "text-ink-muted" : "text-ink-paper-muted"}`}>
         {children}
       </span>
     </p>

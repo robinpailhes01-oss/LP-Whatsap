@@ -2,51 +2,67 @@
 
 /* ==========================================================================
    Luma — tokens. Voir DESIGN.md. Aucune valeur brute hors de ce fichier.
+
+   Lisibilité : la page s'adresse à des gérants de 40-55 ans qui lisent
+   beaucoup de texte, souvent sur mobile en extérieur. Deux règles en
+   découlent et priment sur l'esthétique :
+   1. Le texte de lecture est foncé sur fond clair. Le fond sombre est
+      réservé au hero et à la vidéo, où l'on ne lit presque rien.
+   2. Le corps de texte ne descend jamais sous 17px.
    ========================================================================== */
 
 @theme {
-  /* Couleur — rôles stricts.
-     laiton = la maison · vert = l'agent en action. Jamais de vert décoratif. */
+  /* --- Surfaces sombres : la scène de nuit, hero et vidéo uniquement --- */
   --color-night: #0f1714;
-  --color-night-alt: #17211d;
-  --color-night-line: #2a3a33;
-  --color-dawn: #f0ede4;
-  --color-dawn-alt: #e5e1d5;
-  --color-dawn-line: #d2ccbc;
+  --color-night-alt: #18231e;
+  --color-night-line: #2f4038;
+
+  /* --- Surfaces claires : tout le reste de la page --- */
+  --color-paper: #f7f4ec;
+  --color-paper-alt: #efeade;
+  --color-paper-line: #ddd6c6;
+
+  /* --- Accents ---
+     Laiton = la maison. Sur fond clair il sert de FOND (bouton, soulignage),
+     jamais de couleur de texte : en texte il tomberait sous le seuil de
+     contraste. `brass-deep` existe pour les rares cas où il faut du texte.
+     Vert = l'agent en action. Jamais décoratif. */
   --color-brass: #c9a227;
-  --color-brass-dim: #8a7020;
+  --color-brass-deep: #7a5f10;
   --color-signal: #3fd98a;
-  --color-signal-dim: #2a8f5c;
+  --color-signal-deep: #1a7a4c;
 
-  --color-ink: #f2f0ea;
-  --color-ink-muted: #94a39b;
-  --color-ink-dawn: #101a16;
-  --color-ink-dawn-muted: #5a6b62;
+  /* --- Texte ---
+     Sur nuit : ink / ink-muted. Sur papier : ink-paper / ink-paper-muted.
+     Tous vérifiés au-dessus de 7:1 sur leur fond, sauf mention. */
+  --color-ink: #f4f2ec;
+  --color-ink-muted: #aab7af;
+  --color-ink-paper: #121815;
+  --color-ink-paper-muted: #46534b;
 
-  /* Type */
+  /* --- Type ---
+     Échelle relevée d'un cran par rapport à un site grand public standard.
+     `xs` est la taille du corps de texte : 17px. */
   --font-display: var(--font-fraunces), Georgia, serif;
   --font-sans: var(--font-inter-tight), system-ui, sans-serif;
   --font-mono: var(--font-jetbrains), ui-monospace, monospace;
 
-  /* Échelle tierce majeure 1.25 */
-  --text-2xs: 0.75rem;
-  --text-xs: 0.875rem;
-  --text-sm: 1rem;
-  --text-base: 1.25rem;
-  --text-lg: 1.5625rem;
-  --text-xl: 1.9375rem;
-  --text-2xl: 2.4375rem;
-  --text-3xl: 3.0625rem;
-  --text-4xl: 3.8125rem;
-  --text-5xl: 4.75rem;
+  --text-2xs: 0.8125rem; /* 13px — méta, horodatages, mentions */
+  --text-xs: 1.0625rem; /* 17px — CORPS DE TEXTE, plancher de lisibilité */
+  --text-sm: 1.1875rem; /* 19px */
+  --text-base: 1.375rem; /* 22px */
+  --text-lg: 1.625rem; /* 26px */
+  --text-xl: 2rem; /* 32px */
+  --text-2xl: 2.5rem; /* 40px */
+  --text-3xl: 3.125rem; /* 50px */
+  --text-4xl: 3.875rem; /* 62px */
 
-  /* Rayons — vocabulaire de la bulle de message */
+  /* --- Rayons : vocabulaire de la bulle de message --- */
   --radius-bubble: 18px;
   --radius-card: 14px;
   --radius-sm: 8px;
   --radius-pill: 999px;
 
-  /* Motion */
   --ease-confident: cubic-bezier(0.16, 1, 0.3, 1);
 }
 
@@ -57,8 +73,8 @@
   }
 
   body {
-    background-color: var(--color-night);
-    color: var(--color-ink);
+    background-color: var(--color-paper);
+    color: var(--color-ink-paper);
     font-family: var(--font-sans);
     font-synthesis-weight: none;
     text-rendering: optimizeLegibility;
@@ -66,7 +82,7 @@
 
   /* Focus clavier visible partout — plancher qualité, jamais retiré. */
   :focus-visible {
-    outline: 2px solid var(--color-brass);
+    outline: 3px solid var(--color-brass-deep);
     outline-offset: 3px;
     border-radius: 2px;
   }
@@ -78,28 +94,20 @@
 }
 
 @layer utilities {
-  /* La lampe de la réception — unique source lumineuse de la partie nuit. */
+  /* La lampe de la réception — unique source lumineuse de la scène de nuit. */
   .lamp-glow {
     background-image: radial-gradient(
       ellipse 60% 50% at 70% 0%,
-      rgb(201 162 39 / 0.13),
+      rgb(201 162 39 / 0.15),
       transparent 70%
     );
   }
 
-  /* Filet de séparation, côté nuit puis côté jour. */
-  .rule-night {
-    border-color: var(--color-night-line);
-  }
-  .rule-dawn {
-    border-color: var(--color-dawn-line);
-  }
-
-  /* Kicker : petites capitales très espacées, en mono. */
+  /* Kicker : petites capitales espacées. */
   .kicker {
     font-family: var(--font-mono);
     font-size: var(--text-2xs);
-    letter-spacing: 0.18em;
+    letter-spacing: 0.16em;
     text-transform: uppercase;
   }
 
@@ -110,14 +118,33 @@
     font-variation-settings: "SOFT" 20, "WONK" 1, "opsz" 100;
     font-weight: 600;
     letter-spacing: -0.02em;
-    line-height: 1.04;
+    line-height: 1.08;
   }
   .display-soft {
     font-family: var(--font-display);
     font-variation-settings: "SOFT" 60, "WONK" 0, "opsz" 20;
     font-weight: 500;
     letter-spacing: -0.01em;
-    line-height: 1.2;
+    line-height: 1.25;
+  }
+
+  /* Mise en avant sur fond clair : le mot reste en encre pleine, souligné de
+     laiton. Un mot coloré en laiton passerait sous le seuil de contraste ;
+     le soulignage donne l'emphase sans coûter un point de lisibilité. */
+  .mark-brass {
+    background-image: linear-gradient(
+      to top,
+      var(--color-brass) 0.18em,
+      transparent 0.18em
+    );
+    background-repeat: no-repeat;
+    padding-bottom: 0.02em;
+  }
+
+  /* Corps de texte long : interligne généreux, mesure limitée. */
+  .prose-read {
+    line-height: 1.65;
+    max-width: 34rem;
   }
 }
 

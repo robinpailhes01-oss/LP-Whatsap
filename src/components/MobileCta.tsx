@@ -15,7 +15,7 @@ export function MobileCta() {
   const [visible, setVisible] = useState(false);
 
   useEffect(() => {
-    const target = document.getElementById("demander-une-demo");
+    const target = document.getElementById("essai-gratuit");
     let frame = 0;
 
     const read = () => {
@@ -51,13 +51,13 @@ export function MobileCta() {
           animate={{ y: 0 }}
           exit={prefersReduced ? { opacity: 0 } : { y: "110%" }}
           transition={{ duration: 0.35, ease: EASE }}
-          className="fixed inset-x-0 bottom-0 z-50 border-t border-night-line bg-night/95 px-4 pb-[max(0.75rem,env(safe-area-inset-bottom))] pt-3 backdrop-blur-md sm:hidden"
+          className="fixed inset-x-0 bottom-0 z-50 border-t border-paper-line bg-paper/95 px-4 pb-[max(0.75rem,env(safe-area-inset-bottom))] pt-3 backdrop-blur-md sm:hidden"
         >
           <a
-            href="#demander-une-demo"
-            className="flex w-full items-center justify-center rounded-pill bg-brass px-6 py-3.5 text-xs font-semibold text-night"
+            href="#essai-gratuit"
+            className="flex w-full items-center justify-center rounded-pill bg-ink-paper px-6 py-4 text-sm font-semibold text-paper"
           >
-            Tester l&apos;agent gratuitement
+            Essayer gratuitement
           </a>
         </motion.div>
       )}

@@ -9,6 +9,10 @@ import { EASE } from "@/lib/motion";
  * Pas une grille de cartes à icônes : les vraies demandes, écrites comme les
  * clients les écrivent. C'est ce que le visiteur vient vérifier — « est-ce que
  * ça saurait répondre à ça, chez moi ? »
+ *
+ * Les heures affichées sont réelles au sens où elles décrivent une nuit type,
+ * de la fin du service au petit matin. C'est le seul endroit, avec la
+ * conversation et le bilan, où la page affiche une heure.
  */
 export function Handled() {
   const prefersReduced = useReducedMotion();
@@ -16,25 +20,25 @@ export function Handled() {
   return (
     <section
       id="ce-quil-traite"
-      data-scene-time="04:30"
-      data-scene-surface="night"
-      className="border-t border-night-line"
+      data-surface="paper"
+      className="border-t border-paper-line bg-paper text-ink-paper"
     >
       <div className="mx-auto max-w-6xl px-5 py-20 sm:px-8 lg:py-28">
-        <SectionLabel time="04:30">Ce qui est arrivé cette nuit</SectionLabel>
+        <SectionLabel>Les demandes qu&apos;il traite</SectionLabel>
 
-        <div className="mt-10 flex flex-col gap-6 lg:flex-row lg:items-end lg:justify-between">
-          <h2 className="display-loud max-w-[17ch] text-xl sm:text-2xl lg:text-3xl">
-            Les demandes ne ressemblent jamais à un menu de chatbot.
+        <div className="mt-8 flex flex-col gap-6 lg:flex-row lg:items-end lg:justify-between">
+          <h2 className="display-loud max-w-[18ch] text-xl sm:text-2xl lg:text-3xl">
+            Vos clients écrivent n&apos;importe comment, à n&apos;importe quelle
+            heure.
           </h2>
-          <p className="max-w-sm text-xs leading-relaxed text-ink-muted">
-            Elles arrivent mal écrites, en anglais, à des heures impossibles, et
-            elles mélangent deux sujets. L&apos;agent est configuré sur votre
-            établissement : vos tarifs, vos règles, vos disponibilités.
+          <p className="prose-read text-xs text-ink-paper-muted">
+            Mal orthographié, en anglais, deux questions dans le même message, à
+            une heure du matin. Luma s&apos;en sort parce qu&apos;il connaît
+            votre établissement : vos prix, vos règles, vos disponibilités.
           </p>
         </div>
 
-        <ul className="mt-14 border-t border-night-line">
+        <ul className="mt-14 border-t border-paper-line">
           {handledRequests.map((request, index) => (
             <motion.li
               key={request.id}
@@ -42,18 +46,18 @@ export function Handled() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, margin: "-60px" }}
               transition={{ duration: 0.45, ease: EASE, delay: (index % 3) * 0.07 }}
-              className="grid gap-4 border-b border-night-line py-7 sm:grid-cols-[4.5rem_1fr_1fr] sm:gap-8"
+              className="grid gap-4 border-b border-paper-line py-8 sm:grid-cols-[4.5rem_1fr_1fr] sm:gap-8"
             >
-              <p className="font-mono text-2xs tabular-nums text-ink-muted">
+              <p className="font-mono text-2xs tabular-nums text-ink-paper-muted">
                 {request.time}
               </p>
 
-              <p className="rounded-bubble rounded-bl-sm bg-night-alt px-4 py-3 text-xs leading-relaxed text-ink/90">
+              <p className="rounded-bubble rounded-bl-sm bg-paper-alt px-4 py-3.5 text-xs leading-relaxed">
                 {request.ask}
               </p>
 
-              <p className="self-center text-xs leading-relaxed text-ink-muted">
-                <span className="mr-2 text-signal" aria-hidden="true">
+              <p className="self-center text-xs leading-relaxed text-ink-paper-muted">
+                <span className="mr-2 font-medium text-signal-deep" aria-hidden="true">
                   ↳
                 </span>
                 {request.does}
@@ -62,19 +66,13 @@ export function Handled() {
           ))}
         </ul>
 
-        <p className="mt-8 max-w-2xl text-2xs leading-relaxed text-ink-muted">
-          Quand une demande sort de son périmètre — une réclamation, une
-          négociation, un cas particulier — l&apos;agent ne bricole pas une
-          réponse. Il vous la transmet, avec le contexte, et prévient le client
-          qu&apos;un humain reprend la main.
+        <p className="prose-read mt-9 text-xs text-ink-paper-muted">
+          Et quand une demande sort de son domaine — une réclamation, une
+          négociation, un cas particulier — Luma ne bricole pas une réponse. Il
+          vous la transmet et prévient le client qu&apos;une personne de
+          l&apos;équipe va reprendre la main.
         </p>
       </div>
-
-      {/* Le jour se lève : transition de surface, pas un simple séparateur. */}
-      <div
-        className="h-32 bg-gradient-to-b from-night to-dawn sm:h-40"
-        aria-hidden="true"
-      />
     </section>
   );
 }
