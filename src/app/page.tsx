@@ -13,12 +13,17 @@ import { Founder } from "@/components/sections/Founder";
 import { Wake } from "@/components/sections/Wake";
 
 /**
- * Un seul objectif : la demande d'essai gratuit. Chaque section lève une
- * objection précise et ramène au même bouton.
+ * L'ordre suit la façon dont on découvre quelque chose, pas la façon dont on
+ * le vend : comprendre, puis voir, puis se décider.
  *
- * Le fond sombre est réservé aux deux premières sections — la scène de nuit et
- * la vidéo, où l'on regarde plus qu'on ne lit. Tout le corps de la page est en
- * texte foncé sur fond clair. Voir DESIGN.md § Lisibilité.
+ * 1. Hero — ce que c'est, en une phrase, avec une vraie conversation.
+ * 2. Comment ça marche — c'est quoi, c'est pour qui, en trois étapes.
+ * 3. La vidéo, le calcul, les demandes, le carnet — la preuve.
+ * 4. Le prix, les questions, qui je suis — la décision.
+ * 5. L'essai gratuit.
+ *
+ * Personne ne se laisse convaincre par quelque chose qu'il n'a pas compris :
+ * aucun argument n'arrive avant l'explication.
  */
 export default function Home() {
   return (
@@ -26,9 +31,9 @@ export default function Home() {
       <SiteHeader />
       <main>
         <Hero />
+        <HowItWorks />
         <Vsl />
         <CostOfSilence />
-        <HowItWorks />
         <Handled />
         <Crm />
         <Pricing />

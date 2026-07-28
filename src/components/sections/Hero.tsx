@@ -32,16 +32,16 @@ export function Hero() {
       >
         <div>
           <motion.p {...childProps} className="kicker text-ink-muted">
-            Pour toutes les activités qui reçoivent leurs demandes sur WhatsApp
+            Pour tous ceux qui reçoivent trop de demandes sur WhatsApp
           </motion.p>
 
           <motion.h1
             {...childProps}
             className="display-loud mt-5 max-w-[16ch] text-[1.9rem] sm:text-2xl lg:text-3xl"
           >
-            Il est 23h47. Un client vous écrit. Vous dormez.
+            Vos clients vous écrivent sur WhatsApp.
             <span className="display-soft mt-4 block text-[0.86em] text-brass">
-              Luma répond à votre place.
+              Luma leur répond à votre place.
             </span>
           </motion.h1>
 
@@ -49,9 +49,8 @@ export function Hero() {
             {...childProps}
             className="prose-read mt-6 text-sm text-ink-muted sm:mt-8"
           >
-            Luma répond à vos clients sur WhatsApp, jour et nuit. Avec vos
-            tarifs et vos disponibilités. Vous récupérez vos soirées, et les
-            demandes que vous perdiez.
+            Jour et nuit, avec vos tarifs et vos disponibilités. Même à 23h47,
+            quand vous dormez.
           </motion.p>
 
           <motion.div {...childProps} className="mt-7 flex flex-wrap items-center gap-3 sm:mt-9">

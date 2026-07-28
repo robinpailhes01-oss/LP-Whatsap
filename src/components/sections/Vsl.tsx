@@ -5,8 +5,8 @@ import { SectionLabel } from "@/components/ui";
 import { embedUrl, vsl } from "@/lib/vsl";
 
 /**
- * Dernière section sur fond sombre : on y regarde une vidéo, on n'y lit pas.
- * Tout ce qui suit passe sur papier clair.
+ * Sur papier, comme tout le corps de la page : le hero est désormais la seule
+ * section sombre. Le contraste vient du lecteur lui-même, qui est noir.
  *
  * Le lecteur n'est chargé qu'au clic. Une iframe YouTube pèse plusieurs
  * centaines de kilo-octets et pose des cookies tiers — les faire porter à tous
@@ -21,18 +21,18 @@ export function Vsl() {
   return (
     <section
       id="la-video"
-      data-surface="night"
-      className="border-t border-night-line bg-night text-ink"
+      data-surface="paper"
+      className="border-t border-paper-line bg-paper text-ink-paper"
     >
       <div className="mx-auto max-w-6xl px-5 py-16 sm:px-8 lg:py-24">
-        <SectionLabel onNight>En vidéo</SectionLabel>
+        <SectionLabel>En vidéo</SectionLabel>
 
         <h2 className="display-loud mt-8 max-w-[16ch] text-xl sm:text-2xl lg:text-3xl">
           Regardez Luma travailler. Quatre minutes, sans jargon.
         </h2>
 
         <div className="mt-12 grid gap-10 lg:grid-cols-[1.6fr_1fr] lg:gap-14">
-          <div className="overflow-hidden rounded-card border border-night-line bg-night-alt">
+          <div className="overflow-hidden rounded-card border border-paper-line bg-night">
             <div className="relative aspect-video">
               {playing && configured ? (
                 vsl.provider === "file" ? (
@@ -68,7 +68,7 @@ export function Vsl() {
               )}
             </div>
 
-            <p className="flex flex-col gap-1 border-t border-night-line px-4 py-3 text-2xs text-ink-muted sm:flex-row sm:items-center sm:gap-3 sm:px-5">
+            <p className="flex flex-col gap-1 border-t border-night-line/60 px-4 py-3 text-2xs text-ink-muted sm:flex-row sm:items-center sm:gap-3 sm:px-5">
               <span>
                 <span className="mr-2 text-signal">▸</span>
                 {vsl.duration}
@@ -81,27 +81,27 @@ export function Vsl() {
           </div>
 
           <div>
-            <p className="kicker text-ink-muted">Ce que vous allez voir</p>
-            <ol className="mt-5 border-t border-night-line">
+            <p className="kicker text-ink-paper-muted">Ce que vous allez voir</p>
+            <ol className="mt-5 border-t border-paper-line">
               {vsl.chapters.map((chapter) => (
-                <li key={chapter.at} className="border-b border-night-line">
+                <li key={chapter.at} className="border-b border-paper-line">
                   <button
                     type="button"
                     disabled={!configured}
                     onClick={() => setStartAt(chapter.at)}
                     className="group flex w-full items-baseline gap-4 py-4 text-left disabled:cursor-default"
                   >
-                    <span className="font-mono text-2xs tabular-nums text-brass">
+                    <span className="font-mono text-2xs tabular-nums text-brass-deep">
                       {chapter.label}
                     </span>
-                    <span className="text-xs leading-relaxed text-ink-muted transition-colors duration-[120ms] group-enabled:group-hover:text-ink">
+                    <span className="text-xs leading-relaxed text-ink-paper-muted transition-colors duration-[120ms] group-enabled:group-hover:text-ink-paper">
                       {chapter.title}
                     </span>
                   </button>
                 </li>
               ))}
             </ol>
-            <p className="mt-5 text-2xs leading-relaxed text-ink-muted">
+            <p className="mt-5 text-2xs leading-relaxed text-ink-paper-muted">
               {configured
                 ? "Cliquez une ligne pour démarrer la vidéo à cet endroit."
                 : "Ces repères seront cliquables une fois la vidéo en ligne."}

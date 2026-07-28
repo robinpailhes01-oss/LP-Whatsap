@@ -22,21 +22,6 @@ const record = {
   next: "Relance du devis prévue lundi matin",
 };
 
-const pillars = [
-  {
-    title: "Les mots de votre métier",
-    body: "Réservations, acomptes, options, couverts, annulations. Pas « prospects » ni « pipeline ».",
-  },
-  {
-    title: "Vous vous souvenez de tout",
-    body: "Il revient dans deux ans ? Vous savez ce qu'il avait demandé, et ce qu'il avait payé.",
-  },
-  {
-    title: "Les relances partent toutes seules",
-    body: "Acompte en attente, devis sans réponse, mot avant l'arrivée. Celles que personne n'a le temps de faire.",
-  },
-];
-
 export function Crm() {
   return (
     <section
@@ -52,21 +37,19 @@ export function Crm() {
           <span className="mark-brass">tout est déjà noté.</span>
         </h2>
 
-        <div className="mt-14 grid gap-14 lg:grid-cols-[0.95fr_1.05fr] lg:gap-20">
-          <dl className="divide-y divide-paper-line border-t border-paper-line">
-            {pillars.map((pillar) => (
-              <div key={pillar.title} className="py-8">
-                <dt className="display-soft text-base sm:text-lg">
-                  {pillar.title}
-                </dt>
-                <dd className="prose-read mt-3 text-xs text-ink-paper-muted">
-                  {pillar.body}
-                </dd>
-              </div>
-            ))}
-          </dl>
+        <div className="mt-12 grid gap-12 lg:grid-cols-[0.85fr_1.15fr] lg:gap-20">
+          <div>
+            <p className="prose-read text-sm text-ink-paper-muted">
+              Pendant que Luma discute, il remplit une fiche. Les relances
+              partent toutes seules : acompte en attente, devis sans réponse,
+              mot avant l&apos;arrivée.
+            </p>
+            <p className="mt-6 text-sm font-medium">
+              Vous n&apos;ouvrez plus une conversation. Vous ouvrez un dossier.
+            </p>
+          </div>
 
-          {/* La fiche produite par la conversation du hero — la boucle se ferme. */}
+          {/* La fiche explique mieux que trois paragraphes ne le feraient. */}
           <div className="rounded-card border border-paper-line bg-paper-alt/70 shadow-[0_1px_2px_rgb(18_24_21/0.05),0_14px_36px_-18px_rgb(18_24_21/0.2)]">
             <div className="flex items-center justify-between gap-4 border-b border-paper-line px-5 py-5 sm:px-6">
               <span className="flex items-center gap-3">

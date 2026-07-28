@@ -36,7 +36,7 @@ export function Handled() {
         </p>
 
         <ul className="mt-12 border-t border-paper-line">
-          {handledRequests.map((request, index) => (
+          {handledRequests.slice(0, 4).map((request, index) => (
             <motion.li
               key={request.id}
               initial={prefersReduced ? false : { opacity: 0, y: 16 }}
@@ -63,9 +63,11 @@ export function Handled() {
           ))}
         </ul>
 
-        <p className="prose-read mt-9 text-sm text-ink-paper-muted">
-          Une réclamation, une négociation, un cas particulier ? Luma ne bricole
-          pas : il vous passe la main.
+        <p className="mt-9 text-sm">
+          Une réclamation, un cas particulier ?{" "}
+          <span className="text-ink-paper-muted">
+            Luma ne bricole pas : il vous passe la main.
+          </span>
         </p>
       </div>
     </section>

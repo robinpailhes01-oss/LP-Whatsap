@@ -189,18 +189,26 @@ porte désormais une vraie navigation.
 
 ## 6. Structure
 
-| # | Section | Surface | Objection levée |
+**L'ordre suit la façon dont on découvre quelque chose, pas la façon dont on le
+vend : comprendre, puis voir, puis se décider.** Personne ne se laisse
+convaincre par quelque chose qu'il n'a pas compris — aucun argument n'arrive
+avant l'explication.
+
+| # | Section | Surface | Ce qu'elle règle |
 |---|---|---|---|
-| 1 | Hero — sélecteur d'activité + conversation en direct | nuit | « C'est quoi, et est-ce que c'est pour moi ? » |
-| 2 | La vidéo (VSL) | nuit | « Montrez-moi. » |
-| 3 | Ce que ça vous coûte — calculateur | papier | « Est-ce que ça me concerne ? » |
-| 4 | Comment ça marche — 3 étapes | papier | « C'est compliqué ? » |
+| 1 | Hero — la promesse en une phrase + conversation en direct | nuit | « C'est quoi ? » |
+| 2 | C'est quoi, exactement — définition, pour qui, 3 étapes | papier | « C'est pour moi ? C'est compliqué ? » |
+| 3 | La vidéo | papier | « Montrez-moi. » |
+| 4 | Ce que ça vous coûte — calculateur | papier | « Ça me concerne vraiment ? » |
 | 5 | Les demandes qu'il traite | papier | « Ça saurait répondre à ça, chez moi ? » |
 | 6 | Votre carnet de clients | papier | « Et après ? » |
 | 7 | Le prix | papier | « Combien, et quel risque ? » |
 | 8 | Les questions qu'on nous pose | papier | Les six dernières objections |
 | 9 | Qui est derrière Luma | papier | « À qui j'ai affaire ? » |
 | 10 | L'essai gratuit — formulaire | papier | L'action |
+
+Le hero est désormais la **seule** section sur fond sombre. Faire alterner
+sombre et clair au fil du scroll faisait clignoter l'en-tête sans rien apporter.
 
 Trois points de conversion : le hero, la sortie du calculateur (le visiteur
 vient de chiffrer sa perte, c'est le moment), et la section prix. Tous mènent au
@@ -214,6 +222,18 @@ poids.
 **Densité de texte.** Chaque section tient en un titre, un paragraphe court et
 un objet visuel (conversation, curseurs, liste, fiche, facture, photo). Quand
 une section demandait deux paragraphes, c'est qu'elle en disait trop.
+
+**Montrer plutôt que dire.** Partout où c'est possible, un objet remplace une
+explication : la liste d'activités répond à « est-ce pour moi ? » mieux qu'une
+phrase, la fiche du carnet remplace trois paragraphes sur le CRM, la facture
+remplace un discours sur le modèle économique, et la conversation remplace toute
+description du produit.
+
+**Aucune formule à décoder.** Le titre du hero disait « Il est 23h47. Un client
+vous écrit. Vous dormez. » — évocateur, mais il demandait au lecteur de déduire
+ce qu'est le produit. Il dit maintenant ce que c'est : « Vos clients vous
+écrivent sur WhatsApp. Luma leur répond à votre place. » Le détail de 23h47
+reste, en sous-titre, où il illustre au lieu de faire deviner.
 
 ---
 
