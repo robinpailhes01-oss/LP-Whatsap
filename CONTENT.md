@@ -31,9 +31,43 @@ simule jamais un succès).
 NEXT_PUBLIC_FORM_ENDPOINT="https://…"   # Formspree, Make, n8n, route API interne…
 ```
 
-L'adresse de repli en cas d'échec (`contact@levo.fr`) est également à confirmer.
+L'adresse de repli en cas d'échec (`contact@luma-agence.fr`) est également à confirmer.
 
-## 3. Engagements pris dans le texte
+## 3. VSL — bloquant
+
+`src/lib/vsl.ts`
+
+La section « La démonstration » (23h49) existe et est en attente de la vidéo.
+Tant que `provider` vaut `null`, elle affiche un cadre d'attente explicite
+plutôt qu'un lecteur cassé, et les chapitres sont désactivés.
+
+```ts
+export const vsl: VslConfig = {
+  provider: "youtube",        // "youtube" | "vimeo" | "file"
+  source: "dQw4w9WgXcQ",      // identifiant, ou URL du fichier si "file"
+  poster: "/vsl-poster.jpg",  // image d'attente dans /public
+  duration: "4 min",
+  chapters: [ … ],            // horodatages réels de la vidéo
+};
+```
+
+À caler une fois la vidéo montée :
+
+- Les **chapitres** sont des placeholders. Leurs `at` (en secondes) et `label`
+  doivent correspondre au montage réel — ils servent au saut au clic.
+- La **durée** annoncée (`4 min`) et le titre « Quatre minutes… » dans
+  *Vsl.tsx* doivent correspondre au montage.
+- L'**image d'attente** : un arrêt sur image lisible, pas un écran noir.
+- Les **sous-titres** : indispensables, une VSL se regarde majoritairement en
+  son coupé. Sur YouTube/Vimeo ils se gèrent depuis la plateforme ; en
+  `provider: "file"`, renseigner `captions` avec un fichier WebVTT.
+- La promesse « aucune diapositive » n'engage que si la vidéo en est
+  effectivement dépourvue.
+
+Le lecteur n'est chargé qu'au clic : aucune requête ni cookie tiers avant que
+le visiteur ne décide de regarder.
+
+## 4. Engagements pris dans le texte
 
 Ces phrases sont des promesses opposables. Chacune doit être vraie le jour de la
 mise en ligne, ou être réécrite.
@@ -49,7 +83,7 @@ mise en ligne, ou être réécrite.
 - « Il se branche sur votre PMS / channel manager » — *Faq.tsx* : lister les
   intégrations réellement disponibles, ou adoucir la formulation.
 
-## 4. Exemples nommés
+## 5. Exemples nommés
 
 Ce sont des noms inventés, pas des clients.
 
@@ -60,7 +94,7 @@ Ce sont des noms inventés, pas des clients.
   l'identique. » sous le hero (*Hero.tsx*) doit être **retirée** ou devenir vraie
   en la remplaçant par un échange authentique anonymisé.
 
-## 5. Preuve sociale — absente volontairement
+## 6. Preuve sociale — absente volontairement
 
 Aucun témoignage, logo ni chiffre de résultat n'a été inventé. Il manque à la
 page, entre `Handled` et `Crm`, une section de preuve. À alimenter avec :
@@ -72,7 +106,7 @@ page, entre `Handled` et `Crm`, une section de preuve. À alimenter avec :
 
 Sans preuve réelle, mieux vaut la section absente que remplie de faux.
 
-## 6. Mentions légales
+## 7. Mentions légales
 
 Non rédigées. À ajouter avant diffusion : mentions légales, politique de
 confidentialité (RGPD, l'agent traite des données personnelles de vos clients),

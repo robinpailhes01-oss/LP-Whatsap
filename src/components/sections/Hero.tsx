@@ -52,7 +52,7 @@ export function Hero() {
             {...childProps}
             className="mt-7 max-w-xl text-sm leading-relaxed text-ink-muted"
           >
-            Levo répond à sa place, dans le ton de votre maison, en quelques
+            Luma répond à sa place, dans le ton de votre maison, en quelques
             secondes — puis transforme la demande en fiche client dans un CRM fait
             pour votre métier. Il travaille les nuits, les dimanches et les coups de
             feu du service.

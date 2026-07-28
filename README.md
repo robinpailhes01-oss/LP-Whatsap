@@ -1,4 +1,4 @@
-# Levo — Landing page « Agent WhatsApp & CRM » (hôtellerie)
+# Luma — Landing page « Agent WhatsApp & CRM » (hôtellerie)
 
 Page de vente pour l'agent IA WhatsApp et son CRM, destinés aux hôtels,
 hébergements et lieux de réception. Argument central : installation gratuite,
@@ -48,6 +48,7 @@ src/
     sections/         une section par moment de la nuit
   lib/
     conversations.ts  scripts de conversation et demandes traitées
+    vsl.ts            configuration de la VSL (fournisseur, chapitres)
     motion.ts         easings et variantes partagés
 ```
 

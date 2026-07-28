@@ -215,8 +215,8 @@ export function Wake() {
                   <span className="text-ink-dawn">
                     L&apos;envoi a échoué. Réessayez, ou écrivez-nous directement
                     à{" "}
-                    <a href="mailto:contact@levo.fr" className="underline">
-                      contact@levo.fr
+                    <a href="mailto:contact@luma-agence.fr" className="underline">
+                      contact@luma-agence.fr
                     </a>
                     .
                   </span>

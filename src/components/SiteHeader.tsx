@@ -68,7 +68,7 @@ export function SiteHeader() {
     >
       <div className="mx-auto flex max-w-6xl items-center justify-between gap-4 px-5 py-3.5 sm:px-8">
         <a href="#top" className="font-display text-base font-semibold tracking-tight">
-          Levo<span className="text-brass">.</span>
+          Luma<span className="text-brass">.</span>
         </a>
 
         {/* L'horloge de la scène. Ce n'est pas l'heure du visiteur : c'est l'heure

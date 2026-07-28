@@ -1,4 +1,4 @@
-# Levo — Agent WhatsApp & CRM hôtellerie · Design Spec
+# Luma — Agent WhatsApp & CRM hôtellerie · Design Spec
 
 Landing page (brand mode). Un seul job : faire tester l'agent sur son propre établissement.
 
@@ -7,7 +7,7 @@ Landing page (brand mode). Un seul job : faire tester l'agent sur son propre ét
 ## 1. Brief stratégique
 
 **UVP**
-> Levo permet aux hôtels, hébergements et lieux de réception de ne plus perdre de
+> Luma permet aux hôtels, hébergements et lieux de réception de ne plus perdre de
 > réservations à cause d'une réponse trop lente, en leur donnant un agent WhatsApp
 > qui répond dans leur ton 24h/24 et classe chaque échange dans un CRM fait pour
 > leur métier — installation gratuite, facturation à l'usage uniquement.
@@ -147,13 +147,19 @@ beaucoup de vide.
 | # | Section | Heure | Surface |
 |---|---|---|---|
 | 1 | Hero — la conversation en direct | 23h47 | nuit |
-| 2 | Le coût du silence — le problème chiffré | 23h51 | nuit |
-| 3 | Comment ça marche — 3 moments d'une vraie séquence | 02h13 | nuit |
-| 4 | Ce que l'agent sait traiter — vrais messages métier | 04h30 | nuit → transition |
-| 5 | Le CRM — la demande devient une fiche | 06h04 | aube |
-| 6 | Le modèle : 0 € d'installation | 06h40 | jour |
-| 7 | Objections / FAQ | 06h55 | jour |
-| 8 | Le réveil + CTA final | 07h12 | jour |
+| 2 | La VSL — démonstration filmée | 23h49 | nuit |
+| 3 | Le coût du silence — le problème chiffré | 23h51 | nuit |
+| 4 | Comment ça marche — 3 moments d'une vraie séquence | 02h13 | nuit |
+| 5 | Ce que l'agent sait traiter — vrais messages métier | 04h30 | nuit → transition |
+| 6 | Le CRM — la demande devient une fiche | 06h04 | aube |
+| 7 | Le modèle : 0 € d'installation | 06h40 | jour |
+| 8 | Objections / FAQ | 06h55 | jour |
+| 9 | Le réveil + CTA final | 07h12 | jour |
+
+La VSL est placée juste après le hero : la conversation du hero se termine à
+23h49, la démonstration prend le relais à la seconde près. C'est aussi la
+position la plus efficace pour une VSL — le visiteur à forte intention peut la
+lancer sans avoir à parcourir la page.
 
 La numérotation par heures est justifiée : c'est une séquence réelle, l'ordre porte
 de l'information (une nuit de travail de l'agent). Ce n'est pas un `01 / 02 / 03`

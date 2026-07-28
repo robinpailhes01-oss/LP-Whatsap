@@ -27,7 +27,7 @@ export type Conversation = {
   /** Sous-titre du fil : ce que le client voit à côté du nom. */
   venueMeta: string;
   messages: Message[];
-  /** Ce que Levo a écrit dans le CRM à l'issue de l'échange. */
+  /** Ce que Luma a écrit dans le CRM à l'issue de l'échange. */
   outcome: {
     label: string;
     detail: string;

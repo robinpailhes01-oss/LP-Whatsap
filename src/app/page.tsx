@@ -2,6 +2,7 @@ import { SiteHeader } from "@/components/SiteHeader";
 import { SiteFooter } from "@/components/SiteFooter";
 import { MobileCta } from "@/components/MobileCta";
 import { Hero } from "@/components/sections/Hero";
+import { Vsl } from "@/components/sections/Vsl";
 import { CostOfSilence } from "@/components/sections/CostOfSilence";
 import { HowItWorks } from "@/components/sections/HowItWorks";
 import { Handled } from "@/components/sections/Handled";
@@ -21,6 +22,7 @@ export default function Home() {
       <SiteHeader />
       <main>
         <Hero />
+        <Vsl />
         <CostOfSilence />
         <HowItWorks />
         <Handled />

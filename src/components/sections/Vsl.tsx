@@ -1,0 +1,192 @@
+"use client";
+
+import { useState } from "react";
+import { SectionLabel } from "@/components/ui";
+import { embedUrl, vsl } from "@/lib/vsl";
+
+/**
+ * La VSL, juste après le hero : la conversation du hero se termine à 23h49, la
+ * démonstration prend le relais à la seconde près.
+ *
+ * Le lecteur n'est chargé qu'au clic (façade poster + bouton). Une iframe
+ * YouTube coûte plusieurs centaines de kilo-octets et pose des cookies tiers —
+ * les faire porter à tous les visiteurs, y compris ceux qui ne regarderont
+ * jamais la vidéo, contredirait ce que la page promet sur les données.
+ */
+export function Vsl() {
+  const [startAt, setStartAt] = useState<number | null>(null);
+  const configured = vsl.provider !== null && vsl.source !== "";
+  const playing = startAt !== null;
+
+  return (
+    <section
+      id="la-demonstration"
+      data-scene-time="23:49"
+      data-scene-surface="night"
+      className="border-t border-night-line"
+    >
+      <div className="mx-auto max-w-6xl px-5 py-20 sm:px-8 lg:py-28">
+        <SectionLabel time="23:49">La démonstration</SectionLabel>
+
+        <div className="mt-10 flex flex-col gap-6 lg:flex-row lg:items-end lg:justify-between">
+          <h2 className="display-loud max-w-[18ch] text-xl sm:text-2xl lg:text-3xl">
+            Quatre minutes, une vraie boîte de réception,{" "}
+            <span className="text-brass">aucune diapositive.</span>
+          </h2>
+          <p className="max-w-sm text-xs leading-relaxed text-ink-muted">
+            On branche l&apos;agent sur un établissement, on lui écrit comme un
+            client le ferait, et on ouvre le CRM derrière pour voir ce qui s&apos;y
+            est écrit tout seul.
+          </p>
+        </div>
+
+        <div className="mt-12 grid gap-10 lg:grid-cols-[1.6fr_1fr] lg:gap-14">
+          {/* Le lecteur. */}
+          <div className="overflow-hidden rounded-card border border-night-line bg-night-alt">
+            <div className="relative aspect-video">
+              {playing && configured ? (
+                vsl.provider === "file" ? (
+                  <video
+                    src={embedUrl(vsl, startAt)}
+                    controls
+                    autoPlay
+                    playsInline
+                    className="h-full w-full"
+                    title={vsl.title}
+                  >
+                    {vsl.captions && (
+                      <track
+                        kind="captions"
+                        src={vsl.captions}
+                        srcLang="fr"
+                        label="Français"
+                        default
+                      />
+                    )}
+                  </video>
+                ) : (
+                  <iframe
+                    src={embedUrl(vsl, startAt)}
+                    title={vsl.title}
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; picture-in-picture"
+                    allowFullScreen
+                    className="h-full w-full"
+                  />
+                )
+              ) : (
+                <PlayFacade
+                  configured={configured}
+                  onPlay={() => setStartAt(0)}
+                />
+              )}
+            </div>
+
+            <p className="flex flex-col gap-1 border-t border-night-line px-4 py-3 font-mono text-2xs text-ink-muted sm:flex-row sm:items-center sm:gap-3 sm:px-5">
+              <span>
+                <span className="mr-2 text-signal">▸</span>
+                {vsl.duration}
+              </span>
+              <span aria-hidden="true" className="hidden text-night-line sm:inline">
+                ·
+              </span>
+              <span>Sans engagement, sans formulaire pour la regarder</span>
+            </p>
+          </div>
+
+          {/* Le sommaire. Les horodatages parlent la même langue que le reste de
+              la page, et chaque entrée lance la vidéo au bon endroit. */}
+          <div>
+            <p className="kicker text-ink-muted">Ce que vous verrez</p>
+            <ol className="mt-5 border-t border-night-line">
+              {vsl.chapters.map((chapter) => (
+                <li key={chapter.at} className="border-b border-night-line">
+                  <button
+                    type="button"
+                    disabled={!configured}
+                    onClick={() => setStartAt(chapter.at)}
+                    className="group flex w-full items-baseline gap-4 py-4 text-left transition-colors duration-[120ms] enabled:hover:text-brass disabled:cursor-default"
+                  >
+                    <span className="font-mono text-2xs tabular-nums text-brass">
+                      {chapter.label}
+                    </span>
+                    <span className="text-xs leading-relaxed text-ink-muted transition-colors duration-[120ms] group-enabled:group-hover:text-ink">
+                      {chapter.title}
+                    </span>
+                  </button>
+                </li>
+              ))}
+            </ol>
+            <p className="mt-5 text-2xs leading-relaxed text-ink-muted">
+              {configured
+                ? "Cliquez un chapitre pour démarrer la vidéo à cet endroit."
+                : "Les chapitres deviendront cliquables une fois la vidéo en ligne."}
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+  );
+}
+
+/** Façade de lecture, et cadre d'attente tant qu'aucune vidéo n'est renseignée. */
+function PlayFacade({
+  configured,
+  onPlay,
+}: {
+  configured: boolean;
+  onPlay: () => void;
+}) {
+  if (!configured) {
+    return (
+      <div className="flex h-full w-full flex-col items-center justify-center gap-3 bg-night px-6 text-center">
+        <span
+          className="grid h-14 w-14 place-items-center rounded-full border border-night-line"
+          aria-hidden="true"
+        >
+          <PlayGlyph className="h-5 w-5 translate-x-[1px] fill-ink-muted" />
+        </span>
+        <p className="kicker text-ink-muted">Emplacement de la VSL</p>
+        <p className="max-w-sm font-mono text-2xs leading-relaxed text-ink-muted/70">
+          Renseigner <code>provider</code> et <code>source</code> dans{" "}
+          <code>src/lib/vsl.ts</code>.
+        </p>
+      </div>
+    );
+  }
+
+  return (
+    <>
+      {vsl.poster ? (
+        // eslint-disable-next-line @next/next/no-img-element
+        <img
+          src={vsl.poster}
+          alt={vsl.posterAlt}
+          className="absolute inset-0 h-full w-full object-cover"
+        />
+      ) : (
+        <span className="absolute inset-0 bg-night" aria-hidden="true" />
+      )}
+
+      <button
+        type="button"
+        onClick={onPlay}
+        className="group absolute inset-0 grid place-items-center bg-night/45 transition-colors duration-[240ms] hover:bg-night/25"
+      >
+        <span className="grid h-16 w-16 place-items-center rounded-full bg-brass transition-transform duration-[120ms] ease-confident group-hover:scale-105 group-active:scale-95">
+          <PlayGlyph className="h-6 w-6 translate-x-[2px] fill-night" />
+        </span>
+        <span className="sr-only">
+          Lire la vidéo : {vsl.title} ({vsl.duration})
+        </span>
+      </button>
+    </>
+  );
+}
+
+function PlayGlyph({ className }: { className: string }) {
+  return (
+    <svg viewBox="0 0 16 18" className={className} aria-hidden="true">
+      <path d="M15 8.13a1 1 0 0 1 0 1.74l-13 7.5A1 1 0 0 1 .5 16.5v-15A1 1 0 0 1 2 .63z" />
+    </svg>
+  );
+}
