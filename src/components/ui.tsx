@@ -1,14 +1,22 @@
 import type { ComponentPropsWithoutRef, ReactNode } from "react";
 
-/** Le laiton désigne toujours la maison : il est réservé à l'action principale. */
+/**
+ * L'action principale prend toujours le contraste maximal disponible sur sa
+ * surface : laiton sur la nuit, encre sur le jour. Une seule règle, pas deux
+ * traitements concurrents sur la même page.
+ */
 export function CtaPrimary({
   children,
   className = "",
+  onDawn = false,
   ...props
-}: ComponentPropsWithoutRef<"a">) {
+}: ComponentPropsWithoutRef<"a"> & { onDawn?: boolean }) {
+  const tone = onDawn
+    ? "bg-ink-dawn text-dawn hover:opacity-90"
+    : "bg-brass text-night hover:bg-[#dcb332]";
   return (
     <a
-      className={`inline-flex items-center justify-center gap-2 rounded-pill bg-brass px-6 py-3.5 text-xs font-semibold text-night transition-[transform,background-color] duration-[120ms] ease-confident hover:bg-[#dcb332] active:scale-[0.98] ${className}`}
+      className={`inline-flex items-center justify-center gap-2 rounded-pill px-6 py-3.5 text-xs font-semibold transition-[transform,background-color,opacity] duration-[120ms] ease-confident active:scale-[0.98] ${tone} ${className}`}
       {...props}
     >
       {children}

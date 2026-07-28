@@ -92,41 +92,43 @@ export type Handled = {
   time: string;
 };
 
+/* Ordonnées chronologiquement : la section raconte une seule nuit, du service
+   du soir au petit matin. */
 export const handledRequests: Handled[] = [
   {
     id: "h1",
-    ask: "Vous avez de la place pour un séminaire de 40 personnes en mars ?",
-    does: "Qualifie la demande, propose deux dates, transmet au commercial avec le budget estimé.",
-    time: "06:12",
+    ask: "Bonjour, quel est le code du wifi ?",
+    does: "Répond instantanément. Ne vous dérange pas.",
+    time: "19:47",
   },
   {
     id: "h2",
-    ask: "On peut garder la chambre jusqu'à 15h dimanche ?",
-    does: "Vérifie le planning du ménage, accorde le late check-out et le facture.",
-    time: "22:38",
-  },
-  {
-    id: "h3",
-    ask: "Do you have parking? We arrive by car from Barcelona.",
-    does: "Répond en anglais, indique le parking privé et le tarif, propose de réserver une place.",
-    time: "01:04",
-  },
-  {
-    id: "h4",
     ask: "Je dois annuler pour le 8, je récupère mes arrhes ?",
     does: "Applique vos conditions d'annulation, libère la chambre, prévient la réception.",
     time: "20:15",
   },
   {
-    id: "h5",
+    id: "h3",
+    ask: "On peut garder la chambre jusqu'à 15h dimanche ?",
+    does: "Vérifie le planning du ménage, accorde le late check-out et le facture.",
+    time: "22:38",
+  },
+  {
+    id: "h4",
     ask: "C'est possible de privatiser la salle pour un anniversaire de 60 ans ?",
     does: "Envoie la plaquette réception, collecte date et nombre de couverts, crée la fiche devis.",
     time: "23:02",
   },
   {
+    id: "h5",
+    ask: "Do you have parking? We arrive by car from Barcelona.",
+    does: "Répond en anglais, indique le parking privé et le tarif, propose de réserver une place.",
+    time: "01:04",
+  },
+  {
     id: "h6",
-    ask: "Bonjour, quel est le code du wifi ?",
-    does: "Répond instantanément. Ne vous dérange pas.",
-    time: "19:47",
+    ask: "Vous avez de la place pour un séminaire de 40 personnes en mars ?",
+    does: "Qualifie la demande, propose deux dates, transmet au commercial avec le budget estimé.",
+    time: "06:12",
   },
 ];

@@ -31,15 +31,15 @@ export function Hero() {
       >
         <div>
           <motion.p {...childProps} className="kicker text-ink-muted">
-            Agent WhatsApp &amp; CRM · hôtels, hébergements, lieux de réception
+            Agent WhatsApp &amp; CRM · hôtellerie et lieux de réception
           </motion.p>
 
           <motion.h1
             {...childProps}
-            className="display-loud mt-6 text-3xl sm:text-4xl lg:text-4xl"
+            className="display-loud mt-6 max-w-[13ch] text-3xl sm:text-4xl"
           >
             Il est{" "}
-            <span className="font-mono text-[0.82em] font-medium tabular-nums text-brass">
+            <span className="font-mono text-[0.78em] font-medium tracking-tighter tabular-nums text-brass">
               23:47
             </span>
             . Votre client cherche une chambre.{" "}
@@ -71,20 +71,11 @@ export function Hero() {
               ce que le visiteur ne paiera pas. */}
           <motion.ul
             {...childProps}
-            className="mt-9 flex flex-wrap gap-x-5 gap-y-2 border-t border-night-line pt-5 font-mono text-2xs text-ink-muted"
+            className="mt-9 flex flex-wrap gap-x-6 gap-y-1.5 border-t border-night-line pt-5 font-mono text-2xs text-ink-muted [&>li+li]:before:mr-6 [&>li+li]:before:text-night-line [&>li+li]:before:content-['·']"
           >
             <li>0 € de mise en place</li>
-            <li aria-hidden="true" className="text-night-line">
-              ·
-            </li>
             <li>0 € d&apos;abonnement</li>
-            <li aria-hidden="true" className="text-night-line">
-              ·
-            </li>
             <li>0 engagement</li>
-            <li aria-hidden="true" className="text-night-line">
-              ·
-            </li>
             <li className="text-signal">vous ne payez que l&apos;usage</li>
           </motion.ul>
         </div>

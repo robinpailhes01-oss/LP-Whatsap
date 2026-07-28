@@ -1,36 +1,56 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Levo — Landing page « Agent WhatsApp & CRM » (hôtellerie)
 
-## Getting Started
+Page de vente pour l'agent IA WhatsApp et son CRM, destinés aux hôtels,
+hébergements et lieux de réception. Argument central : installation gratuite,
+facturation à l'usage uniquement.
 
-First, run the development server:
+## Démarrer
 
 ```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+npm install
+npm run dev      # http://localhost:3000
+npm run build
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## Documents
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+- **`DESIGN.md`** — passe stratège de marque, direction esthétique, tokens et
+  élément signature. À lire avant toute modification visuelle : chaque couleur
+  et chaque fonte y a une raison.
+- **`CONTENT.md`** — ce qui doit être vérifié ou remplacé avant la mise en
+  ligne (tarif, endpoint du formulaire, promesses opposables, preuve sociale).
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+## Configuration
 
-## Learn More
+```bash
+# .env.local
+NEXT_PUBLIC_FORM_ENDPOINT="https://…"
+```
 
-To learn more about Next.js, take a look at the following resources:
+Sans cette variable, le formulaire affiche un état « non connecté » explicite
+plutôt que de simuler un envoi réussi.
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## Structure
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+La page se déroule sur une nuit, de 23h47 à 07h12, et la surface passe du nuit
+au jour au fil du scroll. L'ordre des sections est chronologique — c'est le
+récit, pas une simple mise en page.
 
-## Deploy on Vercel
+```
+src/
+  app/
+    layout.tsx        fontes, métadonnées
+    globals.css       tokens (couleur, type, rayons, motion)
+  components/
+    Conversation.tsx  lecteur de conversation WhatsApp — élément signature
+    SiteHeader.tsx    en-tête + horloge de scène
+    ui.tsx            CTA, libellés de section
+    sections/         une section par moment de la nuit
+  lib/
+    conversations.ts  scripts de conversation et demandes traitées
+    motion.ts         easings et variantes partagés
+```
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+## Stack
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+Next.js 16 (App Router) · Tailwind CSS v4 · Motion · TypeScript.
