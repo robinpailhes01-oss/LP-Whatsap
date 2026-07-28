@@ -63,9 +63,9 @@ export function Wake() {
             </h2>
 
             <p className="prose-read mt-7 text-sm text-ink-paper-muted">
-              On règle Luma avec vos vraies chambres et vos vrais prix. Vous lui
-              écrivez sur WhatsApp, comme un client. Si ça ne vous convainc pas,
-              on en reste là.
+              On règle Luma avec vos vraies prestations et vos vrais prix. Vous
+              lui écrivez sur WhatsApp, comme un client. Si ça ne vous convainc
+              pas, on en reste là.
             </p>
 
             <ul className="mt-9 space-y-3.5 border-t border-paper-line pt-8 text-sm">

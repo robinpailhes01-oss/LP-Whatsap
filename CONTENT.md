@@ -96,8 +96,13 @@ mise en ligne, ou être réécrite.
 
 Ce sont des noms inventés, pas des clients.
 
-- **Domaine des Ormes** — établissement de la conversation du hero.
-- **Camille Rousseau** — cliente de la fiche CRM.
+- **Domaine des Ormes**, **Cap Horizon**, **Le Clos Sainte-Marie**,
+  **La Table du Port** — les quatre établissements du sélecteur d'activité.
+- **Camille Rousseau** — cliente de la fiche du carnet.
+- Les quatre échanges du hero sont plausibles et emploient le bon vocabulaire
+  métier, mais ils sont écrits. Remplacer au moins celui de la location de
+  bateau par un vrai échange anonymisé du vôtre : c'est le seul secteur où vous
+  avez la matière, et ça vaudra tous les arguments.
 - Le détail de la conversation (Chambre Jardin, 148 €, arrhes 30 %) est
   cohérent mais fictif. La légende sous le hero dit « Exemple d'échange » et non
   « conversation réelle » : c'est exact en l'état. Si vous la remplacez par un
@@ -139,7 +144,15 @@ page, entre `Handled` et `Crm`, une section de preuve. À alimenter avec :
 
 Sans preuve réelle, mieux vaut la section absente que remplie de faux.
 
-## 8. Mentions légales
+## 8. Hypothèse du calculateur
+
+`src/components/sections/CostOfSilence.tsx`
+
+`MINUTES_PAR_DEMANDE = 4` sert à calculer les heures passées à répondre. Le
+chiffre est affiché sous le résultat, donc honnête, mais c'est une hypothèse.
+Si vous connaissez votre vraie moyenne, remplacez-la.
+
+## 9. Mentions légales
 
 Non rédigées. À ajouter avant diffusion : mentions légales, politique de
 confidentialité (RGPD, l'agent traite des données personnelles de vos clients),

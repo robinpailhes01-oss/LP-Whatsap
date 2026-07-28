@@ -4,11 +4,17 @@ import { useId, useState } from "react";
 import { CtaPrimary, SectionLabel } from "@/components/ui";
 
 /**
- * Plutôt que des statistiques sectorielles invérifiables, le visiteur calcule
- * avec ses propres chiffres. Les trois curseurs sont formulés en langage de
- * comptoir : des messages, des euros, et « combien partent, sur 10 » — pas des
- * taux de conversion.
+ * Plutôt que des statistiques invérifiables, le visiteur calcule avec ses
+ * propres chiffres. Les trois curseurs sont formulés en langage de comptoir :
+ * des messages, des euros, et « combien partent, sur 10 » — pas des taux de
+ * conversion.
+ *
+ * Deux résultats, parce qu'il y a deux douleurs : ce qu'on perd, et le temps
+ * qu'on y passe. La seconde est souvent celle qui décide.
  */
+
+/** Durée moyenne d'une demande, aller-retour compris. Hypothèse affichée. */
+const MINUTES_PAR_DEMANDE = 4;
 
 const euro = new Intl.NumberFormat("fr-FR", {
   style: "currency",
@@ -63,7 +69,9 @@ export function CostOfSilence() {
   const [basket, setBasket] = useState(180);
   const [lostOfTen, setLostOfTen] = useState(3);
 
-  const lostPerMonth = Math.round(messages * 4.33 * (lostOfTen / 10) * basket);
+  const demandesParMois = messages * 4.33;
+  const lostPerMonth = Math.round(demandesParMois * (lostOfTen / 10) * basket);
+  const heuresParMois = Math.round((demandesParMois * MINUTES_PAR_DEMANDE) / 60);
 
   return (
     <section
@@ -77,21 +85,21 @@ export function CostOfSilence() {
         <div className="mt-8 grid gap-14 lg:grid-cols-[1fr_1fr] lg:gap-20">
           <div>
             <h2 className="display-loud max-w-[17ch] text-xl sm:text-2xl lg:text-3xl">
-              Un message sans réponse, c&apos;est une{" "}
-              <span className="mark-brass">réservation chez le voisin</span>.
+              Un message sans réponse, c&apos;est un{" "}
+              <span className="mark-brass">client qui va chez le voisin</span>.
             </h2>
 
             <p className="prose-read mt-7 text-sm text-ink-paper-muted">
-              Il écrit à trois établissements en même temps. Il réserve chez
-              celui qui répond le premier. Le lendemain matin, c&apos;est déjà
-              pris.
+              Il écrit à trois endroits en même temps. Il réserve chez celui qui
+              répond le premier. Et les demandes auxquelles vous répondez, vous
+              y passez vos soirées.
             </p>
 
             {/* Le visiteur vient de chiffrer sa perte : c'est le moment de
                 l'action, pas trois sections plus bas. */}
             <div className="mt-10 border-t border-paper-line pt-8">
               <p className="text-sm font-medium">
-                C&apos;est exactement ce que Luma récupère.
+                C&apos;est exactement ce que Luma vous rend.
               </p>
               <CtaPrimary href="#essai-gratuit" className="mt-5">
                 Essayer gratuitement
@@ -138,20 +146,40 @@ export function CostOfSilence() {
               />
             </div>
 
-            <div className="mt-9 border-t border-paper-line pt-7">
-              <p className="text-xs text-ink-paper-muted">
-                Ce que vous laissez partir, chaque mois
-              </p>
-              <p className="mt-3">
-                <span className="mark-brass font-mono text-2xl font-medium tabular-nums">
-                  {euro.format(lostPerMonth)}
-                </span>
-              </p>
-              <p className="mt-5 text-2xs leading-relaxed text-ink-paper-muted">
-                Les trois curseurs sont à vous. C&apos;est votre estimation, pas
-                la nôtre.
-              </p>
-            </div>
+            <dl className="mt-9 grid gap-6 border-t border-paper-line pt-7 sm:grid-cols-2">
+              <div>
+                <dt className="text-xs text-ink-paper-muted">
+                  Ce que vous laissez partir
+                </dt>
+                <dd className="mt-3">
+                  <span className="mark-brass font-mono text-2xl font-medium tabular-nums">
+                    {euro.format(lostPerMonth)}
+                  </span>
+                  <span className="mt-1.5 block text-2xs text-ink-paper-muted">
+                    par mois
+                  </span>
+                </dd>
+              </div>
+              <div>
+                <dt className="text-xs text-ink-paper-muted">
+                  Le temps que ça vous prend
+                </dt>
+                <dd className="mt-3">
+                  <span className="mark-brass font-mono text-2xl font-medium tabular-nums">
+                    {heuresParMois} h
+                  </span>
+                  <span className="mt-1.5 block text-2xs text-ink-paper-muted">
+                    par mois, à répondre
+                  </span>
+                </dd>
+              </div>
+            </dl>
+
+            <p className="mt-6 text-2xs leading-relaxed text-ink-paper-muted">
+              Les trois curseurs sont à vous : c&apos;est votre estimation, pas
+              la nôtre. Le temps est compté sur la base de{" "}
+              {MINUTES_PAR_DEMANDE} minutes par demande, aller-retour compris.
+            </p>
           </div>
         </div>
       </div>

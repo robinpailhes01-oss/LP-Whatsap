@@ -31,6 +31,10 @@ export function Handled() {
           heure.
         </h2>
 
+        <p className="prose-read mt-6 text-sm text-ink-paper-muted">
+          Quelle que soit votre activité, ce sont toujours les mêmes questions.
+        </p>
+
         <ul className="mt-12 border-t border-paper-line">
           {handledRequests.map((request, index) => (
             <motion.li

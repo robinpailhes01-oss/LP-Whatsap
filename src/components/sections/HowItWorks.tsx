@@ -19,7 +19,7 @@ const steps = [
   {
     n: "2",
     title: "Luma répond, avec vos informations",
-    body: "Vos chambres, vos prix, vos règles. Ce qu'il ne sait pas, il ne l'invente pas : il vous passe la main.",
+    body: "Vos prestations, vos prix, vos règles. Ce qu'il ne sait pas, il ne l'invente pas : il vous passe la main.",
     aside: "Vous relisez ses réponses aussi longtemps que vous voulez",
   },
   {

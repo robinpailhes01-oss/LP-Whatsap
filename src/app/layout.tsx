@@ -21,9 +21,10 @@ const jetbrains = JetBrains_Mono({
   display: "swap",
 });
 
-const title = "Luma — L'agent WhatsApp qui répond à vos clients, même la nuit";
+const title =
+  "Luma — L'assistant WhatsApp qui répond à vos clients, jour et nuit";
 const description =
-  "Un agent IA qui répond à vos clients sur WhatsApp 24h/24, dans le ton de votre maison, et classe chaque demande dans un CRM fait pour l'hôtellerie. Installation gratuite, vous ne payez que ce que vous utilisez.";
+  "Vous recevez trop de demandes sur WhatsApp ? Luma y répond à votre place, jour et nuit, avec vos tarifs et vos disponibilités, et note chaque demande dans votre carnet de clients. Hôtels, locations, salles de réception, restaurants. Installation gratuite, vous ne payez que ce que vous utilisez.";
 
 export const metadata: Metadata = {
   title,

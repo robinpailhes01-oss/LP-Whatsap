@@ -1,8 +1,7 @@
 "use client";
 
 import { motion, useReducedMotion } from "motion/react";
-import { Conversation } from "@/components/Conversation";
-import { heroConversation } from "@/lib/conversations";
+import { ConversationSwitcher } from "@/components/ConversationSwitcher";
 import { CtaPrimary, CtaSecondary } from "@/components/ui";
 import { staggerContainer, staggerItem } from "@/lib/motion";
 
@@ -33,14 +32,14 @@ export function Hero() {
       >
         <div>
           <motion.p {...childProps} className="kicker text-ink-muted">
-            Hôtels · chambres d&apos;hôtes · gîtes · salles de réception
+            Pour toutes les activités qui reçoivent leurs demandes sur WhatsApp
           </motion.p>
 
           <motion.h1
             {...childProps}
             className="display-loud mt-5 max-w-[16ch] text-[1.9rem] sm:text-2xl lg:text-3xl"
           >
-            Il est 23h47. Un client demande une chambre. Vous dormez.
+            Il est 23h47. Un client vous écrit. Vous dormez.
             <span className="display-soft mt-4 block text-[0.86em] text-brass">
               Luma répond à votre place.
             </span>
@@ -51,7 +50,8 @@ export function Hero() {
             className="prose-read mt-6 text-sm text-ink-muted sm:mt-8"
           >
             Luma répond à vos clients sur WhatsApp, jour et nuit. Avec vos
-            tarifs, vos chambres, vos disponibilités.
+            tarifs et vos disponibilités. Vous récupérez vos soirées, et les
+            demandes que vous perdiez.
           </motion.p>
 
           <motion.div {...childProps} className="mt-7 flex flex-wrap items-center gap-3 sm:mt-9">
@@ -75,12 +75,10 @@ export function Hero() {
           </motion.ul>
         </div>
 
-        {/* La preuve, pas l'illustration : un échange complet, lisible en entier. */}
+        {/* La preuve, pas l'illustration : un échange complet, lisible en
+            entier, dans l'activité du visiteur. */}
         <motion.div {...childProps} className="lg:pl-4">
-          <Conversation data={heroConversation} />
-          <p className="mt-3 text-center text-2xs text-ink-muted">
-            Exemple d&apos;échange, rejoué en direct.
-          </p>
+          <ConversationSwitcher />
         </motion.div>
       </motion.div>
     </section>

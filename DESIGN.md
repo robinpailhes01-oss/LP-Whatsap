@@ -8,14 +8,26 @@ gratuit.** Chaque section lève une objection précise et ramène au même bouto
 ## 1. Brief stratégique
 
 **UVP**
-> Luma permet aux hôtels, hébergements et lieux de réception de ne plus perdre
-> de réservations faute de réponse, en répondant à leurs clients sur WhatsApp
-> jour et nuit avec leurs vrais tarifs, et en notant chaque demande dans un
-> carnet de clients fait pour leur métier — installation gratuite, facturation
-> à l'usage uniquement.
+> Luma permet à toute activité qui reçoit beaucoup de demandes sur WhatsApp de
+> ne plus en perdre et d'arrêter d'y passer ses soirées, en y répondant à sa
+> place jour et nuit avec ses vrais tarifs, et en notant chaque demande dans un
+> carnet de clients — installation gratuite, facturation à l'usage uniquement.
+
+**Le cadrage est le problème, pas le secteur.** Une première version ne parlait
+qu'aux hôtels. C'était trop étroit — et contradictoire avec l'histoire du
+fondateur, qui loue un bateau. La page s'adresse désormais à *toute activité
+noyée sous les demandes WhatsApp* : hôtels, locations, salles de réception,
+restaurants, et le reste.
+
+Élargir un message le vide, en général. Ici on l'évite par un dispositif plutôt
+que par du vocabulaire : le visiteur **choisit son activité dans le hero** et lit
+un échange écrit dans son métier à lui. Quatre cas concrets valent mieux qu'une
+formule qui prétend couvrir tout le monde.
 
 **Audience — psychographie**
-- Gérants de 40 à 55 ans. Ils tiennent un établissement, pas un logiciel.
+- Gérants de 40 à 55 ans. Ils tiennent une activité, pas un logiciel.
+- Deux douleurs, pas une : les demandes perdues **et** le temps passé à
+  répondre. La seconde est souvent celle qui décide.
 - **Pas à l'aise avec l'informatique, et encore moins avec l'IA.** C'est le
   fait central du projet : il commande le vocabulaire, la taille du texte, le
   contraste et le nombre de champs du formulaire.
@@ -54,6 +66,8 @@ l'instantanéité. La chaleur d'un concierge, la disponibilité d'une machine.
 | Pilier « zéro risque » | → Le prix est une section entière, formulée à la négative : ce qu'on ne paie **pas**. |
 | Objectif unique = essai gratuit | → Un seul libellé de CTA sur toute la page : « Essayer gratuitement ». |
 | Stand-against « jargon » | → Le mot « CRM » est remplacé par « carnet de clients ». |
+| Cadrage par le problème, pas le secteur | → Sélecteur d'activité dans le hero : quatre conversations réelles au lieu d'une formule générique. |
+| Douleur « je passe mes soirées à répondre » | → Le calculateur affiche deux résultats : l'argent perdu **et** les heures passées. |
 
 ---
 
@@ -177,7 +191,7 @@ porte désormais une vraie navigation.
 
 | # | Section | Surface | Objection levée |
 |---|---|---|---|
-| 1 | Hero — la conversation en direct | nuit | « C'est quoi, concrètement ? » |
+| 1 | Hero — sélecteur d'activité + conversation en direct | nuit | « C'est quoi, et est-ce que c'est pour moi ? » |
 | 2 | La vidéo (VSL) | nuit | « Montrez-moi. » |
 | 3 | Ce que ça vous coûte — calculateur | papier | « Est-ce que ça me concerne ? » |
 | 4 | Comment ça marche — 3 étapes | papier | « C'est compliqué ? » |

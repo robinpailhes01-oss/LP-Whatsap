@@ -1,36 +1,39 @@
 import { SectionLabel } from "@/components/ui";
 
 /* La fiche telle qu'elle existe le lendemain matin. Le carnet n'est pas un
-   outil de plus : c'est ce que la conversation produit toute seule. */
+   outil de plus : c'est ce que la conversation produit toute seule.
+
+   L'exemple est volontairement une salle de réception, et non un hôtel : les
+   libellés sont ceux de n'importe quelle activité qui prend des réservations. */
 const record = {
   name: "Camille Rousseau",
-  tag: "3e séjour",
+  tag: "3e demande",
   fields: [
-    { label: "Séjour", value: "12 → 13 mars · 1 nuit" },
-    { label: "Chambre", value: "Jardin · 148 €" },
-    { label: "Reçu par", value: "WhatsApp · 23h47" },
-    { label: "Arrhes", value: "44,40 € · à recevoir" },
+    { label: "Prestation", value: "Mariage · 90 couverts" },
+    { label: "Date", value: "Samedi 21 juin" },
+    { label: "Reçu par", value: "WhatsApp · 22h19" },
+    { label: "Acompte", value: "720 € · à recevoir" },
   ],
   notes: [
-    "Voyage avec son chien — prévoir un panier en chambre.",
-    "Arrive vers 22h, prévenir la veilleuse.",
-    "Déjà venue en septembre 2024 et en juin 2025.",
+    "Traiteur libre, souhaite la liste des prestataires habituels.",
+    "Visite proposée samedi 11h, en attente de confirmation.",
+    "Avait déjà demandé un devis en mars pour un anniversaire.",
   ],
-  next: "Relance des arrhes prévue demain matin",
+  next: "Relance du devis prévue lundi matin",
 };
 
 const pillars = [
   {
     title: "Les mots de votre métier",
-    body: "Séjours, arrhes, options, couverts, annulations. Pas « prospects » ni « pipeline ».",
+    body: "Réservations, acomptes, options, couverts, annulations. Pas « prospects » ni « pipeline ».",
   },
   {
     title: "Vous vous souvenez de tout",
-    body: "Il revient dans deux ans ? Vous savez qu'il voyage avec son chien et qu'il arrive tard.",
+    body: "Il revient dans deux ans ? Vous savez ce qu'il avait demandé, et ce qu'il avait payé.",
   },
   {
     title: "Les relances partent toutes seules",
-    body: "Arrhes en attente, devis sans réponse, mot avant l'arrivée. Celles que personne n'a le temps de faire.",
+    body: "Acompte en attente, devis sans réponse, mot avant l'arrivée. Celles que personne n'a le temps de faire.",
   },
 ];
 

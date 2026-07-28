@@ -16,8 +16,8 @@ export function SiteFooter() {
             Luma<span className="text-brass-deep">.</span>
           </p>
           <p className="mt-3 max-w-xs text-2xs leading-relaxed text-ink-paper-muted">
-            Un assistant qui répond à vos clients sur WhatsApp, pour les hôtels,
-            hébergements et lieux de réception.
+            Un assistant qui répond à vos clients sur WhatsApp, pour toutes les
+            activités qui reçoivent beaucoup de demandes.
           </p>
         </div>
 

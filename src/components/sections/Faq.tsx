@@ -7,8 +7,8 @@ import { SectionLabel } from "@/components/ui";
  */
 const questions = [
   {
-    q: "Est-ce que ça remplace ma réceptionniste ?",
-    a: "Non. Luma prend les messages quand il n'y a personne : la nuit, le dimanche, pendant le service. Votre équipe garde l'accueil et arrête de répéter le code du wifi vingt fois par jour.",
+    q: "Est-ce que ça remplace quelqu'un de mon équipe ?",
+    a: "Non. Luma prend les messages quand il n'y a personne : la nuit, le dimanche, en plein coup de feu. Votre équipe garde l'accueil et arrête de répéter le code du wifi vingt fois par jour.",
   },
   {
     q: "Et s'il raconte n'importe quoi à un client ?",
@@ -27,7 +27,7 @@ const questions = [
     a: "Elles restent les vôtres, conservées en Europe, et ne servent jamais à entraîner un programme. Vous les récupérez quand vous voulez.",
   },
   {
-    q: "J'ai déjà un logiciel de réservation.",
+    q: "J'ai déjà un logiciel de réservation ou un planning.",
     a: "Luma se branche dessus, il ne le remplace pas. Si le vôtre n'en fait pas encore partie, on vous le dit avant de commencer.",
   },
 ];

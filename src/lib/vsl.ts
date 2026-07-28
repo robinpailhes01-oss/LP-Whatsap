@@ -48,12 +48,12 @@ export const vsl: VslConfig = {
   posterAlt:
     "Arrêt sur image de la démonstration : la boîte de réception WhatsApp d'un établissement.",
   duration: "4 min",
-  title: "Démonstration de l'agent Luma sur un établissement réel",
+  title: "Démonstration de Luma sur une activité réelle",
   captions: "",
   chapters: [
-    { at: 0, label: "00:00", title: "Le problème, en une soirée de service" },
-    { at: 48, label: "00:48", title: "L'agent branché sur un vrai établissement" },
-    { at: 130, label: "02:10", title: "Ce qui atterrit dans le CRM" },
+    { at: 0, label: "00:00", title: "Le problème, en une soirée" },
+    { at: 48, label: "00:48", title: "Luma branché sur une vraie activité" },
+    { at: 130, label: "02:10", title: "Ce qui se note tout seul" },
     { at: 205, label: "03:25", title: "Ce que ça coûte, ligne par ligne" },
   ],
 };
