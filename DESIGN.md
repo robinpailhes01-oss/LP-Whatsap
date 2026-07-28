@@ -68,6 +68,9 @@ l'instantanéité. La chaleur d'un concierge, la disponibilité d'une machine.
 | Stand-against « jargon » | → Le mot « CRM » est remplacé par « carnet de clients ». |
 | Cadrage par le problème, pas le secteur | → Sélecteur d'activité dans le hero : quatre conversations réelles au lieu d'une formule générique. |
 | Douleur « je passe mes soirées à répondre » | → Le calculateur affiche deux résultats : l'argent perdu **et** les heures passées. |
+| Frein « combien ça va me coûter pour voir ? » | → « La mise en place est gratuite » passe de mention à 13 px à promesse en corps de texte, dès le hero, puis reprise dans un encadré dédié et dans le prix. |
+| Frein « je n'ai pas le temps de m'en occuper » | → « C'est prêt en quelques jours, on s'occupe de tout » — le délai est annoncé partout de la même façon, plus de « une semaine » d'un côté et « quelques jours » de l'autre. |
+| Peur « ça va sonner comme un robot » | → « Luma parle comme vous » devient une promesse nommée : reprise du ton, des formules et de la façon d'accueillir. C'est aussi l'étape 2 du fonctionnement et une question de la FAQ. |
 
 ---
 

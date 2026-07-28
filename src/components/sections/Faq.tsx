@@ -15,8 +15,8 @@ const questions = [
     a: "Il ne répond que sur ce que vous lui avez donné. En dehors, il ne devine pas : il vous passe la main. Les premiers jours, vous relisez tout avant que ça parte.",
   },
   {
-    q: "Mes clients vont voir que ce n'est pas moi ?",
-    a: "Luma le dit dès le premier message. Un client à qui on répond à minuit préfère ça à un silence jusqu'au lendemain.",
+    q: "Ça va parler comme un robot ?",
+    a: "Non, et c'est le premier réglage qu'on fait : on reprend votre ton, vos formules, votre façon d'accueillir. Luma annonce quand même qu'il est automatique dès le premier message — un client à qui on répond à minuit préfère ça à un silence jusqu'au lendemain.",
   },
   {
     q: "Je ne suis pas à l'aise avec l'informatique.",

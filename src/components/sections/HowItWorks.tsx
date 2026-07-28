@@ -13,6 +13,25 @@ import { EASE } from "@/lib/motion";
  * personne ne se laisse convaincre par quelque chose qu'il n'a pas compris.
  */
 
+/**
+ * Ce qu'on prend en charge. Trois promesses qui répondent chacune à un frein
+ * précis : le coût d'entrée, le délai, et la peur de sonner comme un robot.
+ */
+const priseEnCharge = [
+  {
+    titre: "La mise en place est gratuite",
+    corps: "Vous ne payez que l'utilisation. Pas de frais d'installation, pas d'abonnement, pas d'engagement.",
+  },
+  {
+    titre: "C'est prêt en quelques jours",
+    corps: "On récupère vos prix, vos disponibilités et vos règles, on règle tout, et on reste joignables ensuite.",
+  },
+  {
+    titre: "Luma parle comme vous",
+    corps: "On reprend votre ton, vos formules, votre façon d'accueillir. Vos clients ne changent pas d'interlocuteur.",
+  },
+];
+
 /** La liste répond à « est-ce que c'est pour moi ? » mieux qu'une phrase. */
 const activites = [
   "Hôtels",
@@ -36,7 +55,7 @@ const steps = [
   {
     n: "2",
     title: "Luma répond à votre place",
-    body: "Avec vos prix, vos disponibilités et vos règles. En quelques secondes.",
+    body: "Avec vos prix et vos disponibilités — et dans votre façon de parler, pas celle d'un robot.",
   },
   {
     n: "3",
@@ -112,14 +131,33 @@ export function HowItWorks() {
           </ol>
 
           <p className="mt-10 text-sm">
-            C&apos;est nous qui installons tout.{" "}
+            Vous n&apos;avez rien à apprendre :{" "}
             <span className="text-ink-paper-muted">
-              Vous n&apos;avez rien à apprendre : vos échanges se lisent dans
-              WhatsApp, comme aujourd&apos;hui.
+              vos échanges se lisent dans WhatsApp, comme aujourd&apos;hui.
             </span>
           </p>
+        </div>
 
-          <CtaPrimary href="#essai-gratuit" className="mt-8">
+        {/* Ce qu'on prend en charge. Encadré à part : c'est l'argument qui lève
+            le plus de freins d'un coup, il ne doit pas se fondre dans le texte. */}
+        <div className="mt-14 rounded-card border border-paper-line bg-paper-alt/70 p-6 sm:p-9">
+          <p className="kicker text-ink-paper-muted">Ce qu&apos;on fait pour vous</p>
+
+          <dl className="mt-7 divide-y divide-paper-line">
+            {priseEnCharge.map((item) => (
+              <div
+                key={item.titre}
+                className="grid gap-2 py-6 first:pt-0 sm:grid-cols-[16rem_1fr] sm:gap-8"
+              >
+                <dt className="display-soft text-base sm:text-lg">{item.titre}</dt>
+                <dd className="prose-read text-xs text-ink-paper-muted">
+                  {item.corps}
+                </dd>
+              </div>
+            ))}
+          </dl>
+
+          <CtaPrimary href="#essai-gratuit" className="mt-9">
             Essayer gratuitement
           </CtaPrimary>
         </div>

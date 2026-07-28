@@ -13,7 +13,7 @@ const CONVERSATIONS = 214;
 const freeLines = [
   "Installation et réglages",
   "Mise en place de votre WhatsApp",
-  "Reprise de vos prix et de vos prestations",
+  "Reprise de vos prix, de vos prestations et de votre ton",
   "Formation de votre équipe",
   "Abonnement mensuel",
 ];
@@ -64,8 +64,8 @@ export function Pricing() {
                   Combien de temps avant que ça tourne ?
                 </dt>
                 <dd className="prose-read mt-3 text-xs text-ink-paper-muted">
-                  Une semaine. Deux échanges pour reprendre vos prix et vos
-                  règles, puis quelques jours de rodage.
+                  Quelques jours. Deux échanges pour reprendre vos prix, vos
+                  règles et votre façon de parler, puis on met tout en place.
                 </dd>
               </div>
             </dl>

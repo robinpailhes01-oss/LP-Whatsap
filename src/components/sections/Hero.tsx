@@ -62,16 +62,24 @@ export function Hero() {
             </CtaSecondary>
           </motion.div>
 
-          {/* La levée de risque, dès le premier écran, en mots simples. */}
-          <motion.ul
+          {/* La levée de risque, dès le premier écran. Elle était réduite à une
+              ligne de mentions à 13 px : c'est la promesse la plus forte de
+              l'offre, elle se lit maintenant à la taille du texte courant. */}
+          <motion.div
             {...childProps}
-            className="mt-9 grid grid-cols-2 gap-x-5 gap-y-2.5 border-t border-night-line pt-6 text-2xs text-ink-muted sm:flex sm:flex-wrap sm:gap-x-7"
+            className="mt-9 border-t border-night-line pt-7"
           >
-            <li>Installation gratuite</li>
-            <li>0 € par mois</li>
-            <li>Sans engagement</li>
-            <li className="text-signal">Vous payez seulement à l&apos;usage</li>
-          </motion.ul>
+            <p className="text-sm font-medium">
+              La mise en place est gratuite.{" "}
+              <span className="text-brass">
+                Vous ne payez que l&apos;utilisation.
+              </span>
+            </p>
+            <p className="mt-2.5 text-xs text-ink-muted">
+              On s&apos;occupe de tout, en quelques jours. Sans abonnement, sans
+              engagement.
+            </p>
+          </motion.div>
         </div>
 
         {/* La preuve, pas l'illustration : un échange complet, lisible en
