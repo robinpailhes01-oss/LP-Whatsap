@@ -11,12 +11,43 @@ import { SectionLabel } from "@/components/ui";
  * Le formulaire poste vers /api/lead, une route serveur. La destination et les
  * clés n'apparaissent jamais dans le navigateur.
  */
-type Status = "idle" | "submitting" | "success" | "error" | "unconfigured";
+type Status = "idle" | "submitting" | "success" | "error";
 type Canal = "whatsapp" | "email";
+
+const CONTACT = "contact@luma-agence.fr";
+
+/**
+ * Repli quand l'envoi échoue, quelle qu'en soit la raison : on ouvre un e-mail
+ * déjà rédigé avec ce que la personne vient de saisir.
+ *
+ * Une demande perdue est une demande perdue — que la panne vienne du réseau,
+ * du service d'envoi ou d'une variable oubliée, le visiteur doit toujours
+ * repartir avec un moyen d'aboutir en un clic.
+ */
+function mailtoDeSecours(data: Record<string, unknown>): string {
+  const prenom = String(data.name ?? "").trim();
+  const parEmail = data.contact === "email";
+  const coordonnee = parEmail
+    ? `E-mail : ${String(data.email ?? "").trim()}`
+    : `WhatsApp : ${String(data.phone ?? "").trim()}`;
+  const corps = [
+    "Bonjour,",
+    "",
+    "Je souhaite essayer Luma sur mon établissement.",
+    "",
+    `Prénom : ${prenom}`,
+    coordonnee,
+    `Je préfère être contacté par : ${parEmail ? "e-mail" : "WhatsApp"}`,
+  ].join("\n");
+  return `mailto:${CONTACT}?subject=${encodeURIComponent(
+    `Essai gratuit — ${prenom}`,
+  )}&body=${encodeURIComponent(corps)}`;
+}
 
 export function Wake() {
   const [status, setStatus] = useState<Status>("idle");
   const [message, setMessage] = useState("");
+  const [secours, setSecours] = useState("");
   const [canal, setCanal] = useState<Canal>("whatsapp");
 
   async function handleSubmit(event: FormEvent<HTMLFormElement>) {
@@ -39,14 +70,24 @@ export function Wake() {
         setStatus("success");
         return;
       }
+
       if (payload.error === "unconfigured") {
-        setStatus("unconfigured");
-        return;
+        /* Détail technique réservé à la console : le visiteur n'a pas à lire
+           le nom d'une variable d'environnement. */
+        console.warn(
+          "[Luma] Aucune destination configurée pour le formulaire. " +
+            "Renseigner LEAD_WEBHOOK_URL, ou RESEND_API_KEY + LEAD_EMAIL_TO + " +
+            "LEAD_EMAIL_FROM. Voir CONTENT.md.",
+        );
+        setMessage("L'envoi n'a pas abouti.");
+      } else {
+        setMessage(payload.error ?? "L'envoi n'a pas abouti.");
       }
-      setMessage(payload.error ?? "L'envoi n'a pas fonctionné.");
+      setSecours(mailtoDeSecours(data));
       setStatus("error");
     } catch {
-      setMessage("L'envoi n'a pas fonctionné. Vérifiez votre connexion.");
+      setMessage("L'envoi n'a pas abouti.");
+      setSecours(mailtoDeSecours(data));
       setStatus("error");
     }
   }
@@ -228,21 +269,15 @@ export function Wake() {
                 )}
                 {status === "error" && (
                   <span>
-                    {message} Vous pouvez aussi écrire directement à{" "}
+                    {message}{" "}
                     <a
-                      href="mailto:contact@luma-agence.fr"
+                      href={secours || `mailto:${CONTACT}`}
                       className="font-medium underline"
                     >
-                      contact@luma-agence.fr
-                    </a>
-                    .
-                  </span>
-                )}
-                {status === "unconfigured" && (
-                  <span>
-                    Le formulaire n&apos;a pas encore de destination. Renseigner{" "}
-                    <code className="font-mono">LEAD_WEBHOOK_URL</code> ou les
-                    variables Resend côté serveur — voir CONTENT.md.
+                      Envoyez-moi votre demande par e-mail
+                    </a>{" "}
+                    — le message est déjà rédigé, il n&apos;y a qu&apos;à
+                    l&apos;envoyer.
                   </span>
                 )}
               </p>
