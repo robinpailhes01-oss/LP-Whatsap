@@ -22,13 +22,21 @@ npm run build
 
 ## Configuration
 
+Le formulaire poste vers `/api/lead`. Il faut lui donner une destination, au
+choix :
+
 ```bash
-# .env.local
-NEXT_PUBLIC_FORM_ENDPOINT="https://…"
+# .env.local — option A : un webhook (Make, n8n, Zapier…)
+LEAD_WEBHOOK_URL="https://…"
+
+# option B : un e-mail direct, via Resend
+RESEND_API_KEY="re_…"
+LEAD_EMAIL_TO="vous@luma-agence.fr"
+LEAD_EMAIL_FROM="luma@votre-domaine.fr"
 ```
 
-Sans cette variable, le formulaire affiche un état « non connecté » explicite
-plutôt que de simuler un envoi réussi.
+Sans destination, le formulaire affiche un message explicite plutôt que de
+simuler un envoi réussi. Détail complet dans `CONTENT.md`.
 
 ## Structure
 
@@ -46,6 +54,8 @@ src/
     SiteHeader.tsx    en-tête + horloge de scène
     ui.tsx            CTA, libellés de section
     sections/         une section par moment de la nuit
+  app/
+    api/lead/         réception des demandes d'essai (route serveur)
   lib/
     conversations.ts  scripts de conversation et demandes traitées
     vsl.ts            configuration de la VSL (fournisseur, chapitres)

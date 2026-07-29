@@ -4,40 +4,49 @@ import { useState, type FormEvent } from "react";
 import { SectionLabel } from "@/components/ui";
 
 /**
- * Deux champs. C'est cohérent avec ce que la page vend : le reste se demande
- * dans le premier message WhatsApp, exactement comme Luma le ferait.
+ * Trois champs, jamais plus : le prénom, le canal préféré, et la coordonnée
+ * correspondante. Demander à la fois le téléphone et l'e-mail obligerait à
+ * remplir une ligne inutile — on demande seulement celle qu'on va utiliser.
  *
- * Pour requalifier davantage (nom de l'établissement, type), il suffit
- * d'ajouter un bloc <label>/<input> ci-dessous — mais chaque champ ajouté se
- * paie en demandes perdues.
+ * Le formulaire poste vers /api/lead, une route serveur. La destination et les
+ * clés n'apparaissent jamais dans le navigateur.
  */
 type Status = "idle" | "submitting" | "success" | "error" | "unconfigured";
-
-const ENDPOINT = process.env.NEXT_PUBLIC_FORM_ENDPOINT;
+type Canal = "whatsapp" | "email";
 
 export function Wake() {
   const [status, setStatus] = useState<Status>("idle");
+  const [message, setMessage] = useState("");
+  const [canal, setCanal] = useState<Canal>("whatsapp");
 
   async function handleSubmit(event: FormEvent<HTMLFormElement>) {
     event.preventDefault();
     const form = event.currentTarget;
-
-    if (!ENDPOINT) {
-      setStatus("unconfigured");
-      return;
-    }
+    const data = Object.fromEntries(new FormData(form));
 
     setStatus("submitting");
     try {
-      const response = await fetch(ENDPOINT, {
+      const response = await fetch("/api/lead", {
         method: "POST",
-        headers: { Accept: "application/json" },
-        body: new FormData(form),
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(data),
       });
-      if (!response.ok) throw new Error(String(response.status));
-      form.reset();
-      setStatus("success");
+      const payload = (await response.json()) as { error?: string };
+
+      if (response.ok) {
+        form.reset();
+        setCanal("whatsapp");
+        setStatus("success");
+        return;
+      }
+      if (payload.error === "unconfigured") {
+        setStatus("unconfigured");
+        return;
+      }
+      setMessage(payload.error ?? "L'envoi n'a pas fonctionné.");
+      setStatus("error");
     } catch {
+      setMessage("L'envoi n'a pas fonctionné. Vérifiez votre connexion.");
       setStatus("error");
     }
   }
@@ -91,10 +100,10 @@ export function Wake() {
               Demander mon essai gratuit
             </h3>
             <p className="mt-3 text-xs text-ink-paper-muted">
-              Deux lignes. Je vous écris sur WhatsApp, et on voit ensemble.
+              Trois lignes. On vous répond sous 24 heures ouvrées.
             </p>
 
-            <form onSubmit={handleSubmit} className="mt-8 space-y-6">
+            <form onSubmit={handleSubmit} className="mt-8 space-y-7">
               <div>
                 <label htmlFor="name" className="text-sm font-medium">
                   Votre prénom
@@ -110,20 +119,85 @@ export function Wake() {
                 />
               </div>
 
-              <div>
-                <label htmlFor="phone" className="text-sm font-medium">
-                  Votre numéro WhatsApp
-                </label>
-                <input
-                  id="phone"
-                  name="phone"
-                  type="tel"
-                  required
-                  autoComplete="tel"
-                  placeholder="06 12 34 56 78"
-                  className={fieldClass}
-                />
-              </div>
+              {/* On demande la préférence avant la coordonnée : personne n'aime
+                  donner son numéro sans savoir ce qu'on va en faire. */}
+              <fieldset>
+                <legend className="text-sm font-medium">
+                  Comment préférez-vous qu&apos;on vous réponde ?
+                </legend>
+                <div className="mt-3 grid grid-cols-2 gap-3">
+                  {(
+                    [
+                      { value: "whatsapp", label: "Sur WhatsApp" },
+                      { value: "email", label: "Par e-mail" },
+                    ] as const
+                  ).map((option) => {
+                    const active = canal === option.value;
+                    return (
+                      <label
+                        key={option.value}
+                        className={`flex cursor-pointer items-center justify-center rounded-sm border-2 px-3 py-3.5 text-xs font-medium transition-colors duration-[120ms] has-[:focus-visible]:border-brass-deep ${
+                          active
+                            ? "border-ink-paper bg-ink-paper text-paper"
+                            : "border-paper-line bg-paper text-ink-paper-muted hover:border-ink-paper/40"
+                        }`}
+                      >
+                        <input
+                          type="radio"
+                          name="contact"
+                          value={option.value}
+                          checked={active}
+                          onChange={() => setCanal(option.value)}
+                          className="sr-only"
+                        />
+                        {option.label}
+                      </label>
+                    );
+                  })}
+                </div>
+              </fieldset>
+
+              {canal === "whatsapp" ? (
+                <div>
+                  <label htmlFor="phone" className="text-sm font-medium">
+                    Votre numéro WhatsApp
+                  </label>
+                  <input
+                    id="phone"
+                    name="phone"
+                    type="tel"
+                    required
+                    autoComplete="tel"
+                    placeholder="06 12 34 56 78"
+                    className={fieldClass}
+                  />
+                </div>
+              ) : (
+                <div>
+                  <label htmlFor="email" className="text-sm font-medium">
+                    Votre adresse e-mail
+                  </label>
+                  <input
+                    id="email"
+                    name="email"
+                    type="email"
+                    required
+                    autoComplete="email"
+                    placeholder="camille@monetablissement.fr"
+                    className={fieldClass}
+                  />
+                </div>
+              )}
+
+              {/* Champ-piège : caché aux humains, rempli par les robots. */}
+              <input
+                type="text"
+                name="website"
+                tabIndex={-1}
+                autoComplete="off"
+                aria-hidden="true"
+                className="hidden"
+              />
 
               <button
                 type="submit"
@@ -148,14 +222,13 @@ export function Wake() {
                 )}
                 {status === "success" && (
                   <span className="font-medium text-signal-deep">
-                    C&apos;est envoyé. Je vous écris sur WhatsApp sous 24 heures
-                    ouvrées — pensez à regarder vos demandes de message.
+                    C&apos;est envoyé. On vous répond sous 24 heures ouvrées, sur
+                    le canal que vous avez choisi.
                   </span>
                 )}
                 {status === "error" && (
                   <span>
-                    L&apos;envoi n&apos;a pas fonctionné. Réessayez, ou
-                    écrivez-moi à{" "}
+                    {message} Vous pouvez aussi écrire directement à{" "}
                     <a
                       href="mailto:contact@luma-agence.fr"
                       className="font-medium underline"
@@ -167,10 +240,9 @@ export function Wake() {
                 )}
                 {status === "unconfigured" && (
                   <span>
-                    Le formulaire n&apos;est pas encore relié à sa destination
-                    (variable{" "}
-                    <code className="font-mono">NEXT_PUBLIC_FORM_ENDPOINT</code>{" "}
-                    manquante). Voir CONTENT.md.
+                    Le formulaire n&apos;a pas encore de destination. Renseigner{" "}
+                    <code className="font-mono">LEAD_WEBHOOK_URL</code> ou les
+                    variables Resend côté serveur — voir CONTENT.md.
                   </span>
                 )}
               </p>

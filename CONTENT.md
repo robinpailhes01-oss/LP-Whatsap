@@ -20,25 +20,82 @@ contre vous au premier litige.
 
 ## 2. Formulaire — bloquant
 
-`src/components/sections/Wake.tsx`
+**En l'état, aucune demande ne vous parvient.** Le formulaire est fonctionnel et
+testé, mais il n'a pas encore de destination : il affiche alors un message
+explicite plutôt que de faire croire à un envoi réussi.
 
-Le formulaire poste vers `NEXT_PUBLIC_FORM_ENDPOINT`. Tant que la variable
-n'est pas définie, l'envoi affiche un état « non connecté » explicite (il ne
-simule jamais un succès).
+Le formulaire poste vers `/api/lead`, une route serveur (`src/app/api/lead/route.ts`).
+La destination et les clés restent côté serveur — elles ne sont jamais visibles
+dans le navigateur.
+
+### Ce que le formulaire demande
+
+Trois lignes : le prénom, **le canal préféré (WhatsApp ou e-mail)**, et la
+coordonnée correspondante. On ne demande jamais les deux — seulement celle qu'on
+va utiliser.
+
+### Option A — un webhook (le plus simple)
+
+Pour Make, n8n, Zapier, ou n'importe quel service qui reçoit du JSON.
 
 ```bash
-# .env.local
-NEXT_PUBLIC_FORM_ENDPOINT="https://…"   # Formspree, Make, n8n, route API interne…
+LEAD_WEBHOOK_URL="https://hook.eu2.make.com/…"
 ```
 
-L'adresse de repli en cas d'échec (`contact@luma-agence.fr`) est également à
-confirmer.
+Vous recevez exactement ceci :
 
-**Le formulaire ne demande que deux choses : le prénom et le numéro WhatsApp.**
-C'est cohérent avec ce que la page vend — le reste se demande dans le premier
-message, exactement comme Luma le ferait. Si vous voulez requalifier davantage
-(nom de l'établissement, type), ajoutez un bloc `<label>`/`<input>` dans
-*Wake.tsx* : chaque champ ajouté se paie en demandes perdues.
+```json
+{
+  "name": "Camille",
+  "contact": "whatsapp",
+  "phone": "06 12 34 56 78",
+  "email": "",
+  "waLink": "https://wa.me/33612345678",
+  "receivedAt": "mercredi 29 juillet 2026 à 16:30",
+  "source": "landing-luma"
+}
+```
+
+`waLink` est un lien cliquable : depuis votre téléphone, un appui ouvre la
+conversation WhatsApp avec la personne. Il est vide si le canal choisi est
+l'e-mail, ou si le numéro n'a pas pu être reconnu.
+
+### Option B — un e-mail direct, via Resend
+
+```bash
+RESEND_API_KEY="re_…"
+LEAD_EMAIL_TO="vous@luma-agence.fr"      # plusieurs adresses : séparez par des virgules
+LEAD_EMAIL_FROM="luma@votre-domaine.fr"  # domaine vérifié chez Resend
+```
+
+L'objet indique déjà le canal choisi : `Essai gratuit — Camille (WhatsApp)`.
+Le corps contient le prénom, la préférence, la coordonnée, le lien `wa.me` et
+la date. Si la personne a choisi l'e-mail, le `reply-to` est son adresse : vous
+répondez directement depuis votre boîte.
+
+Le webhook a la priorité si les deux sont renseignés.
+
+### Où mettre ces variables
+
+Sur Vercel : *Settings → Environment Variables*, puis redéployer. En local :
+un fichier `.env.local` à la racine (il n'est pas versionné).
+
+### Protections en place
+
+- **Champ-piège** invisible : un robot qui le remplit reçoit un faux succès et
+  rien n'est transmis.
+- **Limite de débit** : 5 demandes par IP toutes les 10 minutes.
+- **Validation côté serveur** : prénom d'au moins 2 caractères, numéro d'au
+  moins 9 chiffres, adresse e-mail au bon format.
+
+### Vérifié
+
+Testé de bout en bout : état non configuré (503 + message franc), prénom
+manquant, e-mail invalide, robot, envoi WhatsApp et envoi e-mail — les deux
+arrivent bien à destination avec le bon `waLink`.
+
+L'adresse de repli affichée en cas d'échec (`contact@luma-agence.fr`) est à
+confirmer.
 
 ## 3. VSL — bloquant
 
