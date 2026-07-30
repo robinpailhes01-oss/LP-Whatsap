@@ -1,9 +1,18 @@
+import Link from "next/link";
+
 const links = [
-  { href: "#comment-ca-marche", label: "Comment ça marche" },
-  { href: "#carnet-clients", label: "Carnet de clients" },
-  { href: "#le-prix", label: "Prix" },
-  { href: "#questions", label: "Questions" },
-  { href: "#qui-suis-je", label: "Qui est derrière" },
+  { href: "/#comment-ca-marche", label: "Comment ça marche" },
+  { href: "/#carnet-clients", label: "Carnet de clients" },
+  { href: "/#le-prix", label: "Prix" },
+  { href: "/#questions", label: "Questions" },
+  { href: "/#qui-suis-je", label: "Qui est derrière" },
+];
+
+/* Obligatoires, et attendus là où on les cherche : en bas, tous ensemble. */
+const legal = [
+  { href: "/mentions-legales", label: "Mentions légales" },
+  { href: "/confidentialite", label: "Données personnelles" },
+  { href: "/cgv", label: "Conditions générales" },
 ];
 
 export function SiteFooter() {
@@ -22,21 +31,35 @@ export function SiteFooter() {
 
         <nav aria-label="Pied de page" className="flex flex-wrap gap-x-8 gap-y-3">
           {links.map((link) => (
-            <a
+            <Link
               key={link.href}
               href={link.href}
               className="text-2xs text-ink-paper-muted transition-colors duration-[120ms] hover:text-ink-paper"
             >
               {link.label}
-            </a>
+            </Link>
           ))}
         </nav>
       </div>
 
-      <div className="mx-auto max-w-6xl border-t border-paper-line px-5 py-6 sm:px-8">
+      <div className="mx-auto flex max-w-6xl flex-col gap-4 border-t border-paper-line px-5 py-6 sm:flex-row sm:items-center sm:justify-between sm:px-8">
         <p className="text-2xs text-ink-paper-muted">
-          © {new Date().getFullYear()} Luma · Données conservées en Europe
+          © {new Date().getFullYear()} Luma
         </p>
+        <nav
+          aria-label="Informations légales"
+          className="flex flex-wrap gap-x-7 gap-y-2"
+        >
+          {legal.map((link) => (
+            <Link
+              key={link.href}
+              href={link.href}
+              className="text-2xs text-ink-paper-muted transition-colors duration-[120ms] hover:text-ink-paper"
+            >
+              {link.label}
+            </Link>
+          ))}
+        </nav>
       </div>
     </footer>
   );

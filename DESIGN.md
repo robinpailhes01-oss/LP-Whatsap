@@ -237,6 +237,14 @@ phrase, la fiche du carnet remplace trois paragraphes sur le CRM, la facture
 remplace un discours sur le modèle économique, et la conversation remplace toute
 description du produit.
 
+**Les pages légales font partie du design, pas de l'annexe.** `/mentions-legales`,
+`/confidentialite` et `/cgv` reprennent les mêmes couleurs et la même échelle de
+texte que le reste — 17 px de corps, encre sur papier — mais retirent toute mise
+en scène : une colonne, des titres, rien qui bouge. Un gérant méfiant va les
+lire, et un site qui bâcle ses mentions dit quelque chose de lui. Chaque
+information encore manquante y est marquée d'une pastille jaune : tant qu'il en
+reste une, la page se signale comme non publiable.
+
 **Aucune formule à décoder.** Le titre du hero disait « Il est 23h47. Un client
 vous écrit. Vous dormez. » — évocateur, mais il demandait au lecteur de déduire
 ce qu'est le produit. Il dit maintenant ce que c'est : « Vos clients vous

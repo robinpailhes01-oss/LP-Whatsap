@@ -16,7 +16,47 @@ remplacer par les vôtres. Tant que ce fichier n'est pas vidé, la page ne doit 
 
 La définition d'une « conversation traitée » affichée sous la facture doit
 correspondre exactement à ce que vous facturez, sinon la promesse se retourne
-contre vous au premier litige.
+contre vous au premier litige. Elle est reprise mot pour mot à l'article 2 des
+CGV (`src/app/cgv/page.tsx`) : **si l'une change, l'autre change.**
+
+### Ce qu'une conversation coûte réellement
+
+Prix API Anthropic au 30 juillet 2026, par million de jetons :
+
+| Modèle | Entrée | Sortie |
+|---|---|---|
+| Haiku 4.5 | 1,00 $ | 5,00 $ |
+| Sonnet 5 | 3,00 $ (2,00 $ en tarif d'introduction jusqu'au 31/08/2026) | 15,00 $ (10,00 $) |
+| Opus 5 | 5,00 $ | 25,00 $ |
+
+Hypothèse de travail pour **une** conversation client : 6 réponses de l'agent,
+une consigne d'établissement de 4 000 jetons (tarifs, disponibilités, règles,
+ton) mise en cache, ~4 500 jetons d'historique non caché cumulés sur les 6
+appels, ~800 jetons produits. Le cache se lit à 0,1× le prix d'entrée et
+s'écrit à 1,25× ; on compte deux écritures, une conversation s'étalant sur plus
+de cinq minutes.
+
+| Modèle | Coût API d'une conversation |
+|---|---|
+| Haiku 4.5 | ≈ 0,021 $ — **2 centimes** |
+| Sonnet 5 | ≈ 0,063 $ — **6 centimes** |
+| Opus 5 | ≈ 0,105 $ — **10 centimes** |
+
+Trois choses à en retenir :
+
+1. **Le poste dominant n'est pas la réponse, c'est la consigne.** L'écriture du
+   cache pèse à elle seule la moitié de la facture. Une consigne de 2 000 jetons
+   au lieu de 4 000 divise le coût par deux — c'est le levier le plus rentable.
+2. **Ce n'est pas le seul coût.** S'y ajoutent les frais de messages de la
+   plateforme WhatsApp Business (Meta facture les messages sortants hors
+   fenêtre de service de 24 h — barème à vérifier chez Meta pour la France),
+   l'hébergement, et votre temps d'accompagnement. Le coût API n'est qu'un
+   plancher.
+3. **Le coût ne fixe pas le prix.** À 0,40 €, la marge sur le seul poste API va
+   de 4× (Opus) à 20× (Haiku), ce qui est confortable. Mais l'argument de vente
+   n'est pas le coût de revient : une réservation récupérée vaut plusieurs
+   centaines d'euros au gérant. Le prix reste **votre décision commerciale** —
+   `PRICE_PER_CONVERSATION` n'a pas été modifié.
 
 ## 2. Formulaire — bloquant
 
@@ -104,7 +144,8 @@ mise en ligne, ou être réécrite.
 
 - « Nous vous écrivons sur WhatsApp sous 24 h ouvrées. » — *Wake.tsx*
 - « Données hébergées dans l'Union européenne » et « ne servent jamais à
-  entraîner de modèle » — *Faq.tsx*, *SiteFooter.tsx*
+  entraîner de modèle » — *Faq.tsx*. Retirée du pied de page : voir le point ⚠
+  de la section 8, elle n'est pas vérifiée en l'état.
 - « Suppression effective sous 30 jours » — *Faq.tsx*
 - « Comptez une semaine » pour la mise en route — *Pricing.tsx*
 - « Vous relisez chaque réponse avant qu'elle parte » — *Faq.tsx*,
@@ -182,8 +223,69 @@ Sans preuve réelle, mieux vaut la section absente que remplie de faux.
 chiffre est affiché sous le résultat, donc honnête, mais c'est une hypothèse.
 Si vous connaissez votre vraie moyenne, remplacez-la.
 
-## 8. Mentions légales
+## 8. Pages légales — bloquant
 
-Non rédigées. À ajouter avant diffusion : mentions légales, politique de
-confidentialité (RGPD, l'agent traite des données personnelles de vos clients),
-CGV/CGU couvrant la facturation à l'usage.
+Trois pages sont en place, liées depuis le pied de page :
+
+| Page | Fichier |
+|---|---|
+| `/mentions-legales` | `src/app/mentions-legales/page.tsx` |
+| `/confidentialite` | `src/app/confidentialite/page.tsx` |
+| `/cgv` | `src/app/cgv/page.tsx` |
+
+**Ce n'est pas un conseil juridique.** C'est une base rédigée à partir des
+obligations courantes (LCEN art. 6-III, RGPD, Code de commerce art. L441-10 et
+D441-5 pour les pénalités de retard entre professionnels). Elle doit être relue
+par un professionnel du droit avant diffusion.
+
+### Les repères jaunes
+
+Chaque information que vous seul possédez est marquée en jaune sur la page :
+« à compléter — raison sociale », « à compléter — SIREN », etc. **Tant qu'il en
+reste un, la page n'est pas publiable** — c'est voulu, on ne peut pas les
+oublier. Le composant est `ARemplir` dans `src/components/Legal.tsx`.
+
+À réunir : raison sociale, forme juridique, capital, adresse du siège, RCS et
+SIREN, TVA intracommunautaire, téléphone, fonction exacte du directeur de la
+publication, coordonnées de l'hébergeur, durée de l'essai gratuit, tarif HT,
+préavis de révision des prix, ressort du tribunal compétent.
+
+Pour l'hébergeur, sur un déploiement Vercel : Vercel Inc., 340 S Lemon Ave
+#4133, Walnut, CA 91789, États-Unis. À confirmer, ainsi que la région de
+déploiement, au moment de la mise en ligne.
+
+### ⚠ Deux points à trancher, pas seulement à remplir
+
+**1. « Données conservées en Europe ».** La phrase figurait en pied de page et
+figure toujours dans la FAQ. En l'état, elle n'est pas vérifiée : l'API du
+modèle de langage, le service d'envoi d'e-mails et l'hébergement sont
+susceptibles d'être hors Union européenne. Elle a été retirée du pied de page.
+Deux issues possibles, aucune autre :
+
+- rendre la phrase vraie — région européenne partout, ce qui se vérifie
+  fournisseur par fournisseur ; ou
+- la réécrire dans la FAQ pour dire ce qui est réellement le cas, l'article
+  « Où sont les données » de la politique de confidentialité fournissant le
+  détail (transferts encadrés par les clauses contractuelles types).
+
+Une promesse de localisation fausse est le genre de mention qui coûte cher.
+
+**2. L'accord de sous-traitance (art. 28 RGPD).** La politique de
+confidentialité et les CGV affirment toutes deux qu'un accord de sous-traitance
+est signé au démarrage avec chaque client. Il n'existe pas encore. Il doit être
+rédigé avant la première mise en service, sinon la mention est fausse et
+l'obligation reste, elle, bien réelle.
+
+### Ce qui est vrai et vérifié
+
+- **Aucun cookie, aucune mesure d'audience.** Vérifié dans le code : ni script
+  d'analyse, ni pixel, ni bandeau. La politique de confidentialité peut donc
+  l'affirmer sans réserve. Si vous ajoutez un jour un outil de mesure, cette
+  phrase doit changer *et* un bandeau de consentement devient obligatoire.
+- **L'adresse IP n'est pas stockée durablement** : elle ne sert qu'à la limite
+  de débit du formulaire, en mémoire, et disparaît au redémarrage du serveur.
+- **Anthropic n'entraîne pas ses modèles sur les contenus envoyés par l'API.**
+  La mention « ne servent jamais à entraîner un programme » est donc exacte pour
+  ce maillon. À vérifier pour les autres prestataires que vous ajouterez.
+- **Aucun client n'est identifiable** dans les captures reprises sur la page
+  d'accueil, ce que les mentions légales affirment.
