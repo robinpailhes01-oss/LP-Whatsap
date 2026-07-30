@@ -87,7 +87,10 @@ export function Wake() {
       setSecours(mailtoDeSecours(data));
       setStatus("error");
     } catch {
-      setMessage("L'envoi n'a pas abouti.");
+      /* Formulation distincte des échecs côté serveur : c'est le seul indice
+         dont on dispose depuis un téléphone, sans console, pour savoir si le
+         problème vient du réseau du visiteur ou de la destination. */
+      setMessage("La connexion s'est interrompue.");
       setSecours(mailtoDeSecours(data));
       setStatus("error");
     }

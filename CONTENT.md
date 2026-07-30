@@ -153,6 +153,27 @@ Testé de bout en bout : état non configuré (503 + message franc), prénom
 manquant, e-mail invalide, robot, envoi WhatsApp et envoi e-mail — les deux
 arrivent bien à destination avec le bon `waLink`.
 
+**Vérifié sur la production le 30 juillet 2026** (`lp-whatsap.vercel.app`) :
+les deux branches du formulaire répondent `200`, la destination est bien
+configurée, l'e-mail arrive. Deux demandes de test nommées « Diagnostic » et
+« Diagnostic WhatsApp » ont été émises à cette occasion : ce ne sont pas de
+vrais prospects.
+
+### Lire le message d'erreur depuis un téléphone
+
+Les trois causes d'échec se distinguent maintenant au texte affiché — utile
+quand on n'a pas de console sous la main :
+
+| Ce qui s'affiche | Ce qui se passe | Quoi faire |
+|---|---|---|
+| « L'envoi n'a pas abouti. » | Aucune destination configurée (503). | Renseigner les variables sur Vercel, **puis redéployer** — c'est l'oubli le plus fréquent. |
+| « Envoi impossible. » | La destination refuse (502) : clé Resend invalide, ou `LEAD_EMAIL_TO` différente de l'adresse du compte Resend en mode test. | Vérifier la clé et l'adresse. |
+| « La connexion s'est interrompue. » | Le navigateur n'a pas atteint le serveur. | Réseau du visiteur, ou site indisponible. |
+
+Dans les trois cas, le lien « Envoyez-moi votre demande par e-mail » est déjà
+pré-rempli avec ce que la personne venait de saisir : aucune demande n'est
+perdue si elle clique.
+
 L'adresse de contact du site est `contact@robinpailhes.fr`. Elle est définie à
 un seul endroit — `CONTACT_EMAIL` dans `src/lib/site.ts` — et sert à la fois de
 repli du formulaire et d'adresse affichée sur les trois pages légales. Elle doit
