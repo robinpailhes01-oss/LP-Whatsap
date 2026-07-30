@@ -115,7 +115,7 @@ et la page devient lisible.
 **Anti-slop — écarté délibérément**
 - Fond crème + serif contrastée + accent terracotta → défaut IA n°1.
 - Noir + accent vert acide → défaut IA n°2.
-- Navy + bleu électrique → déjà l'identité de luma-agence.fr.
+- Navy + bleu électrique → l'identité de la moitié des logiciels de gestion.
 - Hero centré + blob en dégradé, grille de 3 cartes à icônes, carrousel de
   témoignages, tableau de prix à trois colonnes.
 

@@ -19,8 +19,7 @@ import { SiteFooter } from "@/components/SiteFooter";
 
 export const MISE_A_JOUR = "30 juillet 2026";
 
-/** Adresse affichée sur le site. À faire correspondre à la boîte réellement relevée. */
-export const CONTACT = "contact@luma-agence.fr";
+export { CONTACT_EMAIL as CONTACT } from "@/lib/site";
 
 /**
  * Repère volontairement voyant. Tant qu'il reste un de ces blocs sur la page,

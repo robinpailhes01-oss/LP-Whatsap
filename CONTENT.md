@@ -117,13 +117,14 @@ l'adresse propriétaire du compte Resend**. Toute autre adresse est refusée
 donc être, à la lettre près, l'adresse avec laquelle le compte Resend a été
 créé.
 
-**Ensuite, pour un rendu propre :** Resend → *Domains* → vérifier votre domaine
-(quelques lignes DNS). La limite disparaît.
+**Ensuite, pour un rendu propre :** Resend → *Domains* → vérifier
+`robinpailhes.fr` (quelques lignes DNS). La limite disparaît, et l'e-mail
+n'arrive plus de `onboarding@resend.dev`.
 
 ```bash
 RESEND_API_KEY="re_…"
-LEAD_EMAIL_TO="vous@luma-agence.fr"      # plusieurs adresses : séparez par des virgules
-LEAD_EMAIL_FROM="luma@votre-domaine.fr"  # domaine vérifié chez Resend
+LEAD_EMAIL_TO="contact@robinpailhes.fr"  # plusieurs adresses : séparez par des virgules
+LEAD_EMAIL_FROM="luma@robinpailhes.fr"   # domaine vérifié chez Resend
 ```
 
 L'objet indique déjà le canal choisi : `Essai gratuit — Camille (WhatsApp)`.
@@ -152,8 +153,11 @@ Testé de bout en bout : état non configuré (503 + message franc), prénom
 manquant, e-mail invalide, robot, envoi WhatsApp et envoi e-mail — les deux
 arrivent bien à destination avec le bon `waLink`.
 
-L'adresse de repli affichée en cas d'échec (`contact@luma-agence.fr`) est à
-confirmer.
+L'adresse de contact du site est `contact@robinpailhes.fr`. Elle est définie à
+un seul endroit — `CONTACT_EMAIL` dans `src/lib/site.ts` — et sert à la fois de
+repli du formulaire et d'adresse affichée sur les trois pages légales. Elle doit
+être une boîte réellement relevée : c'est là qu'atterrissent les demandes quand
+l'envoi automatique échoue, et les demandes d'exercice de droits RGPD.
 
 ## 3. Engagements pris dans le texte
 

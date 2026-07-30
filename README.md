@@ -31,8 +31,8 @@ LEAD_WEBHOOK_URL="https://…"
 
 # option B : un e-mail direct, via Resend
 RESEND_API_KEY="re_…"
-LEAD_EMAIL_TO="vous@luma-agence.fr"
-LEAD_EMAIL_FROM="luma@votre-domaine.fr"
+LEAD_EMAIL_TO="contact@robinpailhes.fr"
+LEAD_EMAIL_FROM="luma@robinpailhes.fr"   # domaine vérifié chez Resend
 ```
 
 Sans destination, le formulaire affiche un message explicite plutôt que de

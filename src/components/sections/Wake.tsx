@@ -2,6 +2,7 @@
 
 import { useState, type FormEvent } from "react";
 import { SectionLabel } from "@/components/ui";
+import { CONTACT_EMAIL } from "@/lib/site";
 
 /**
  * Trois champs, jamais plus : le prénom, le canal préféré, et la coordonnée
@@ -14,7 +15,7 @@ import { SectionLabel } from "@/components/ui";
 type Status = "idle" | "submitting" | "success" | "error";
 type Canal = "whatsapp" | "email";
 
-const CONTACT = "contact@luma-agence.fr";
+const CONTACT = CONTACT_EMAIL;
 
 /**
  * Repli quand l'envoi échoue, quelle qu'en soit la raison : on ouvre un e-mail
