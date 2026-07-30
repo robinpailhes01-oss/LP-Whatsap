@@ -1,5 +1,4 @@
 const links = [
-  { href: "#la-video", label: "La vidéo" },
   { href: "#comment-ca-marche", label: "Comment ça marche" },
   { href: "#carnet-clients", label: "Carnet de clients" },
   { href: "#le-prix", label: "Prix" },

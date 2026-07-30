@@ -201,14 +201,13 @@ avant l'explication.
 |---|---|---|---|
 | 1 | Hero — la promesse en une phrase + conversation en direct | nuit | « C'est quoi ? » |
 | 2 | C'est quoi, exactement — définition, pour qui, 3 étapes | papier | « C'est pour moi ? C'est compliqué ? » |
-| 3 | La vidéo | papier | « Montrez-moi. » |
-| 4 | Ce que ça vous coûte — calculateur | papier | « Ça me concerne vraiment ? » |
-| 5 | Les demandes qu'il traite | papier | « Ça saurait répondre à ça, chez moi ? » |
-| 6 | Votre carnet de clients | papier | « Et après ? » |
-| 7 | Le prix | papier | « Combien, et quel risque ? » |
-| 8 | Les questions qu'on nous pose | papier | Les six dernières objections |
-| 9 | Qui est derrière Luma | papier | « À qui j'ai affaire ? » |
-| 10 | L'essai gratuit — formulaire | papier | L'action |
+| 3 | Ce que ça vous coûte — calculateur | papier | « Ça me concerne vraiment ? » |
+| 4 | Les demandes qu'il traite | papier | « Ça saurait répondre à ça, chez moi ? » |
+| 5 | Votre carnet de clients | papier | « Et après ? » |
+| 6 | Le prix | papier | « Combien, et quel risque ? » |
+| 7 | Les questions qu'on nous pose | papier | Les six dernières objections |
+| 8 | Qui est derrière Luma | papier | « À qui j'ai affaire ? » |
+| 9 | L'essai gratuit — formulaire | papier | L'action |
 
 Le hero est désormais la **seule** section sur fond sombre. Faire alterner
 sombre et clair au fil du scroll faisait clignoter l'en-tête sans rien apporter.
@@ -220,7 +219,13 @@ même formulaire, sous le même libellé.
 La présentation du fondateur est placée juste avant le formulaire, et pas en
 pied de page : on rencontre la personne, puis on lui écrit. C'est le seul visage
 de toute la page — aucune autre photo n'y figure — et c'est ce qui lui donne son
-poids.
+poids. Le portrait est sur fond sombre avec une lumière chaude qui répond au
+laiton de la page : il tranche sur le papier clair sans jurer avec.
+
+**La section vidéo a été retirée.** Elle attendait une VSL qui n'est pas venue,
+et une page qui explique bien n'a pas besoin d'un écran vide pour promettre
+qu'elle expliquera. Si une vidéo arrive un jour, elle se replacera entre le
+« c'est quoi » et le calculateur.
 
 **Densité de texte.** Chaque section tient en un titre, un paragraphe court et
 un objet visuel (conversation, curseurs, liste, fiche, facture, photo). Quand

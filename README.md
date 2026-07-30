@@ -58,7 +58,6 @@ src/
     api/lead/         réception des demandes d'essai (route serveur)
   lib/
     conversations.ts  scripts de conversation et demandes traitées
-    vsl.ts            configuration de la VSL (fournisseur, chapitres)
     motion.ts         easings et variantes partagés
 ```
 

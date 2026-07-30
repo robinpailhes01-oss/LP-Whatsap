@@ -22,7 +22,7 @@ export const founder: Founder = {
   /* Le métier avant le titre : le lecteur doit voir quelqu'un comme lui,
      pas un informaticien qui vient lui vendre de l'IA. */
   role: "Loueur de yacht près de Montpellier depuis 2021 · fondateur de Luma",
-  photo: "",
+  photo: "/robin-pailhes.jpg",
   photoAlt: "Portrait de Robin Pailhes, fondateur de Luma.",
   paragraphs: [
     "Depuis 2021, je loue un yacht de 13 mètres près de Montpellier. Pendant longtemps, j'ai répondu moi-même à chaque message : les disponibilités, les tarifs, les relances. Le soir, le dimanche, en vacances.",

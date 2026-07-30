@@ -97,41 +97,7 @@ arrivent bien à destination avec le bon `waLink`.
 L'adresse de repli affichée en cas d'échec (`contact@luma-agence.fr`) est à
 confirmer.
 
-## 3. VSL — bloquant
-
-`src/lib/vsl.ts`
-
-La section « La démonstration » (23h49) existe et est en attente de la vidéo.
-Tant que `provider` vaut `null`, elle affiche un cadre d'attente explicite
-plutôt qu'un lecteur cassé, et les chapitres sont désactivés.
-
-```ts
-export const vsl: VslConfig = {
-  provider: "youtube",        // "youtube" | "vimeo" | "file"
-  source: "dQw4w9WgXcQ",      // identifiant, ou URL du fichier si "file"
-  poster: "/vsl-poster.jpg",  // image d'attente dans /public
-  duration: "4 min",
-  chapters: [ … ],            // horodatages réels de la vidéo
-};
-```
-
-À caler une fois la vidéo montée :
-
-- Les **chapitres** sont des placeholders. Leurs `at` (en secondes) et `label`
-  doivent correspondre au montage réel — ils servent au saut au clic.
-- La **durée** annoncée (`4 min`) et le titre « Quatre minutes… » dans
-  *Vsl.tsx* doivent correspondre au montage.
-- L'**image d'attente** : un arrêt sur image lisible, pas un écran noir.
-- Les **sous-titres** : indispensables, une VSL se regarde majoritairement en
-  son coupé. Sur YouTube/Vimeo ils se gèrent depuis la plateforme ; en
-  `provider: "file"`, renseigner `captions` avec un fichier WebVTT.
-- La promesse « aucune diapositive » n'engage que si la vidéo en est
-  effectivement dépourvue.
-
-Le lecteur n'est chargé qu'au clic : aucune requête ni cookie tiers avant que
-le visiteur ne décide de regarder.
-
-## 4. Engagements pris dans le texte
+## 3. Engagements pris dans le texte
 
 Ces phrases sont des promesses opposables. Chacune doit être vraie le jour de la
 mise en ligne, ou être réécrite.
@@ -149,7 +115,7 @@ mise en ligne, ou être réécrite.
 - « Luma le dit dès le premier message » (annonce du caractère automatique) —
   *Faq.tsx* : à vérifier dans la configuration réelle de l'agent.
 
-## 5. Exemples nommés
+## 4. Exemples nommés
 
 Ce sont des noms inventés, pas des clients.
 
@@ -177,7 +143,7 @@ Ce sont des noms inventés, pas des clients.
   plausible, pas une mesure. À réintroduire seulement avec les chiffres réels
   d'un établissement.
 
-## 6. Présentation du fondateur — la photo manque
+## 5. Présentation du fondateur
 
 `src/lib/founder.ts`
 
@@ -188,17 +154,15 @@ les autres, vous avez résolu votre propre problème et vous vous en servez
 depuis deux ans. Ne le réécrivez pas en argumentaire : sa force tient à ce
 qu'il soit dit platement.
 
-**Il manque la photo.** Déposer le fichier dans `/public` et renseigner `photo`.
-Un vrai portrait, regard vers l'objectif, format 4/5, 800 px de large au
-minimum. Une photo sur le bateau serait idéale : elle prouve l'histoire en même
-temps qu'elle la raconte. Sans photo, la section affiche un cadre d'attente
-explicite.
+La photo est en place (`/public/robin-pailhes.jpg`), servie redimensionnée et
+compressée par `next/image`. Le cadre est en 4/5 : le portrait carré est rogné
+sur les côtés, le visage étant centré il n'y perd rien.
 
-À vérifier aussi : « plus de réservations qu'avant » est votre constat. Si vous
-avez un chiffre (+30 %, deux fois plus de demandes traitées), il vaut mieux que
-l'adjectif.
+Reste à vérifier : « plus de réservations qu'avant » est votre constat. Si vous
+avez un chiffre (+30 %, deux fois plus de demandes traitées), il vaudra toujours
+mieux que l'adjectif.
 
-## 7. Preuve sociale — absente volontairement
+## 6. Preuve sociale — absente volontairement
 
 Aucun témoignage, logo ni chiffre de résultat n'a été inventé. Il manque à la
 page, entre `Handled` et `Crm`, une section de preuve. À alimenter avec :
@@ -210,7 +174,7 @@ page, entre `Handled` et `Crm`, une section de preuve. À alimenter avec :
 
 Sans preuve réelle, mieux vaut la section absente que remplie de faux.
 
-## 8. Hypothèse du calculateur
+## 7. Hypothèse du calculateur
 
 `src/components/sections/CostOfSilence.tsx`
 
@@ -218,7 +182,7 @@ Sans preuve réelle, mieux vaut la section absente que remplie de faux.
 chiffre est affiché sous le résultat, donc honnête, mais c'est une hypothèse.
 Si vous connaissez votre vraie moyenne, remplacez-la.
 
-## 9. Mentions légales
+## 8. Mentions légales
 
 Non rédigées. À ajouter avant diffusion : mentions légales, politique de
 confidentialité (RGPD, l'agent traite des données personnelles de vos clients),

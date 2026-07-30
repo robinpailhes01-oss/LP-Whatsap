@@ -2,7 +2,6 @@ import { SiteHeader } from "@/components/SiteHeader";
 import { SiteFooter } from "@/components/SiteFooter";
 import { MobileCta } from "@/components/MobileCta";
 import { Hero } from "@/components/sections/Hero";
-import { Vsl } from "@/components/sections/Vsl";
 import { CostOfSilence } from "@/components/sections/CostOfSilence";
 import { HowItWorks } from "@/components/sections/HowItWorks";
 import { Handled } from "@/components/sections/Handled";
@@ -18,7 +17,7 @@ import { Wake } from "@/components/sections/Wake";
  *
  * 1. Hero — ce que c'est, en une phrase, avec une vraie conversation.
  * 2. Comment ça marche — c'est quoi, c'est pour qui, en trois étapes.
- * 3. La vidéo, le calcul, les demandes, le carnet — la preuve.
+ * 3. Le calcul, les demandes, le carnet — la preuve.
  * 4. Le prix, les questions, qui je suis — la décision.
  * 5. L'essai gratuit.
  *
@@ -32,7 +31,6 @@ export default function Home() {
       <main>
         <Hero />
         <HowItWorks />
-        <Vsl />
         <CostOfSilence />
         <Handled />
         <Crm />

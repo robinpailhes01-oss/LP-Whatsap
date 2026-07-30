@@ -1,3 +1,4 @@
+import Image from "next/image";
 import { SectionLabel } from "@/components/ui";
 import { founder } from "@/lib/founder";
 
@@ -18,12 +19,19 @@ export function Founder() {
         <div className="mt-10 grid gap-10 sm:grid-cols-[15rem_1fr] sm:gap-12 lg:grid-cols-[19rem_1fr] lg:gap-16">
           <div>
             {founder.photo ? (
-              // eslint-disable-next-line @next/next/no-img-element
-              <img
-                src={founder.photo}
-                alt={founder.photoAlt}
-                className="aspect-[4/5] w-full rounded-card border border-paper-line object-cover"
-              />
+              /* Cadre 4/5 : le portrait est carré, les côtés sont rognés — le
+                 visage est centré, il ne perd rien. next/image sert une version
+                 redimensionnée et compressée plutôt que l'original. */
+              <div className="relative aspect-[4/5] w-full overflow-hidden rounded-card border border-paper-line bg-paper-alt">
+                <Image
+                  src={founder.photo}
+                  alt={founder.photoAlt}
+                  fill
+                  sizes="(max-width: 640px) 100vw, (max-width: 1024px) 15rem, 19rem"
+                  className="object-cover object-center"
+                  priority={false}
+                />
+              </div>
             ) : (
               <div className="flex aspect-[4/5] w-full flex-col items-center justify-center gap-3 rounded-card border border-paper-line bg-paper px-6 text-center">
                 <span
