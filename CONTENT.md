@@ -102,6 +102,24 @@ l'e-mail, ou si le numéro n'a pas pu être reconnu.
 
 ### Option B — un e-mail direct, via Resend
 
+**Pour démarrer, sans toucher au DNS :**
+
+```bash
+RESEND_API_KEY="re_…"
+LEAD_EMAIL_TO="ladresse-du-compte-resend@exemple.fr"
+LEAD_EMAIL_FROM="onboarding@resend.dev"
+```
+
+⚠ `onboarding@resend.dev` est l'expéditeur de test de Resend. Il fonctionne
+immédiatement, mais Resend n'accepte alors **qu'une seule destination :
+l'adresse propriétaire du compte Resend**. Toute autre adresse est refusée
+(403) et le formulaire affiche « L'envoi n'a pas abouti ». `LEAD_EMAIL_TO` doit
+donc être, à la lettre près, l'adresse avec laquelle le compte Resend a été
+créé.
+
+**Ensuite, pour un rendu propre :** Resend → *Domains* → vérifier votre domaine
+(quelques lignes DNS). La limite disparaît.
+
 ```bash
 RESEND_API_KEY="re_…"
 LEAD_EMAIL_TO="vous@luma-agence.fr"      # plusieurs adresses : séparez par des virgules
